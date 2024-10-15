@@ -4,7 +4,6 @@ public class projeto {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
-        // Usar o método aparecerTexto da classe TextoAnimado
         TextoAnimado.aparecerTexto("Boas vindas ao (Esqueci nome do jogo)...", 100); // Exemplo de uso
 
         TextoAnimado.aparecerTexto("Pressione Enter para começar...", 100);
@@ -24,9 +23,14 @@ public class projeto {
         TextoAnimado.aparecerTexto(" 1- Orion\n 2- Kira\n 3- Dante\nEscreva o nome do personagem escolhido", 0);
 
         TextoAnimado.aparecerTexto("Escolha seu personagem:", 0);
-        String personagem = entrada.next().toUpperCase();
+        String personagem = entrada.nextLine();
 
-        if (personagem.toUpperCase().equals("Orion") ||  personagem.toUpperCase().equals("Kira") || personagem.toUpperCase().equals("Dante")) {
+    
+         if (!personagem.isEmpty()) {
+            personagem = Character.toUpperCase(personagem.charAt(0)) + personagem.substring(1).toLowerCase();
+        }
+
+        if (personagem.equalsIgnoreCase("Orion") || personagem.equalsIgnoreCase("Kira") || personagem.equalsIgnoreCase("Dante")) {
             Personagens gerador = new Personagens();
             String escolhaPersonagens = gerador.criarPersonagem(personagem);
             TextoAnimado.aparecerTexto(escolhaPersonagens, 10);
