@@ -1,3 +1,4 @@
+package src;
 public class Personagens {
     public String criarPersonagem(String personagem) {
         String texto = "Ao escolher o personagem, uma luz intensa surge de dentro do console, te sugando para dentro de um mundo "

@@ -1,6 +1,7 @@
+package src;
 import java.util.Scanner;
 
-public class projeto {
+public class Projeto {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
