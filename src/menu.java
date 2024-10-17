@@ -1,12 +1,12 @@
 package src;
 
-import src.Projeto;
+import src.Historia;
 import java.util.Scanner;
 
 public class menu {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        Projeto projeto = new Projeto();
+        Historia historia = new Historia();
 
         System.out.println("Bem vindo ao (esqueci o nome) um jogo cheio de aventura e desafios. Escolha suas ações e determine o seu futuro");
         System.out.println(" 1) Jogar\n 2) Regras\n 3) Créditos\n 4) Sair ");

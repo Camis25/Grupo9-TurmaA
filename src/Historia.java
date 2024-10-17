@@ -1,11 +1,11 @@
 package src;
 import java.util.Scanner;
 
-public class Projeto {
+public class Historia {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
-        TextoAnimado.aparecerTexto("Boas vindas ao (Esqueci nome do jogo)...", 100); // Exemplo de uso
+        TextoAnimado.aparecerTexto("Boas vindas ao Jodo dos Destinos...", 100); // Exemplo de uso
 
         TextoAnimado.aparecerTexto("Pressione Enter para começar...", 100);
         entrada.nextLine();
@@ -38,11 +38,6 @@ public class Projeto {
         }else{
             TextoAnimado.aparecerTexto("Personagem não existe", 10);
         }
-
-        
-      
-
-        
-
+        entrada.close();
     }
 }
