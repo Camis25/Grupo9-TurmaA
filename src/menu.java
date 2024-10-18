@@ -1,14 +1,14 @@
 package src;
 
-import src.Historia;
+
 import java.util.Scanner;
 
-public class menu {
+public class Menu {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        Historia historia = new Historia();
+        String apresentacaoJogo = "Bem vindo ao Jogo dos Destinos, um jogo cheio de aventura e desafios. Escolha suas ações e determine o seu futuro.\nO que deseja fazer agora?";
+        TextoAnimado.aparecerTexto(apresentacaoJogo, 90);
 
-        System.out.println("Bem vindo ao (esqueci o nome) um jogo cheio de aventura e desafios. Escolha suas ações e determine o seu futuro");
         System.out.println(" 1) Jogar\n 2) Regras\n 3) Créditos\n 4) Sair ");
         int opcao = entrada.nextInt();
 
