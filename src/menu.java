@@ -1,6 +1,6 @@
 package src;
 
-
+import src.config.TextoAnimado;
 import java.util.Scanner;
 
 public class Menu {
@@ -14,7 +14,8 @@ public class Menu {
 
         switch (opcao) {
             case 1:
-                
+                Historia historia = new Historia();
+                historia.HistoriaInicial(apresentacaoJogo, opcao);
                 break;
             case 2:
                 System.out.println("Responda todas as questões dento de 5 minutos");

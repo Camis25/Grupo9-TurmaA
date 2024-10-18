@@ -1,43 +1,26 @@
 package src;
 import java.util.Scanner;
+import src.config.TextoAnimado;
 
 public class Historia {
     public static void main(String[] args) {
+       Historia historia = new Historia();
+       historia.HistoriaInicial(null, 0);
+        
+    }
+
+    public void HistoriaInicial(String nomePersonagem, int companheiro){
         Scanner entrada = new Scanner(System.in);
 
-        TextoAnimado.aparecerTexto("Boas vindas ao Jodo dos Destinos...", 100); // Exemplo de uso
+        String texto1 = "\nVocê se vê em uma situação difícil após o misterioso desaparecimento de seus pais. Ao se mudar para a casa de sua tia, você encontra um antigo videogame escondido embaixo da cama de seus pais. Intrigado com o objeto desconhecido, você decide montá-lo e jogar. Ao iniciar o jogo, você personaliza seu personagem escolhendo um nome e um companheiro de aventura.\n";
+        TextoAnimado.aparecerTexto(texto1, 50);
 
-        TextoAnimado.aparecerTexto("Pressione Enter para começar...", 100);
-        entrada.nextLine();
+        System.out.print("Qual o nome do seu personagem: ");
+        nomePersonagem = entrada.nextLine();
+        System.out.println("Escolha seu companheiro de aventura: ");
+        System.out.print("1)Orion - Habilidoso em lógica. (pode receber dicas em 1 desafio, E diminui o tempo de resposta em 10seg)\n2)Kira - Criativa e imprevisível. (ao ser chamada pode fazer o jogador pula a questão OU dificultar a pergunta)\n3)Dante - Sempre tem uma carta na manga. (Muda o desafio podendo retornar um mais fácil OU complicado)");
+        companheiro = entrada.nextInt();
 
-        String texto1 = """
-                \nDepois do desaparecimento do seus pais você se vê obrigado a morar com a sua tia,
-                eles sumiram misteriosamente e ninguém sabe o paradeiro deles. Certo dia, você está
-                de mudança e encontra um misterioso vídeo game antigo embaixo da cama dos seus pais.
-                Você fica curioso, pois não era um vídeo game comum, era algo que você nunca havia visto
-                e não encontrou nenhuma informação sobre ele na internet. Intrigado, você decide então
-                montá-lo em seu quarto e começa a jogar, logo no início você recebe a opção de escolha
-                entre três personagens:
-                """;
-
-        TextoAnimado.aparecerTexto(texto1, 20);
-        TextoAnimado.aparecerTexto(" 1- Orion\n 2- Kira\n 3- Dante\nEscreva o nome do personagem escolhido", 0);
-
-        TextoAnimado.aparecerTexto("Escolha seu personagem:", 0);
-        String personagem = entrada.nextLine();
-
-    
-         if (!personagem.isEmpty()) {
-            personagem = Character.toUpperCase(personagem.charAt(0)) + personagem.substring(1).toLowerCase();
-        }
-
-        if (personagem.equalsIgnoreCase("Orion") || personagem.equalsIgnoreCase("Kira") || personagem.equalsIgnoreCase("Dante")) {
-            Personagens gerador = new Personagens();
-            String escolhaPersonagens = gerador.criarPersonagem(personagem);
-            TextoAnimado.aparecerTexto(escolhaPersonagens, 10);
-        }else{
-            TextoAnimado.aparecerTexto("Personagem não existe", 10);
-        }
         entrada.close();
     }
 }
