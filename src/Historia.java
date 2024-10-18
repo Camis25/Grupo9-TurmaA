@@ -12,7 +12,7 @@ public class Historia {
     public void HistoriaInicial(String nomePersonagem, int companheiro){
         Scanner entrada = new Scanner(System.in);
 
-        String texto1 = "\nVocê se vê em uma situação difícil após o misterioso desaparecimento de seus pais. Ao se mudar para a casa de sua tia, você encontra um antigo videogame escondido embaixo da cama de seus pais. Intrigado com o objeto desconhecido, você decide montá-lo e jogar. Ao iniciar o jogo, você personaliza seu personagem escolhendo um nome e um companheiro de aventura.\n";
+        String texto1 = "\nVocê se vê em uma situação difícil, após o misterioso desaparecimento de seus pais.\nAo se mudar para a casa de sua tia, você encontra um antigo videogame escondido no sótão empoeirado da casa.\nIntrigado, com o objeto desconhecido, você decide jogá-lo.\nAo iniciar o jogo, você personaliza seu personagem escolhendo um nome e um companheiro de aventura.\n";
         TextoAnimado.aparecerTexto(texto1, 50);
 
         System.out.print("Qual o nome do seu personagem: ");
