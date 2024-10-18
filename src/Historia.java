@@ -20,18 +20,20 @@ public class Historia {
         System.out.println("Escolha seu companheiro de aventura: ");
         System.out.print("1)Orion - Habilidoso em lógica. (pode receber dicas em 1 desafio, E diminui o tempo de resposta em 10seg)\n2)Kira - Criativa e imprevisível. (ao ser chamada pode fazer o jogador pula a questão OU dificultar a pergunta)\n3)Dante - Sempre tem uma carta na manga. (Muda o desafio podendo retornar um mais fácil OU complicado)\n");
         companheiro = entrada.nextInt();
+        String companheiroEscolhido;
 
         do {
             
             switch (companheiro) {
                 case 1:
-                    
+                    companheiroEscolhido = "Orion";
+                    System.out.println("Ó");
                     break;
                 case 2:
-    
+                    companheiroEscolhido = "Kira";
                     break;
                 case 3:
-    
+                    companheiroEscolhido = "Dante";
                     break;
             
                 default:
