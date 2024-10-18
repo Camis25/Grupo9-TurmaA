@@ -27,15 +27,17 @@ public class Historia {
             switch (companheiro) {
                 case 1:
                     companheiroEscolhido = "Orion";
-                    System.out.println("Ó");
+                    System.out.println("Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
                     break;
                 case 2:
                     companheiroEscolhido = "Kira";
+                    System.out.println("Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
                     break;
                 case 3:
                     companheiroEscolhido = "Dante";
+                    System.out.println("Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
                     break;
-            
+
                 default:
                     System.out.print("Companheiro não identificado!\n");
                     break;
