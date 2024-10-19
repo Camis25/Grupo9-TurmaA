@@ -58,7 +58,16 @@ public class Historia {
             
         } while (companheiro > 3);
 
-        
+        if(companheiro == 1){
+            companheiroEscolhido = "Orion";
+            System.out.println("Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+        } else if (companheiro == 2){
+            companheiroEscolhido = "Kira";
+            System.out.println("Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+        } else {
+            companheiroEscolhido = "Dante";
+            System.out.println("Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+        }
 
         entrada.close();
     }
