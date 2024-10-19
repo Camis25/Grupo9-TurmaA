@@ -68,7 +68,7 @@ public class Historia {
             companheiroEscolhido = "Dante";
             System.out.println("Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
         }
-
+        
         entrada.close();
     }
 }
