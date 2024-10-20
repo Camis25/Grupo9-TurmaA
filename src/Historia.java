@@ -21,18 +21,27 @@ public class Historia {
 
     public class Personagens {
         public String criarPersonagem(String personagem) {
-            String texto = "\nAo escolher o personagem, uma luz intensa surge de dentro do console, te sugando para dentro de um mundo "
-                         + "\nmágico. No começo, você fica confusa, mas logo se dá conta de que está no corpo do personagem escolhido. O "
-                         + "\nambiente é uma mistura de paisagens bizarras e criaturas excêntricas. Ao perceber que está dentro do jogo, "
-                         + "\nvocê se desespera, pois não sabe como sair de lá. Observando o ambiente, se depara com uma longa estrada de "
-                         + "\ntijolos amarelos e decide segui-la. Quanto mais você avança, a estrada adentra uma floresta escura e sombria. "
-                         + "\nAo fim da estrada, encontra uma porta que parece conter algum tipo de enigma para abri-la. De repente, uma "
-                         + "\nvoz ecoa de dentro da floresta: \"" + personagem + "! Estávamos empolgados em ver você por aqui. Que bom que você "
-                         + "\ndecidiu seguir o seu destino... ou não. Mas hey, pelo menos agora temos alguém para culpar quando as coisas "
-                         + "\nderem errado!\" A floresta estava falando com você: \"Mas enfim, com certeza você deve estar se perguntando como "
-                         + "\nsair desse lugar. Durante a sua trajetória, terão 5 desafios de lógica que te levarão para fora do jogo, claro, "
-                         + "\nisso se você conseguir continuar o jogo. A primeira tarefa era abrir a porta trancada, marcada por símbolos "
-                         + "\nestranhos. Ao descobrir um papel com um código, ela rapidamente percebeu que precisava destrancar a porta";
+            String texto = "\nAo escolher o personagem, uma luz intensa surge do console, te sugando para um mundo mágico. "
+                         + "\nDe forma confusa, você logo percebe que está dentro do jogo. O ambiente é uma mistura de paisagens"
+                         + "\nbizarras e criaturas excêntricas. Você não sabe como sair e isso te preocupa.\n"
+                         + "\nObservando, encontra uma longa estrada de tijolos amarelos e decide segui-la. A estrada adentra "
+                         + "\numa floresta escura e sombria, ao final, você encontra uma porta com um enigma e uma voz ecoa:"
+                         + "\n" + personagem + "! Estávamos empolgados em ver você por aqui. Que bom que você decidiu seguir "
+                         + "\no seu destino... ou não. Mas hey, pelo menos agora temos alguém para culpar quando as coisas "
+                         + "\nderem errado!\" A floresta estava falando com você: \"Mas enfim, com certeza você deve estar se " 
+                         + "\nperguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios de lógica que te "
+                         + "\nlevarão para fora do jogo, claro, isso se você conseguir continuar. "
+                         + "\nA primeira tarefa era  abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um "
+                         +"\npapel com um código, você rapidamente percebeu que precisava destrancar a porta";
+            return texto;
+        }
+    }
+
+    public class Companheiro {
+        public String criarCompanheiro(String companheiroEscolhido) {
+            String texto = "\nAo seu lado, está " + companheiroEscolhido + ", o seu companheiro que acabou escolhendo quando "
+                         + "\niniciou o jogo e que irá te ajuda durante a jornada";
+                        
             return texto;
         }
     }
@@ -49,7 +58,7 @@ public class Historia {
             case 1:
                 
                 Historia historia = new Historia();
-                historia.HistoriaInicial(apresentacaoJogo, opcao);
+                historia.HistoriaInicial();
                 break;
             case 2:
                 System.out.println("Responda todas as questões dento de 5 minutos");
@@ -74,7 +83,7 @@ public class Historia {
     }
         
 
-    public void HistoriaInicial(String nomePersonagem, int companheiro){
+    public void HistoriaInicial(){
         Scanner entrada = new Scanner(System.in);
 
         String texto1 = """
@@ -86,8 +95,11 @@ public class Historia {
         TextoAnimado.aparecerTexto(texto1, 50);
 
         System.out.print("Qual o nome do seu personagem: ");
-        nomePersonagem = entrada.nextLine();
+        String nomePersonagem = entrada.nextLine();
 
+        int companheiro = 0;
+        String companheiroEscolhido = "";
+        
         do {
             System.out.println("Escolha seu companheiro de aventura: ");
             System.out.print("""
@@ -96,7 +108,7 @@ public class Historia {
                 \n3)Dante - Sempre tem uma carta na manga. (Muda o desafio podendo retornar um mais fácil OU complicado)\n
                 """);
             companheiro = entrada.nextInt();
-            String companheiroEscolhido;
+            
             
             switch (companheiro) {
                 case 1:
@@ -125,10 +137,14 @@ public class Historia {
         String escolhaPersonagens = gerador.criarPersonagem(nomePersonagem);
         TextoAnimado.aparecerTexto(escolhaPersonagens, 10);
 
+        Companheiro gerador2 = new Companheiro();
+        String escolhaCompanheiro = gerador2.criarCompanheiro(companheiroEscolhido);
+        TextoAnimado.aparecerTexto(escolhaCompanheiro, 10);
+
         String desafio1 = """
-                \n1 -	Questão “Para iniciar sua jornada é preciso destrancar a porta, então leia atentamente. 
+                \n1 - Questão \"Para iniciar sua jornada é preciso destrancar a porta, então leia atentamente. 
                 Utilizando o laço for para obter os quatro primeiros números pares que são múltiplos de 4. 
-                Qual das opções abaixo o levará ao tesouro da programação?”
+                Qual das opções abaixo o levará ao tesouro da programação?\"
 
 
                 A)
@@ -158,6 +174,35 @@ public class Historia {
     
                 """;
                 TextoAnimado.aparecerTexto(desafio1, 10);
+
+                int chancesDesafio1 = 0;
+                boolean respostaCorreta1 = false;
+
+                do{
+                    System.out.println("Digite a resposta");
+                    String respDesafio1 = entrada.next().toUpperCase();
+
+                    if (!respDesafio1.equals("B")) {
+                        chancesDesafio1 ++;
+                        System.out.println("Resposta errada! Tente novamente.");
+
+                        if (chancesDesafio1 >= 2) { 
+                            System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
+                            System.exit(0);
+                        }
+                    } else {
+                        System.out.println("""
+                            Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\"
+                            A porta se abriu lentamente, revelando uma cidade de doces. "
+                            """);
+                        respostaCorreta1 = true;
+                        
+                    }
+                }while(!respostaCorreta1);
+
+                
+
+                System.out.println("");
     }
 }
 
