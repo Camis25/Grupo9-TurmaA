@@ -48,10 +48,15 @@ public class Historia {
 
     public class CidadeDosDoces{
         public String cidadeDoces(String personagem){
-            String texto = """
-               
-                    """;
+            String texto = 
+                        "\nCom a porta agora aberta, você entra na cidade dos doces, onde a vista uma pequena cabana feita de chocolate, "
+                        +"\ninesperadamente aparece um ser muito curioso que vai até você e te dá boas vindas \"Olá " + personagem  + ", seja bem vindo "
+                        +"\na minha cidade, eu sou o Chapeleiro Louco, responsável por todas a doçuras desse mundo mágico, acredito que você "
+                        +"\nseja o nosso predestinado, posso te ajudar a passar para o próximo desafio, porém terá que resolver um enigma\" ele " 
+                        +"\nte passa o seguinte enigma:";
+                return texto;
         }
+
     }
     
     public static void main(String[] args) {
@@ -192,31 +197,32 @@ public class Historia {
 
                     if (!respDesafio1.equals("B")) {
                         chancesDesafio1 ++;
-                        System.out.println("Resposta errada! Tente novamente.");
+                        System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
 
                         if (chancesDesafio1 >= 2) { 
-                            System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
+                            System.out.println("Não foi dessa vez! Encerrando o jogo..");
                             System.exit(0);
                         }
                     } else {
-                        System.out.println("""
+                        TextoAnimado.aparecerTexto("""
                             Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\"
                             A porta se abriu lentamente, revelando uma cidade de doces. "
-                            """);
+                            """, 20);
                         respostaCorreta1 = true;
                         
                     }
                 }while(!respostaCorreta1);
 
                 
+                TextoAnimado.aparecerTexto("""
+                    Inesperadamente a porta some, e  agora você e seu companheiro se vêm cercados por duas escolhas:
 
-                System.out.println("""
-                    Cidade dos doces\n
+                    A) Um caminho íngreme que leva a uma montanha coberta de neve. Os ecos de vozes perdidas ressoam nas cavernas.
 
-
-               
-                         
-                         """;);
+                    B) Uma antiga estrutura coberta de musgo, que se estende sobre um abismo profundo.
+                        """, chancesDesafio1);
+                
+                        
     }
 }
 
