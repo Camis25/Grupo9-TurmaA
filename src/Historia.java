@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Historia {
     public class TextoAnimado {
-
     
         public static void aparecerTexto(String texto, int delay) {
             for (char letra : texto.toCharArray()) {
@@ -22,7 +21,7 @@ public class Historia {
 
     public class Personagens {
         public String criarPersonagem(String personagem) {
-            String texto = "Ao escolher o personagem, uma luz intensa surge de dentro do console, te sugando para dentro de um mundo "
+            String texto = "\nAo escolher o personagem, uma luz intensa surge de dentro do console, te sugando para dentro de um mundo "
                          + "\nmágico. No começo, você fica confusa, mas logo se dá conta de que está no corpo do personagem escolhido. O "
                          + "\nambiente é uma mistura de paisagens bizarras e criaturas excêntricas. Ao perceber que está dentro do jogo, "
                          + "\nvocê se desespera, pois não sabe como sair de lá. Observando o ambiente, se depara com uma longa estrada de "
@@ -33,7 +32,7 @@ public class Historia {
                          + "\nderem errado!\" A floresta estava falando com você: \"Mas enfim, com certeza você deve estar se perguntando como "
                          + "\nsair desse lugar. Durante a sua trajetória, terão 5 desafios de lógica que te levarão para fora do jogo, claro, "
                          + "\nisso se você conseguir continuar o jogo. A primeira tarefa era abrir a porta trancada, marcada por símbolos "
-                         + "\nestranhos. Ao descobrir um papel com um código, ela rapidamente percebeu que precisava...";
+                         + "\nestranhos. Ao descobrir um papel com um código, ela rapidamente percebeu que precisava destrancar a porta";
             return texto;
         }
     }
@@ -122,7 +121,43 @@ public class Historia {
         
         
 
-        entrada.close();
+        Personagens gerador = new Personagens();
+        String escolhaPersonagens = gerador.criarPersonagem(nomePersonagem);
+        TextoAnimado.aparecerTexto(escolhaPersonagens, 10);
+
+        String desafio1 = """
+                \n1 -	Questão “Para iniciar sua jornada é preciso destrancar a porta, então leia atentamente. 
+                Utilizando o laço for para obter os quatro primeiros números pares que são múltiplos de 4. 
+                Qual das opções abaixo o levará ao tesouro da programação?”
+
+
+                A)
+                    for (int i = 1; i <= 16; i++) { 
+                        if (i % 4 == 0) { 
+                        System.out.println(i); 
+                    } 
+                }
+
+
+                B)
+                    for (int i = 4; i <= 16; i += 4) { 
+                        System.out.println(i); 
+                    }
+
+
+                C)
+                    for (int i = 2; i <= 8; i++) { 
+                        System.out.println(i * 2);
+                    }
+
+
+                D)
+                    for (int i = 0; i < 4; i++) { 
+                        System.out.println(i * 8); 
+                    }
+    
+                """;
+                TextoAnimado.aparecerTexto(desafio1, 10);
     }
 }
 
