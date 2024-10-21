@@ -222,7 +222,22 @@ public class Historia {
                     B) Uma antiga estrutura coberta de musgo, que se estende sobre um abismo profundo.
                         """, chancesDesafio1);
                 
-                        
+                 do{
+                    System.out.println("Escolha qual caminho seguir");
+                    String caminho = entrada.next().toUpperCase();
+
+                    switch(caminho){
+                        case "A":
+                            CidadeDosDoces gerador3 = new CidadeDosDoces();
+                            String caminho1 = gerador3.cidadeDoces(nomePersonagem);
+                            TextoAnimado.aparecerTexto(caminho1, 10);
+
+                        break;
+                        case "B":
+        
+                    }
+
+                 }       
     }
 }
 
