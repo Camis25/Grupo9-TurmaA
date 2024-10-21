@@ -72,11 +72,26 @@ public class Historia {
     public class CidadeDosDoces{
         public String cidadeDoces(String personagem){
             String texto = 
-                        "\nCom a porta agora aberta, você entra na cidade dos doces, onde a vista uma pequena cabana feita de chocolate, "
-                        +"\ninesperadamente aparece um ser muito curioso que vai até você e te dá boas vindas \"Olá " + personagem  + ", seja bem vindo "
-                        +"\na minha cidade, eu sou o Chapeleiro Louco, responsável por todas a doçuras desse mundo mágico, acredito que você "
-                        +"\nseja o nosso predestinado, posso te ajudar a passar para o próximo desafio, porém terá que resolver um enigma\" ele " 
-                        +"\nte passa o seguinte enigma:";
+                        "\nVocê decide subir a montanha coberta de neve, esta muito frio e do alto voce avista uma cidade dos doces."
+                        +"\nAo descer você observa uma pequena cabana feita de chocolate, então, inesperadamente aparece um ser muito curioso  "
+                        +"\n que vai até você e te dá boas vindas \"Olá " + personagem  + ", seja bem vindo a minha cidade, eu sou o Chapeleiro Louco,"
+                        +"\nresponsável por todas a doçuras desse mundo mágico, acredito que você seja o nosso predestinado, posso te ajudar a passar para o próximo "
+                        +"\n desafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:";
+                        
+                return texto;
+        }
+
+    }
+
+    public class CasaAbandonada{
+        public String casaAbandonada(String personagem){
+            String texto = 
+                        "\nAo passar pela estrutura coberta de musgo,  você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
+                        +"\nde uma neblina densa. De repente, você avista uma casa casa abandonada e de dentro dela sai um ser muito assustador era o Homem das Sombras "
+                        +"\n\"Ah, " +  personagem + ", finalmente você chegou!\" ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
+                        +"\n \"Acredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá que resolver "
+                        +"\num enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina...\"" 
+                        +"\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, e apresenta o seguinte enigma:";
                 return texto;
         }
 
@@ -221,10 +236,18 @@ public class Historia {
                             CidadeDosDoces gerador3 = new CidadeDosDoces();
                             String caminho1 = gerador3.cidadeDoces(nomePersonagem);
                             TextoAnimado.aparecerTexto(caminho1, 10);
+                            respostaCorreta1 = true;
 
                         break;
                         case "B":
-        
+                            CasaAbandonada gerador4 = new CasaAbandonada();
+                            String caminho2 = gerador4.casaAbandonada(nomePersonagem);
+                            TextoAnimado.aparecerTexto(caminho2, 10);
+                            respostaCorreta1 = true;
+                        break;
+                            default:
+                                System.out.println("Caminho não identificado");
+                            break;
                     }
 
                  } while (respostaCorreta1);
