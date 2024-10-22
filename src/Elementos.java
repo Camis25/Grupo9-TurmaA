@@ -23,11 +23,12 @@ public class Elementos {
                 System.out.print("\rTempo restante: " + tempoFormatado);
                 
 
-                if (tempoRestante == 0 || !cronometroAtivo) {
-                    
+                if (tempoRestante == 0) { 
                     System.out.println("\nO tempo acabou!");
                     timer.cancel();
-                } 
+                }else if(!cronometroAtivo) { 
+                    timer.cancel();
+                }
                 
                 
             }
