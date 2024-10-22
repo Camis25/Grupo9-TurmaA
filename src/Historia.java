@@ -14,7 +14,6 @@ public class Historia {
 
         switch (opcao) {
             case 1:
-                
                 Historia historia = new Historia();
                 historia.HistoriaInicial();
                 break;
@@ -190,13 +189,13 @@ public class Historia {
                 
                 
                 TextoAnimado.aparecerTexto(desafio1, 10);
+                Elementos tempo = new Elementos();
                 
-
                 int chancesDesafio1 = 0;
                 boolean respostaCorreta1 = false;
+                tempo.Cronometro();
                 
                 do{
-                    
                     System.out.println("Digite a resposta: ");
                     String respDesafio1 = entrada.next().toUpperCase();
 
@@ -209,13 +208,14 @@ public class Historia {
                             System.exit(0);
                         }
                     } else {
+                        tempo.pararCronometro();
+                        respostaCorreta1 = true;
                         TextoAnimado.aparecerTexto("""
                             Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\"
                             A porta se abriu lentamente... 
                             """, 20);
-                        respostaCorreta1 = true;
-                        
                     }
+
                 }while(!respostaCorreta1);
 
                 
