@@ -6,40 +6,60 @@ public class Historia {
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        String apresentacaoJogo = "Bem vindo ao Jogo dos Destinos, um jogo cheio de aventura e desafios.\nEscolha suas ações e determine o seu futuro.\nO que deseja fazer agora?";
+        String apresentacaoJogo = "Bem-vindo ao Jogo dos Destinos, um jogo cheio de aventura e desafios.\nEscolha suas ações e determine o seu futuro.";
         TextoAnimado.aparecerTexto(apresentacaoJogo, 90);
 
-        System.out.println(" 1) Jogar\n 2) Regras\n 3) Créditos\n 4) Sair ");
-        int opcao = entrada.nextInt();
+        boolean continuar = true;
 
-        switch (opcao) {
-            case 1:
-                Historia historia = new Historia();
-                historia.HistoriaInicial();
-                break;
-            case 2:
-                System.out.println("Responda todas as questões dento de 5 minutos");
-                System.out.println("Utilize as habilidades de seu companheiro com sabedoria, pois só pode ser utilizada uma vez");
-                System.out.println("Existe somente uma alternativa correta");
-                break;
-            case 3:
-                System.out.println("Turma A - Grupo 9");
-                System.out.println("Feito por:");
-                System.out.println("Jaíne");
-                System.out.println("Camile");
-                System.out.println("Leonardo");
-                System.out.println("Pedro");
-                break;
-            case 4:
-                System.out.println("Adeus até a próxima aventura");
-            default:
-                break;
+        while (continuar) {
+            System.out.println(" 1) Jogar\n 2) Regras\n 3) Créditos\n 4) Sair ");
+            int opcao = entrada.nextInt();
+            entrada.nextLine(); 
+
+            switch (opcao) {
+                case 1:
+                    Historia historia = new Historia();
+                    historia.HistoriaInicial();
+                    break;
+                case 2:
+                    exibirRegras(entrada);
+                    break;
+                case 3:
+                    exibirCreditos(entrada);
+                    break;
+                case 4:
+                    System.out.println("Adeus, até a próxima aventura!");
+                    continuar = false; 
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+            }
         }
 
         entrada.close();
     }
-    
-    
+
+    private static void exibirRegras(Scanner entrada) {
+        System.out.println("Responda todas as questões dentro de 5 minutos.");
+        System.out.println("Utilize as habilidades de seu companheiro com sabedoria, pois só pode ser utilizada uma vez.");
+        System.out.println("Existe somente uma alternativa correta.");
+        
+        System.out.println("Pressione Enter para voltar ao menu...");
+        entrada.nextLine();
+    }
+
+    private static void exibirCreditos(Scanner entrada) {
+        System.out.println("Turma A - Grupo 9");
+        System.out.println("Feito por:");
+        System.out.println("Jaíne");
+        System.out.println("Camile");
+        System.out.println("Leonardo");
+        System.out.println("Pedro");
+
+        System.out.println("Pressione Enter para voltar ao menu...");
+        entrada.nextLine();
+    }
 
     public class Personagens {
         public String criarPersonagem(String personagem) {
