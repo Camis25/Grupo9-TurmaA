@@ -24,6 +24,8 @@ public class Elementos {
                 
 
                 if (tempoRestante == 0 || !cronometroAtivo) {
+                    
+                    System.out.println("\nO tempo acabou!");
                     timer.cancel();
                 } 
                 
