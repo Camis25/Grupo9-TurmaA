@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Historia {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
         String apresentacaoJogo = "Bem-vindo ao Jogo dos Destinos, um jogo cheio de aventura e desafios.\nEscolha suas ações e determine o seu futuro.";
         TextoAnimado.aparecerTexto(apresentacaoJogo, 90);
@@ -116,7 +116,7 @@ public class Historia {
 
     }
 
-    public void HistoriaInicial(){
+    public void HistoriaInicial() throws InterruptedException{
         Scanner entrada = new Scanner(System.in);
 
         String texto1 = """
@@ -136,9 +136,9 @@ public class Historia {
         do {
             System.out.println("Escolha seu companheiro de aventura: ");
             System.out.print("""
-                \n1)Orion - Habilidoso em lógica. (pode receber dicas em 1 desafio, E diminui o tempo de resposta em 10seg)
-                \n2)Kira - Criativa e imprevisível. (ao ser chamada pode fazer o jogador pula a questão OU dificultar a pergunta)
-                \n3)Dante - Sempre tem uma carta na manga. (Muda o desafio podendo retornar um mais fácil OU complicado)\n
+                \n1)Orion - Habilidoso em lógica. (Pode receber dicas em um desafio.)
+                \n2)Kira - Criativa e imprevisível. (Muda o desafio podendo retornar um mais fácil OU complicado)
+                \n3)Dante - Sempre tem uma carta na manga. (Ao ser chamada pode fazer o jogador pular a questão)\n
                 """);
             companheiro = entrada.nextInt();
             
@@ -228,10 +228,12 @@ public class Historia {
                             System.exit(0);
                         }
                     } else {
-                        tempo.pararCronometro();
+                        
                         respostaCorreta1 = true;
+                        tempo.pararCronometro();
+                        Thread.sleep(1000);
                         TextoAnimado.aparecerTexto("""
-                            Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\"
+                            \nApós alguns momentos de reflexão, você grita: \"A resposta correta é B!\"
                             A porta se abriu lentamente... 
                             """, 20);
                     }
