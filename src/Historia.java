@@ -7,7 +7,7 @@ public class Historia {
     public static void main(String[] args) throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
         String apresentacaoJogo = "Bem-vindo ao Jogo dos Destinos, um jogo cheio de aventura e desafios.\nEscolha suas ações e determine o seu futuro.";
-        TextoAnimado.aparecerTexto(apresentacaoJogo, 90);
+        TextoAnimado.aparecerTexto(apresentacaoJogo, 10);
 
         boolean continuar = true;
 
@@ -97,11 +97,44 @@ public class Historia {
                         +"\nresponsável por todas a doçuras desse mundo mágico, acredito que você seja o nosso predestinado, posso te ajudar a passar para o próximo "
                         +"\n desafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:";
                         
+                    CidadeDosDoces_Desafio01();
                 return texto;
+                
         }
+
+        public void CidadeDosDoces_Desafio01(){
+            Scanner entrada = new Scanner(System.in);
+            
+            String desafio = "Eu sou um número que:\n" + //
+                    "Quando você me divide por 2, o resto é 1.\n" + //
+                    "Quando você me divide por 3, o resto é 0.\n" + //
+                    "Sou menor que 10.\n" + //
+                    "Pergunta: Que número sou eu?\n "
+                    ;
+            System.out.println(desafio);
+            int resp = entrada.nextInt();
+            int tentativa = 1;
+            entrada.close();
+            while (tentativa <= 2) {
+    
+                if(resp == 3){
+                    System.out.print("Resposta correta!");
+                } else {
+                    System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces ");
+                }
+                tentativa++;
+            }
+            if (tentativa > 2) {
+                System.out.print("Game Over");
+            }
+    
+            
+        }
+    
 
     }
 
+    
     public class CasaAbandonada{
         public String casaAbandonada(String personagem){
             String texto = 

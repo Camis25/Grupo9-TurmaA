@@ -108,6 +108,7 @@ public class Elementos {
         char respostaCorreta;
 
         switch (indiceAleatorio) {
+            
             case 0:
                 System.out.print("Digite sua resposta: ");
                 respostaCorreta = entrada.next().charAt(0);
