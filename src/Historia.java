@@ -147,17 +147,56 @@ public class Historia {
     
     public class CasaAbandonada{
         public String casaAbandonada(String personagem){
-            String texto = 
-                        "\nAo passar pela estrutura coberta de musgo,  você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
-                        +"\nde uma neblina densa. De repente, você avista uma casa casa abandonada e de dentro dela sai um ser muito assustador era o Homem das Sombras "
-                        +"\n\"Ah, " +  personagem + ", finalmente você chegou!\" ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
-                        +"\n \"Acredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá que resolver "
-                        +"\num enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina...\"" 
-                        +"\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, e apresenta o seguinte enigma:";
-                return texto;
-        }
-
+            String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
+            + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem das Sombras "
+            + "\n" + personagem + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
+            + "\nAcredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá que resolver "
+            + "\num enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina."
+            + "\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, te entrega uma pedra e diz: A pedra guarda a chave para a "
+            + "\npróxima porta. Você deve encontrar a sequência correta de símbolos para abri-"
+            + "\nO Homem das Sombras mostrou-lhes a sequência de símbolos, mas cada símbolo estava incompleto. Para completar a sequência, eles precisavam resolver "
+            + "\num desafio: acertar qual o código correto que verifica se um número é primo."
+            + "\n\nA) "
+            + "\npublic static boolean isPrimo(int num) {"
+            + "\n    if (num <= 1) {"
+            + "\n        return false;"
+            + "\n    }"
+            + "\n    for (int i = 2; i <= num / 2; i++) {"
+            + "\n        if (num % i == 0) {"
+            + "\n            return false;"
+            + "\n        }"
+            + "\n    }"
+            + "\n    return true;"
+            + "\n}"
+            + "\n\nB)"
+            + "\npublic static boolean isPrimo(int num) {"
+            + "\n    if (num <= 1) {"
+            + "\n        return false;"
+            + "\n    }"
+            + "\n    for (int i = 2; i < num; i++) {"
+            + "\n        if (num % i == 0) {"
+            + "\n            return false;"
+            + "\n        }"
+            + "\n    }"
+            + "\n    return true;"
+            + "\n}"
+            + "\n\nC)"
+            + "\npublic static boolean isPrimo(int num) {"
+            + "\n    if (num <= 1) {"
+            + "\n        return false;"
+            + "\n    }"
+            + "\n    for (int i = 2; i * i <= num; i++) {"
+            + "\n        if (num % i == 0) {"
+            + "\n            return false;"
+            + "\n        }"
+            + "\n    }"
+            + "\n    return true;"
+            + "\n}"
+            + "\n\nD) Todas as respostas estão corretas";
+   
+    return texto;
     }
+}
 
     public void HistoriaInicial() throws InterruptedException{
         Scanner entrada = new Scanner(System.in);
