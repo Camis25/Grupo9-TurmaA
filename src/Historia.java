@@ -207,7 +207,7 @@ public class Historia {
             Intrigado com o objeto desconhecido, você decide jogá-lo. Ao iniciar o jogo, você personaliza seu personagem
             escolhendo um nome e um companheiro de aventura.\n
             """;
-        TextoAnimado.aparecerTexto(texto1, 50);
+        TextoAnimado.aparecerTexto(texto1, 0);
 
         System.out.print("Qual o nome do seu personagem: ");
         String nomePersonagem = entrada.nextLine();
@@ -250,11 +250,11 @@ public class Historia {
 
         Personagens gerador = new Personagens();
         String escolhaPersonagens = gerador.criarPersonagem(nomePersonagem);
-        TextoAnimado.aparecerTexto(escolhaPersonagens, 10);
+        TextoAnimado.aparecerTexto(escolhaPersonagens, 0);
 
         Companheiro gerador2 = new Companheiro();
         String escolhaCompanheiro = gerador2.criarCompanheiro(companheiroEscolhido);
-        TextoAnimado.aparecerTexto(escolhaCompanheiro, 10);
+        TextoAnimado.aparecerTexto(escolhaCompanheiro, 0);
 
         String desafio1 = """
                 \nPara iniciar sua jornada é preciso destrancar a porta, então leia atentamente. 
@@ -290,7 +290,7 @@ public class Historia {
                 \n""";
                 
                 
-                TextoAnimado.aparecerTexto(desafio1, 10);
+                TextoAnimado.aparecerTexto(desafio1, 0);
                 Elementos tempo = new Elementos();
                 
                 int chancesDesafio1 = 0;
@@ -317,7 +317,7 @@ public class Historia {
                         TextoAnimado.aparecerTexto("""
                             \nApós alguns momentos de reflexão, você grita: \"A resposta correta é B!\"
                             A porta se abriu lentamente... 
-                            """, 20);
+                            """, 0);
                     }
 
                 }while(!respostaCorreta1);
@@ -340,24 +340,28 @@ public class Historia {
                         case "A":
                             CidadeDosDoces gerador3 = new CidadeDosDoces();
                             String caminho1 = gerador3.cidadeDoces(nomePersonagem);
-                            TextoAnimado.aparecerTexto(caminho1, 10);
+                            TextoAnimado.aparecerTexto(caminho1, 0);
                             respostaCorreta2 = true;
 
                         break;
                         case "B":
                             CasaAbandonada gerador4 = new CasaAbandonada();
                             String caminho2 = gerador4.casaAbandonada(nomePersonagem);
-                            TextoAnimado.aparecerTexto(caminho2, 10);
+                            TextoAnimado.aparecerTexto(caminho2, 0);
                             respostaCorreta2 = true;
                         break;
                             default:
                                 System.out.println("Caminho não identificado");
                             break;
                     }
-                 } while (respostaCorreta2);
+                 } while (!respostaCorreta2);
 
                  entrada.close();
+
+                 
     }
+
+
 
     public class TextoAnimado {
     
