@@ -11,7 +11,7 @@ public class Historia {
 
         boolean continuar = true;
 
-        while (continuar) {
+       do{
             System.out.println(" 1) Jogar\n 2) Regras\n 3) Créditos\n 4) Sair ");
             int opcao = entrada.nextInt();
             entrada.nextLine(); 
@@ -20,6 +20,7 @@ public class Historia {
                 case 1:
                     Historia historia = new Historia();
                     historia.HistoriaInicial();
+                    continuar = false;
                     break;
                 case 2:
                     exibirRegras(entrada);
@@ -35,7 +36,7 @@ public class Historia {
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
-        }
+        } while (continuar);
 
         entrada.close();
     }
@@ -93,12 +94,19 @@ public class Historia {
             String texto = 
                         "\nVocê decide subir a montanha coberta de neve, esta muito frio e do alto voce avista uma cidade dos doces."
                         +"\nAo descer você observa uma pequena cabana feita de chocolate, então, inesperadamente aparece um ser muito curioso  "
-                        +"\n que vai até você e te dá boas vindas \"Olá " + personagem  + ", seja bem vindo a minha cidade, eu sou o Chapeleiro Louco,"
+                        +"\nque vai até você e te dá boas vindas \"Olá " + personagem  + ", seja bem vindo a minha cidade, eu sou o Chapeleiro Louco,"
                         +"\nresponsável por todas a doçuras desse mundo mágico, acredito que você seja o nosso predestinado, posso te ajudar a passar para o próximo "
-                        +"\n desafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:";
-                        
+                        +"\ndesafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
+
+                    System.out.println(texto);
                     CidadeDosDoces_Desafio01();
-                return texto;
+
+
+
+
+            String textofinal= "Escolha sua pílula";
+            return textofinal;
+                
                 
         }
 
@@ -109,25 +117,27 @@ public class Historia {
                     "Quando você me divide por 2, o resto é 1.\n" + //
                     "Quando você me divide por 3, o resto é 0.\n" + //
                     "Sou menor que 10.\n" + //
-                    "Pergunta: Que número sou eu?\n "
-                    ;
+                    "Pergunta: Que número sou eu?\n ";
             System.out.println(desafio);
-            int resp = entrada.nextInt();
+            
+           
             int tentativa = 1;
-            entrada.close();
+
             while (tentativa <= 2) {
     
+                int resp = entrada.nextInt();
                 if(resp == 3){
                     System.out.print("Resposta correta!");
-                } else {
-                    System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces ");
+                } else if(resp != 3 && tentativa==2){
+                    System.out.print("Game Over");
+                    System.exit(0);
+                }else {
+                    System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                    tentativa++;
                 }
-                tentativa++;
             }
-            if (tentativa > 2) {
-                System.out.print("Game Over");
-            }
-    
+
+            entrada.close();
             
         }
     
@@ -282,6 +292,7 @@ public class Historia {
                     B) Uma antiga estrutura coberta de musgo, que se estende sobre um abismo profundo.
                         """, chancesDesafio1);
                 
+                boolean respostaCorreta2 = false;
                  do{
                     System.out.println("Escolha qual caminho seguir");
                     String caminho = entrada.next().toUpperCase();
@@ -291,21 +302,20 @@ public class Historia {
                             CidadeDosDoces gerador3 = new CidadeDosDoces();
                             String caminho1 = gerador3.cidadeDoces(nomePersonagem);
                             TextoAnimado.aparecerTexto(caminho1, 10);
-                            respostaCorreta1 = true;
+                            respostaCorreta2 = true;
 
                         break;
                         case "B":
                             CasaAbandonada gerador4 = new CasaAbandonada();
                             String caminho2 = gerador4.casaAbandonada(nomePersonagem);
                             TextoAnimado.aparecerTexto(caminho2, 10);
-                            respostaCorreta1 = true;
+                            respostaCorreta2 = true;
                         break;
                             default:
                                 System.out.println("Caminho não identificado");
                             break;
                     }
-
-                 } while (respostaCorreta1);
+                 } while (respostaCorreta2);
 
                  entrada.close();
     }
