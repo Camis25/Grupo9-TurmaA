@@ -90,7 +90,7 @@ public class Historia {
     }
 
     public class CidadeDosDoces{
-        public String cidadeDoces(String personagem){
+        public String cidadeDoces(String personagem, Scanner entrada){
             String texto = 
                         "\nVocê decide subir a montanha coberta de neve, esta muito frio e do alto voce avista uma cidade dos doces."
                         +"\nAo descer você observa uma pequena cabana feita de chocolate, então, inesperadamente aparece um ser muito curioso  "
@@ -99,9 +99,16 @@ public class Historia {
                         +"\ndesafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
 
                     System.out.println(texto);
-                    CidadeDosDoces_Desafio01();
+                    CidadeDosDoces_Desafio01(entrada);
+            String historia =   
+                                "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
+                                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
+                                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
+                                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
+                                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
 
-
+                    System.out.println(historia);
+                    CidadeDosDoces_Desafio02(entrada);
 
 
             String textofinal= "Escolha sua pílula";
@@ -110,8 +117,8 @@ public class Historia {
                 
         }
 
-        public void CidadeDosDoces_Desafio01(){
-            Scanner entrada = new Scanner(System.in);
+        public static void CidadeDosDoces_Desafio01(Scanner entrada){
+           
             
             String desafio = "Eu sou um número que:\n" + //
                     "Quando você me divide por 2, o resto é 1.\n" + //
@@ -127,7 +134,8 @@ public class Historia {
     
                 int resp = entrada.nextInt();
                 if(resp == 3){
-                    System.out.print("Resposta correta!");
+                    System.out.print("Resposta correta!\n");
+                    break;
                 } else if(resp != 3 && tentativa==2){
                     System.out.print("Game Over");
                     System.exit(0);
@@ -137,10 +145,41 @@ public class Historia {
                 }
             }
 
-            entrada.close();
+           
             
         }
     
+        public static void CidadeDosDoces_Desafio02(Scanner entrada){
+            
+            String enunciado = "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3.\nUtilize um loop do-while para encontrar a resposta?\n" +
+                                "a) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n" +
+                                "\nb) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i++;\n  } while (i <= 15);\n   System.out.println(\"A soma é: \" + soma);\n" +
+                                "\nc) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i < 15);\n  System.out.println(\"A soma é: \" + soma);\n" +
+                                "\nd) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 2;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n";
+            System.out.println(enunciado);
+
+            int tentativa = 1;
+
+            do{
+
+                System.out.print("Digite sua resposta: ");
+                char resp = entrada.next().charAt(0);
+
+                if(resp == 'a' || resp == 'A'){
+                    System.out.print("Resposta correta!\n");
+                    break;
+                } else if(resp != 3 && tentativa==2){
+                    System.out.print("Game Over");
+                    System.exit(0);
+                }else{
+                    System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                    tentativa++;
+                }
+            }while(tentativa <= 2);
+
+            entrada.close();
+
+        }
 
     }
 
@@ -204,11 +243,6 @@ public class Historia {
 
     public void CasaAbandonada_Desafio02(){
         Scanner entrada = new Scanner(System.in);
-
-        
-
-      
-        
         
         int caminhoB = 1;
 
@@ -224,6 +258,8 @@ public class Historia {
             System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre dentro da Casa Abandonada\n");
             caminhoB++;
         }
+
+        entrada.close();
     }
       
     }
@@ -369,7 +405,7 @@ public class Historia {
                     switch(caminho){
                         case "A":
                             CidadeDosDoces gerador3 = new CidadeDosDoces();
-                            String caminho1 = gerador3.cidadeDoces(nomePersonagem);
+                            String caminho1 = gerador3.cidadeDoces(nomePersonagem, entrada);
                             TextoAnimado.aparecerTexto(caminho1, 0);
                             respostaCorreta2 = true;
 
