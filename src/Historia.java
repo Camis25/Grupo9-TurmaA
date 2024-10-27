@@ -194,9 +194,39 @@ public class Historia {
             + "\n}"
             + "\n\nD) Todas as respostas estão corretas";
    
-    return texto;
+            System.out.println(texto);
+            CasaAbandonada_Desafio02();
+
+            return texto;
+    
     }
 }
+
+    public void CasaAbandonada_Desafio02(){
+        Scanner entrada = new Scanner(System.in);
+
+        
+
+      
+        
+        
+        int caminhoB = 1;
+
+        while(caminhoB <= 2){
+            String respostaB = entrada.nextLine().toUpperCase();
+
+            if(respostaB.equals("C")){
+                System.out.println("Resposta correta");
+        }else if(!respostaB.equals("C") && caminhoB == 2){
+            System.out.print("Game Over");
+            System.exit(0);
+        }else {
+            System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre dentro da Casa Abandonada\n");
+            caminhoB++;
+        }
+    }
+      
+    }
 
     public void HistoriaInicial() throws InterruptedException{
         Scanner entrada = new Scanner(System.in);
