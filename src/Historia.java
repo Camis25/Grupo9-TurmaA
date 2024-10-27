@@ -44,6 +44,7 @@ public class Historia {
     private static void exibirRegras(Scanner entrada) {
         System.out.println("Responda todas as questões dentro de 5 minutos.");
         System.out.println("Utilize as habilidades de seu companheiro com sabedoria, pois só pode ser utilizada uma vez.");
+        System.out.println("Para chamar a habilidade basta clicar a inicial do seu companheiro");
         System.out.println("Existe somente uma alternativa correta.");
         
         System.out.println("Pressione Enter para voltar ao menu...");
