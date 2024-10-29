@@ -113,10 +113,91 @@ public class Historia {
 
 
             String textofinal= "Escolha sua pílula";
-            return textofinal;
+            System.out.println(textofinal);
+
+              System.out.println("1) Pílula Azul");
+                System.out.println("2) Pílula Vermelha");
+                System.out.print("Digite o número correspondente à sua escolha: ");
+
+                int escolha = scanner.nextInt();
+
+                switch (escolha) {
+            case 1:
+                exibirTextoPilulaAzul();
+                break;
+            case 2:
+                exibirTextoPilulaVermelha();
+                break;
+            default:
+                System.out.println("Escolha inválida. Tente novamente.");
+                break;
+        }
+
+        scanner.close();
+    }
                 
                 
         }
+
+            public static void exibirTextoPilulaAzul() {
+        String textoAzul = """
+                Você fica imaginando o que poderia acontecer com você depois daquela escolha...
+                Ao tomar a pílula azul, uma sensação de vertigem tomou conta de você. 
+                A escuridão se desfez em um turbilhão de luz, e, quando seus olhos se abriram novamente, 
+                você se viu à beira de um lago sereno. As águas refletiam a luz de um céu estrelado, 
+                e uma brisa suave acariciava seu rosto. Mas a beleza do cenário era ofuscada por uma 
+                sensação de tristeza profunda, ali era um lago de almas perdidas.
+
+                De repente, uma das almas começa a falar com você:
+                "Variável, fico feliz por chegar até aqui". Você se demonstrava muito nervoso, pois aquele lugar 
+                continha uma energia muito pesada. "Não precisa ficar nervoso, estamos no lago das almas perdidas. 
+                Todas as pessoas que estão aqui tentaram vencer o jogo e não conseguiram. Como consequência, 
+                suas almas estão presas nesse mundo para sempre."
+
+                Você questiona a alma se não há nenhum jeito de tirá-las dali, e a alma então responde:
+                "Sim, mas suas escolhas impactam tudo o que acontece nesse mundo, e não posso te falar mais nada sobre isso. 
+                Como você chegou até a penúltima etapa, vou te orientar sobre o próximo desafio."
+
+                Você se questiona o que teria acontecido se tivesse tomado a pílula vermelha, se teria alguma forma de salvar 
+                aquelas pobres almas, mas é interrompido pela alma que te entrega o enunciado do desafio.
+                """;
+
+        System.out.println(textoAzul);
+    }
+
+      public static void exibirTextoPilulaVermelha() {
+        String textoVermelha = """
+                Você toma a pílula vermelha e no mesmo instante começa a ter visões sobre tudo o que aconteceu, 
+                então você enxerga a obscuridade por trás daquele mundo mágico. Há muito tempo, uma bruxa chamada Astrid 
+                utilizou sua magia para criar um jogo amaldiçoado, projetado para aprisionar aqueles que não conseguissem 
+                completar os 5 desafios de seu jogo. Seu objetivo era simples: garantir que as almas dos jogadores ficassem 
+                presas para sempre, condenadas a enfrentar seus medos e anseios em um labirinto sem fim.
+
+                Ao mergulhar nas visões proporcionadas pela pílula vermelha, você descobre a verdade devastadora: seus pais, 
+                pessoas que você amava profundamente, foram atraídos por essa armadilha traiçoeira. Suas almas agora estão 
+                aprisionadas dentro do jogo, vagando em um mundo distorcido, cercadas por ilusões que os impedem de se libertar.
+
+                O peso dessa revelação se torna uma chama ardente dentro de você, alimentando uma determinação inabalável de 
+                resgatar seus pais e confrontar a bruxa que os condenou a essa existência sombria. Neste momento você entende 
+                o porquê de você ser o predestinado.
+
+                Depois de absorver toda essa revelação, você se levanta, sentindo uma nova força pulsar dentro de você. 
+                Com a pílula vermelha ainda ecoando em sua mente, você decide que não pode perder tempo. 
+                
+                Ao olhar ao seu redor, uma sensação de vertigem tomou conta de você. A escuridão se desfez em um turbilhão de luz, 
+                e, quando seus olhos se abriram novamente, você se viu à beira de um lago sereno. As águas refletiam a luz de um 
+                céu estrelado, e uma brisa suave acariciava seu rosto. Mas a beleza do cenário era ofuscada por uma sensação 
+                de tristeza profunda, ali era um lago de almas perdidas. 
+
+                De repente, uma das almas começa a falar com você:
+                "Variável, fico feliz por chegar até aqui. Todas essas pessoas tentaram vencer o jogo e não conseguiram, 
+                como consequência suas almas estão presas nesse mundo para sempre."
+                """;
+
+        System.out.println(textoVermelha);
+    }
+
+}
 
         public static void CidadeDosDoces_Desafio01(Scanner entrada){
            
