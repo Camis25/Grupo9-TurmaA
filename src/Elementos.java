@@ -45,8 +45,13 @@ public class Elementos {
     }
 
     // em cada desafio deve ter esse método
-    public void verificarChamandoCompanheiro(){
-        
+    public void verificarChamandoCompanheiro(String companheiroEscolhido, String resp){
+        for(int dica = 0; dica < 1; dica++){
+
+            if(resp.equals("K") || resp.equals("k") && companheiroEscolhido == "Kira" ){
+                habilidadeKira();
+            }
+        }
     }
 
     

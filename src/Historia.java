@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 public class Historia {
-
+    public String companheiroEscolhido;
     public static void main(String[] args) throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
         String apresentacaoJogo = "Bem-vindo ao Jogo dos Destinos, um jogo cheio de aventura e desafios.\nEscolha suas ações e determine o seu futuro.";
@@ -91,7 +91,7 @@ public class Historia {
     }
 
     public class CidadeDosDoces{
-        public String cidadeDoces(String personagem, Scanner entrada){
+        public String cidadeDoces(String personagem, Scanner entrada, String companheiroEscolhido){
             String texto = 
                         "\nVocê decide subir a montanha coberta de neve, esta muito frio e do alto voce avista uma cidade dos doces."
                         +"\nAo descer você observa uma pequena cabana feita de chocolate, então, inesperadamente aparece um ser muito curioso  "
@@ -100,7 +100,7 @@ public class Historia {
                         +"\ndesafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
 
                     System.out.println(texto);
-                    CidadeDosDoces_Desafio01(entrada);
+                    CidadeDosDoces_Desafio01(entrada, companheiroEscolhido);
             String historia =   
                                 "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
                                 "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
@@ -180,7 +180,7 @@ public class Historia {
             return "";
         }
 
-        public static void CidadeDosDoces_Desafio01(Scanner entrada){
+        public static void CidadeDosDoces_Desafio01(Scanner entrada, String companheiroEscolhido){
            
             
             String desafio = "Eu sou um número que:\n" + //
@@ -190,26 +190,31 @@ public class Historia {
                     "Pergunta: Que número sou eu?\n ";
             System.out.println(desafio);
             
-           
+            Elementos verificacao = new Elementos();
             int tentativa = 1;
 
             while (tentativa <= 2) {
-    
-                int resp = entrada.nextInt();
-                if(resp == 3){
-                    System.out.print("Resposta correta!\n");
-                    break;
-                } else if(resp != 3 && tentativa==2){
-                    System.out.print("Game Over");
-                    System.exit(0);
-                }else {
-                    System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                
+                String resp = entrada.next();
+
+                try {
+                    int respInt = Integer.parseInt(resp);
+                    if(respInt == 3){
+                        System.out.print("Resposta correta!\n");
+                        break;
+                    } else if(respInt != 3 && tentativa==2){
+                        System.out.print("Game Over");
+                        System.exit(0);
+                    }else {
+                        System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                        tentativa++;
+                    }
+                } catch (NumberFormatException e) {
+                    verificacao.verificarChamandoCompanheiro(companheiroEscolhido,resp);
                     tentativa++;
                 }
+                
             }
-
-           
-            
         }
     
         public static void CidadeDosDoces_Desafio02(Scanner entrada){
@@ -339,7 +344,6 @@ public class Historia {
         String nomePersonagem = entrada.nextLine();
 
         int companheiro = 0;
-        String companheiroEscolhido = "";
         
         do {
             System.out.println("Escolha seu companheiro de aventura: ");
@@ -465,7 +469,7 @@ public class Historia {
                     switch(caminho){
                         case "A":
                             CidadeDosDoces gerador3 = new CidadeDosDoces();
-                            String caminho1 = gerador3.cidadeDoces(nomePersonagem, entrada);
+                            String caminho1 = gerador3.cidadeDoces(nomePersonagem, entrada, companheiroEscolhido);
                             TextoAnimado.aparecerTexto(caminho1, 0);
                             respostaCorreta2 = true;
 
