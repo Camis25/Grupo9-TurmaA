@@ -472,7 +472,7 @@ public class Historia {
                         break;
                         case "B":
                             CasaAbandonada gerador4 = new CasaAbandonada();
-                            String caminho2 = gerador4.casaAbandonada(nomePersonagem);
+                            String caminho2 = gerador4.casaAbandonada(nomePersonagem,entrada);
                             TextoAnimado.aparecerTexto(caminho2, 0);
                             respostaCorreta2 = true;
                         break;
