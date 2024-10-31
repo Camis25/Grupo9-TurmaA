@@ -296,8 +296,9 @@ public class Historia {
             + "\n}"
             + "\n\nD) Todas as respostas estão corretas";
 
+            CasaAbandonada_Desafio02(entrada);
             return texto;
-            CasaAbandonada_Desafio02(entrada);//erro
+            
     }
 }
 
