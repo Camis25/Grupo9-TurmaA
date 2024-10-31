@@ -248,7 +248,7 @@ public class Historia {
 
     
     public class CasaAbandonada{
-        public String casaAbandonada(String personagem){
+        public String casaAbandonada(String personagem, Scanner entrada){
             String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
             + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem das Sombras "
             + "\n" + personagem + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
@@ -295,21 +295,17 @@ public class Historia {
             + "\n    return true;"
             + "\n}"
             + "\n\nD) Todas as respostas estão corretas";
-   
-            System.out.println(texto);
-            CasaAbandonada_Desafio02();
 
             return texto;
-    
+            CasaAbandonada_Desafio02(entrada);//erro
     }
 }
 
-    public void CasaAbandonada_Desafio02(){
-        Scanner entrada = new Scanner(System.in);
-        
+    public void CasaAbandonada_Desafio02(Scanner entrada){
+    
         int caminhoB = 1;
 
-        while(caminhoB <= 2){
+        do{
             String respostaB = entrada.nextLine().toUpperCase();
 
             if(respostaB.equals("C")){
@@ -322,8 +318,8 @@ public class Historia {
             caminhoB++;
         }
 
-        entrada.close();
-    }
+      
+    }while(caminhoB <= 2);
       
     }
 
