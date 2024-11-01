@@ -198,7 +198,7 @@ public class Historia {
                     A) Um caminho íngreme que leva a uma montanha coberta de neve. Os ecos de vozes perdidas ressoam nas cavernas.
 
                     B) Uma antiga estrutura coberta de musgo, que se estende sobre um abismo profundo.
-                        """, chancesDesafio1);
+                        """,chancesDesafio1);
                 
                 boolean respostaCorreta2 = false;
                  do{
@@ -213,10 +213,9 @@ public class Historia {
 
                         break;
                         case "B":
-                            CasaAbandonada gerador4 = new CasaAbandonada();
-                            String caminho2 = gerador4.casaAbandonada(nomePersonagem,entrada);
-                            TextoAnimado.aparecerTexto(caminho2, 0);
-                            respostaCorreta2 = true;
+                        String caminho2 = casaAbandonada(nomePersonagem);
+                        TextoAnimado.aparecerTexto(caminho2, 0);
+                        respostaCorreta2 = true;
                         break;
                             default:
                                 System.out.println("Caminho não identificado");
@@ -409,10 +408,11 @@ public class Historia {
 
     
 
-    
-    public class CasaAbandonada{
-        public String casaAbandonada(String personagem, Scanner entrada){
-            String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
+        
+        public static String casaAbandonada(String personagem){
+            Scanner entrada = new Scanner(System.in);
+            String texto = 
+            "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
             + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem das Sombras "
             + "\n" + personagem + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
             + "\nAcredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá que resolver "
@@ -459,40 +459,53 @@ public class Historia {
             + "\n}"
             + "\n\nD) Todas as respostas estão corretas";
 
-            CasaAbandonada_Desafio02(entrada);
-            return texto;
-            
-    }
+                System.out.println(texto);
+                CasaAbandonada_Desafio02(entrada);   
+              
+                String historia =   
+                "O Homem das Trevas sorri de forma debochada e diz\n\"Lembre-se, não confie em todos dentro desse jogo \",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
+                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
+                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
+                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
+                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
+
+                System.out.println(historia);
+                CidadeDosDoces_Desafio02(entrada);
 
 
-    public void CasaAbandonada_Desafio02(Scanner entrada){
-    
-        int caminhoB = 1;
+                    String textofinal= "Escolha sua pílula";
+                    System.out.println(textofinal);
 
-        do{
-            String respostaB = entrada.nextLine().toUpperCase();
-
-            if(respostaB.equals("C")){
-                System.out.println("Resposta correta");
-        }else if(!respostaB.equals("C") && caminhoB == 2){
-            System.out.print("Game Over");
-            System.exit(0);
-        }else {
-            System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre dentro da Casa Abandonada\n");
-            caminhoB++;
+                    // **Escolha da pílula: azul ou vermelha**
+                    return desafio3escolherPilula(entrada);     
+                   
+                   
         }
-
-      
-    }while(caminhoB <= 2);
-      
-    }
-
     
 
+        public static void CasaAbandonada_Desafio02(Scanner entrada){
+           
+            int caminhoB = 1;
+    
+           do{
+                System.out.println("Digite a resposta");
+                String respostaB = entrada.next().toUpperCase();
 
+                if(respostaB.equals("C")){
+                    System.out.println("Resposta correta");
+                    break;
+                 }else if(!respostaB.equals("C") && caminhoB == 2) {
+                        System.out.println("Game Over");
+                        System.exit(0);
+                 }else{
+                    	System.out.println("Voce só tem mais uma chance");
+                        caminhoB++;
+                }
+        }while(caminhoB <= 2);
+        }
     
 }
-}
+
 
 
 
