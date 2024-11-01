@@ -1,6 +1,14 @@
 package src;
 import java.util.Scanner;
+import src.Elementos.TextoAnimado;
 
+/* Rota de navegação do código:
+ * - Menu
+ * - Historia
+ * - Cidade dos doces
+ * - Casa Abandonada
+ * - Texto animado
+ */
 
 public class Historia {
     public String companheiroEscolhido;
@@ -63,272 +71,6 @@ public class Historia {
         entrada.nextLine();
     }
 
-    public class Personagens {
-        public String criarPersonagem(String personagem) {
-            String texto = "\nAo escolher o personagem, uma luz intensa surge do console, te sugando para um mundo mágico. "
-                         + "\nDe forma confusa, você logo percebe que está dentro do jogo. O ambiente é uma mistura de paisagens"
-                         + "\nbizarras e criaturas excêntricas. Você não sabe como sair e isso te preocupa.\n"
-                         + "\nObservando, encontra uma longa estrada de tijolos amarelos e decide segui-la. A estrada adentra "
-                         + "\numa floresta escura e sombria, ao final, você encontra uma porta com um enigma e uma voz ecoa:"
-                         + "\n" + personagem + "! Estávamos empolgados em ver você por aqui. Que bom que você decidiu seguir "
-                         + "\no seu destino... ou não. Mas hey, pelo menos agora temos alguém para culpar quando as coisas "
-                         + "\nderem errado!\" A floresta estava falando com você: \"Mas enfim, com certeza você deve estar se " 
-                         + "\nperguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios de lógica que te "
-                         + "\nlevarão para fora do jogo, claro, isso se você conseguir continuar. "
-                         + "\nA primeira tarefa era  abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um "
-                         +"\npapel com um código, você rapidamente percebeu que precisava destrancar a porta";
-            return texto;
-        }
-    }
-
-    public class Companheiro {
-        public String criarCompanheiro(String companheiroEscolhido) {
-            String texto = "\nAo seu lado, está " + companheiroEscolhido + ", o seu companheiro que acabou escolhendo quando "
-                         + "\niniciou o jogo e que irá te ajuda durante a jornada";
-                        
-            return texto;
-        }
-    }
-
-    public class CidadeDosDoces{
-        public String cidadeDoces(String personagem, Scanner entrada, String companheiroEscolhido){
-            String texto = 
-                        "\nVocê decide subir a montanha coberta de neve, esta muito frio e do alto voce avista uma cidade dos doces."
-                        +"\nAo descer você observa uma pequena cabana feita de chocolate, então, inesperadamente aparece um ser muito curioso  "
-                        +"\nque vai até você e te dá boas vindas \"Olá " + personagem  + ", seja bem vindo a minha cidade, eu sou o Chapeleiro Louco,"
-                        +"\nresponsável por todas a doçuras desse mundo mágico, acredito que você seja o nosso predestinado, posso te ajudar a passar para o próximo "
-                        +"\ndesafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
-
-                    System.out.println(texto);
-                    CidadeDosDoces_Desafio01(entrada, companheiroEscolhido);
-            String historia =   
-                                "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
-                                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
-                                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
-                                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
-                                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
-
-                    System.out.println(historia);
-                    CidadeDosDoces_Desafio02(entrada);
-
-
-            String textofinal= "Escolha sua pílula";
-            System.out.println(textofinal);
-
-            // **Escolha da pílula: azul ou vermelha**
-            return desafio3escolherPilula(entrada);
-
-            
-                
-                
-        }
-
-        public static String desafio3escolherPilula(Scanner entrada) {
-            System.out.println("1. Pílula Azul");
-            System.out.println("2. Pílula Vermelha");
-    
-            int escolha;
-    
-            while (true) {
-                System.out.print("Digite o número da sua escolha: ");
-    
-                if (entrada.hasNextInt()) {
-                    escolha = entrada.nextInt();
-                    entrada.nextLine(); // Limpa a quebra de linha pendente
-    
-                    if (escolha == 1) {
-                        // Chama o desafio da pílula azul
-                        return desafio3PílulaAzul(entrada);
-                    } else if (escolha == 2) {
-                        // Continuação para a pílula vermelha
-                        return "Você escolheu a pílula vermelha e segue para um novo caminho...";
-                    } else {
-                        System.out.println("Escolha inválida! Digite 1 para Pílula Azul ou 2 para Pílula Vermelha.");
-                    }
-                }
-            }
-        }
-    
-        public static String desafio3PílulaAzul(Scanner entrada) {
-            String enunciado =
-                    "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3. Utilize um loop do-while para encontrar a resposta:\n" +
-                            "a) int i = 3, soma = 0; do { soma += i; i += 3; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
-                            "b) int i = 3, soma = 0; do { soma += i; i++; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
-                            "c) int i = 3, soma = 0; do { soma += i; i += 3; } while (i < 15); System.out.println(\"A soma é: \" + soma);\n" +
-                            "d) int i = 3, soma = 0; do { soma += i; i += 2; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n";
-    
-            System.out.println(enunciado);
-    
-            int tentativa = 1;
-            char resposta;
-    
-            while (tentativa <= 2) {
-                System.out.print("Digite sua resposta: ");
-                resposta = entrada.next().toLowerCase().charAt(0);
-    
-                if (resposta == 'a') {
-                    System.out.println("Parabéns! Você acertou.");
-                    return "Você escolheu a pílula azul e passou para o próximo desafio!";
-                } else if (tentativa == 2) {
-                    System.out.println("Game Over");
-                    System.exit(0);
-                } else {
-                    System.out.println("Resposta incorreta. Você tem mais uma chance.");
-                    tentativa++;
-                }
-            }
-            return "";
-        }
-
-        public static void CidadeDosDoces_Desafio01(Scanner entrada, String companheiroEscolhido){
-           
-            
-            String desafio = "Eu sou um número que:\n" + //
-                    "Quando você me divide por 2, o resto é 1.\n" + //
-                    "Quando você me divide por 3, o resto é 0.\n" + //
-                    "Sou menor que 10.\n" + //
-                    "Pergunta: Que número sou eu?\n ";
-            System.out.println(desafio);
-            
-            Elementos verificacao = new Elementos();
-            int tentativa = 1;
-
-            while (tentativa <= 2) {
-                
-                String resp = entrada.next();
-
-                try {
-                    int respInt = Integer.parseInt(resp);
-                    if(respInt == 3){
-                        System.out.print("Resposta correta!\n");
-                        break;
-                    } else if(respInt != 3 && tentativa==2){
-                        System.out.print("Game Over");
-                        System.exit(0);
-                    }else {
-                        System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
-                        tentativa++;
-                    }
-                } catch (NumberFormatException e) {
-                    verificacao.verificarChamandoCompanheiro(companheiroEscolhido,resp);
-                    tentativa++;
-                }
-                
-            }
-        }
-    
-        public static void CidadeDosDoces_Desafio02(Scanner entrada){
-            
-            String enunciado = "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3.\nUtilize um loop do-while para encontrar a resposta?\n" +
-                                "a) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n" +
-                                "\nb) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i++;\n  } while (i <= 15);\n   System.out.println(\"A soma é: \" + soma);\n" +
-                                "\nc) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i < 15);\n  System.out.println(\"A soma é: \" + soma);\n" +
-                                "\nd) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 2;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n";
-            System.out.println(enunciado);
-
-            int tentativa = 1;
-
-            do{
-
-                System.out.print("Digite sua resposta: ");
-                char resp = entrada.next().charAt(0);
-
-                if(resp == 'a' || resp == 'A'){
-                    System.out.print("Resposta correta!\n");
-                    break;
-                } else if(resp != 3 && tentativa==2){
-                    System.out.print("Game Over");
-                    System.exit(0);
-                }else{
-                    System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
-                    tentativa++;
-                }
-            }while(tentativa <= 2);
-
-            
-
-        }
-
-    }
-
-    
-    public class CasaAbandonada{
-        public String casaAbandonada(String personagem, Scanner entrada){
-            String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
-            + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem das Sombras "
-            + "\n" + personagem + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
-            + "\nAcredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá que resolver "
-            + "\num enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina."
-            + "\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, te entrega uma pedra e diz: A pedra guarda a chave para a "
-            + "\npróxima porta. Você deve encontrar a sequência correta de símbolos para abri-"
-            + "\nO Homem das Sombras mostrou-lhes a sequência de símbolos, mas cada símbolo estava incompleto. Para completar a sequência, eles precisavam resolver "
-            + "\num desafio: acertar qual o código correto que verifica se um número é primo."
-            + "\n\nA) "
-            + "\npublic static boolean isPrimo(int num) {"
-            + "\n    if (num <= 1) {"
-            + "\n        return false;"
-            + "\n    }"
-            + "\n    for (int i = 2; i <= num / 2; i++) {"
-            + "\n        if (num % i == 0) {"
-            + "\n            return false;"
-            + "\n        }"
-            + "\n    }"
-            + "\n    return true;"
-            + "\n}"
-            + "\n\nB)"
-            + "\npublic static boolean isPrimo(int num) {"
-            + "\n    if (num <= 1) {"
-            + "\n        return false;"
-            + "\n    }"
-            + "\n    for (int i = 2; i < num; i++) {"
-            + "\n        if (num % i == 0) {"
-            + "\n            return false;"
-            + "\n        }"
-            + "\n    }"
-            + "\n    return true;"
-            + "\n}"
-            + "\n\nC)"
-            + "\npublic static boolean isPrimo(int num) {"
-            + "\n    if (num <= 1) {"
-            + "\n        return false;"
-            + "\n    }"
-            + "\n    for (int i = 2; i * i <= num; i++) {"
-            + "\n        if (num % i == 0) {"
-            + "\n            return false;"
-            + "\n        }"
-            + "\n    }"
-            + "\n    return true;"
-            + "\n}"
-            + "\n\nD) Todas as respostas estão corretas";
-
-            CasaAbandonada_Desafio02(entrada);
-            return texto;
-            
-    }
-}
-
-    public void CasaAbandonada_Desafio02(Scanner entrada){
-    
-        int caminhoB = 1;
-
-        do{
-            String respostaB = entrada.nextLine().toUpperCase();
-
-            if(respostaB.equals("C")){
-                System.out.println("Resposta correta");
-        }else if(!respostaB.equals("C") && caminhoB == 2){
-            System.out.print("Game Over");
-            System.exit(0);
-        }else {
-            System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre dentro da Casa Abandonada\n");
-            caminhoB++;
-        }
-
-      
-    }while(caminhoB <= 2);
-      
-    }
-
     public void HistoriaInicial() throws InterruptedException{
         Scanner entrada = new Scanner(System.in);
 
@@ -376,14 +118,11 @@ public class Historia {
             
         } while (companheiro > 3);
         
-        
 
-        Personagens gerador = new Personagens();
-        String escolhaPersonagens = gerador.criarPersonagem(nomePersonagem);
+        String escolhaPersonagens = criarPersonagem(nomePersonagem);
         TextoAnimado.aparecerTexto(escolhaPersonagens, 0);
 
-        Companheiro gerador2 = new Companheiro();
-        String escolhaCompanheiro = gerador2.criarCompanheiro(companheiroEscolhido);
+        String escolhaCompanheiro = "\nAo seu lado, está " + companheiroEscolhido + ", o seu companheiro que    acabou escolhendo quando " + "\niniciou o jogo e que irá te ajuda durante a jornada";
         TextoAnimado.aparecerTexto(escolhaCompanheiro, 0);
 
         String desafio1 = """
@@ -468,8 +207,7 @@ public class Historia {
 
                     switch(caminho){
                         case "A":
-                            CidadeDosDoces gerador3 = new CidadeDosDoces();
-                            String caminho1 = gerador3.cidadeDoces(nomePersonagem, entrada, companheiroEscolhido);
+                            String caminho1 = cidadeDoces(nomePersonagem,companheiroEscolhido);
                             TextoAnimado.aparecerTexto(caminho1, 0);
                             respostaCorreta2 = true;
 
@@ -492,20 +230,265 @@ public class Historia {
     }
 
 
-
-    public class TextoAnimado {
+        public String criarPersonagem(String personagem) {
+            String texto = "\nAo escolher o personagem, uma luz intensa surge do console, te sugando para um mundo mágico. "
+                         + "\nDe forma confusa, você logo percebe que está dentro do jogo. O ambiente é uma mistura de paisagens"
+                         + "\nbizarras e criaturas excêntricas. Você não sabe como sair e isso te preocupa.\n"
+                         + "\nObservando, encontra uma longa estrada de tijolos amarelos e decide segui-la. A estrada adentra "
+                         + "\numa floresta escura e sombria, ao final, você encontra uma porta com um enigma e uma voz ecoa:"
+                         + "\n" + personagem + "! Estávamos empolgados em ver você por aqui. Que bom que você decidiu seguir "
+                         + "\no seu destino... ou não. Mas hey, pelo menos agora temos alguém para culpar quando as coisas "
+                         + "\nderem errado!\" A floresta estava falando com você: \"Mas enfim, com certeza você deve estar se " 
+                         + "\nperguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios de lógica que te "
+                         + "\nlevarão para fora do jogo, claro, isso se você conseguir continuar. "
+                         + "\nA primeira tarefa era  abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um "
+                         +"\npapel com um código, você rapidamente percebeu que precisava destrancar a porta";
+            return texto;
+        }
     
-        public static void aparecerTexto(String texto, int delay) {
-            for (char letra : texto.toCharArray()) {
-                System.out.print(letra);
-                try {
-                    Thread.sleep(delay); 
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt(); 
+
+
+    
+        public static String cidadeDoces(String personagem, String companheiroEscolhido){
+            Scanner entrada = new Scanner(System.in);
+            String texto = 
+                        "\nVocê decide subir a montanha coberta de neve, esta muito frio e do alto voce avista uma cidade dos doces."
+                        +"\nAo descer você observa uma pequena cabana feita de chocolate, então, inesperadamente aparece um ser muito curioso  "
+                        +"\nque vai até você e te dá boas vindas \"Olá " + personagem  + ", seja bem vindo a minha cidade, eu sou o Chapeleiro Louco,"
+                        +"\nresponsável por todas a doçuras desse mundo mágico, acredito que você seja o nosso predestinado, posso te ajudar a passar para o próximo "
+                        +"\ndesafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
+
+                    System.out.println(texto);
+                    CidadeDosDoces_Desafio01(entrada, companheiroEscolhido,personagem);
+            String historia =   
+                                "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
+                                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
+                                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
+                                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
+                                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
+
+                    System.out.println(historia);
+                    CidadeDosDoces_Desafio02(entrada);
+
+
+            String textofinal= "Escolha sua pílula";
+            System.out.println(textofinal);
+
+            // **Escolha da pílula: azul ou vermelha**
+            return desafio3escolherPilula(entrada);     
+        }
+
+        public static String desafio3escolherPilula(Scanner entrada) {
+            System.out.println("1. Pílula Azul");
+            System.out.println("2. Pílula Vermelha");
+    
+            int escolha;
+    
+            while (true) {
+                System.out.print("Digite o número da sua escolha: ");
+    
+                if (entrada.hasNextInt()) {
+                    escolha = entrada.nextInt();
+                    entrada.nextLine(); // Limpa a quebra de linha pendente
+    
+                    if (escolha == 1) {
+                        // Chama o desafio da pílula azul
+                        return desafio3PílulaAzul(entrada);
+                    } else if (escolha == 2) {
+                        // Continuação para a pílula vermelha
+                        return "Você escolheu a pílula vermelha e segue para um novo caminho...";
+                    } else {
+                        System.out.println("Escolha inválida! Digite 1 para Pílula Azul ou 2 para Pílula Vermelha.");
+                    }
                 }
             }
-            System.out.println(); 
         }
+    
+        public static String desafio3PílulaAzul(Scanner entrada) {
+            String enunciado =
+                    "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3. Utilize um loop do-while para encontrar a resposta:\n" +
+                            "a) int i = 3, soma = 0; do { soma += i; i += 3; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
+                            "b) int i = 3, soma = 0; do { soma += i; i++; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
+                            "c) int i = 3, soma = 0; do { soma += i; i += 3; } while (i < 15); System.out.println(\"A soma é: \" + soma);\n" +
+                            "d) int i = 3, soma = 0; do { soma += i; i += 2; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n";
+    
+            System.out.println(enunciado);
+    
+            int tentativa = 1;
+            char resposta;
+    
+            while (tentativa <= 2) {
+                System.out.print("Digite sua resposta: ");
+                resposta = entrada.next().toLowerCase().charAt(0);
+    
+                if (resposta == 'a') {
+                    System.out.println("Parabéns! Você acertou.");
+                    return "Você escolheu a pílula azul e passou para o próximo desafio!";
+                } else if (tentativa == 2) {
+                    System.out.println("Game Over");
+                    System.exit(0);
+                } else {
+                    System.out.println("Resposta incorreta. Você tem mais uma chance.");
+                    tentativa++;
+                }
+            }
+            return "";
+        }
+
+        public static void CidadeDosDoces_Desafio01(Scanner entrada, String companheiroEscolhido, String personagem){
+           
+            
+            String desafio = "Eu sou um número que:\n" + //
+                    "Quando você me divide por 2, o resto é 1.\n" + //
+                    "Quando você me divide por 3, o resto é 0.\n" + //
+                    "Sou menor que 10.\n" + //
+                    "Pergunta: Que número sou eu?\n ";
+            System.out.println(desafio);
+            
+            Elementos verificacao = new Elementos();
+            int tentativa = 1;
+
+            while (tentativa <= 2) {
+                
+                String resp = entrada.nextLine();
+
+                try {
+                    int respInt = Integer.parseInt(resp);
+                    if(respInt == 3){
+                        System.out.print("Resposta correta!\n");
+                        break;
+                    } else if(respInt != 3 && tentativa==2){
+                        System.out.print("GAME OVER");
+                        System.exit(0);
+                    }else {
+                        System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                        tentativa++;
+                    }
+                } catch (NumberFormatException e) {
+                    verificacao.verificarChamandoCompanheiro(companheiroEscolhido,resp,personagem);
+                }
+                
+            }
+        }
+    
+        public static void CidadeDosDoces_Desafio02(Scanner entrada){
+            
+            String enunciado = "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3.\nUtilize um loop do-while para encontrar a resposta?\n" +
+                                "a) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n" +
+                                "\nb) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i++;\n  } while (i <= 15);\n   System.out.println(\"A soma é: \" + soma);\n" +
+                                "\nc) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i < 15);\n  System.out.println(\"A soma é: \" + soma);\n" +
+                                "\nd) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 2;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n";
+            System.out.println(enunciado);
+
+            int tentativa = 1;
+
+            do{
+
+                System.out.print("Digite sua resposta: ");
+                char resp = entrada.next().charAt(0);
+
+                if(resp == 'a' || resp == 'A'){
+                    System.out.print("Resposta correta!\n");
+                    break;
+                } else if(resp != 3 && tentativa==2){
+                    System.out.print("Game Over");
+                    System.exit(0);
+                }else{
+                    System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                    tentativa++;
+                }
+            }while(tentativa <= 2);
+
+            
+
+        }
+
+    
+
+    
+    public class CasaAbandonada{
+        public String casaAbandonada(String personagem, Scanner entrada){
+            String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
+            + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem das Sombras "
+            + "\n" + personagem + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
+            + "\nAcredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá que resolver "
+            + "\num enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina."
+            + "\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, te entrega uma pedra e diz: A pedra guarda a chave para a "
+            + "\npróxima porta. Você deve encontrar a sequência correta de símbolos para abri-"
+            + "\nO Homem das Sombras mostrou-lhes a sequência de símbolos, mas cada símbolo estava incompleto. Para completar a sequência, eles precisavam resolver "
+            + "\num desafio: acertar qual o código correto que verifica se um número é primo."
+            + "\n\nA) "
+            + "\npublic static boolean isPrimo(int num) {"
+            + "\n    if (num <= 1) {"
+            + "\n        return false;"
+            + "\n    }"
+            + "\n    for (int i = 2; i <= num / 2; i++) {"
+            + "\n        if (num % i == 0) {"
+            + "\n            return false;"
+            + "\n        }"
+            + "\n    }"
+            + "\n    return true;"
+            + "\n}"
+            + "\n\nB)"
+            + "\npublic static boolean isPrimo(int num) {"
+            + "\n    if (num <= 1) {"
+            + "\n        return false;"
+            + "\n    }"
+            + "\n    for (int i = 2; i < num; i++) {"
+            + "\n        if (num % i == 0) {"
+            + "\n            return false;"
+            + "\n        }"
+            + "\n    }"
+            + "\n    return true;"
+            + "\n}"
+            + "\n\nC)"
+            + "\npublic static boolean isPrimo(int num) {"
+            + "\n    if (num <= 1) {"
+            + "\n        return false;"
+            + "\n    }"
+            + "\n    for (int i = 2; i * i <= num; i++) {"
+            + "\n        if (num % i == 0) {"
+            + "\n            return false;"
+            + "\n        }"
+            + "\n    }"
+            + "\n    return true;"
+            + "\n}"
+            + "\n\nD) Todas as respostas estão corretas";
+
+            CasaAbandonada_Desafio02(entrada);
+            return texto;
+            
     }
+
+
+    public void CasaAbandonada_Desafio02(Scanner entrada){
+    
+        int caminhoB = 1;
+
+        do{
+            String respostaB = entrada.nextLine().toUpperCase();
+
+            if(respostaB.equals("C")){
+                System.out.println("Resposta correta");
+        }else if(!respostaB.equals("C") && caminhoB == 2){
+            System.out.print("Game Over");
+            System.exit(0);
+        }else {
+            System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre dentro da Casa Abandonada\n");
+            caminhoB++;
+        }
+
+      
+    }while(caminhoB <= 2);
+      
+    }
+
+    
+
+
+    
 }
+}
+
+
 

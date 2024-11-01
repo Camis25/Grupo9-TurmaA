@@ -1,5 +1,8 @@
 package src;
 import java.util.TimerTask;
+
+
+
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Timer;
@@ -7,6 +10,22 @@ import java.util.Timer;
 
 public class Elementos {
     private boolean cronometroAtivo = true;
+
+    public class TextoAnimado {
+    
+        public static void aparecerTexto(String texto, int delay) {
+            for (char letra : texto.toCharArray()) {
+                System.out.print(letra);
+                try {
+                    Thread.sleep(delay); 
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt(); 
+                }
+            }
+            System.out.println(); 
+        }
+    }
+
     public void Cronometro(){
         Timer timer = new Timer();
         int tempoTotalEmSegundos = 2 * 60;
@@ -45,11 +64,26 @@ public class Elementos {
     }
 
     // em cada desafio deve ter esse método
-    public void verificarChamandoCompanheiro(String companheiroEscolhido, String resp){
+    public void verificarChamandoCompanheiro(String companheiroEscolhido, String resp, String personagem){
         for(int dica = 0; dica < 1; dica++){
 
-            if(resp.equals("K") || resp.equals("k") && companheiroEscolhido == "Kira" ){
-                habilidadeKira();
+            switch (companheiroEscolhido) {
+                case "Kira":
+                    if(resp.equalsIgnoreCase("k")){
+                        habilidadeKira(personagem,companheiroEscolhido);
+                    }
+                    break;
+                case "Orion":
+                    if(resp.equalsIgnoreCase("o")){
+                        habilidadeOrion();
+                    }
+                    break;
+                case "Dante":
+                    if(resp.equalsIgnoreCase("d")) {
+                        habilidadeDante();
+                    }
+                default:System.out.println("Companheiro não reconhecido");
+                    break;
             }
         }
     }
@@ -57,14 +91,15 @@ public class Elementos {
     
     public void habilidadeOrion(){
 
+        System.out.println("Orion");
+
     }
 
 
-    public void habilidadeKira(){
-        Scanner entrada = new Scanner(System.in);
+    public void habilidadeKira(String personagem, String companheiroEscolhido){
         Random random = new Random();
-
-        char letra = entrada.next().charAt(0);
+        Scanner entrada = new Scanner(System.in);
+        
 
         String questao1 = "Qual é a principal diferença entre os laços while e for em Java?\n" + 
                         "a) O laço while é utilizado para iterações com um número conhecido de repetições, enquanto o for é utilizado para iterações com um número desconhecido.\n" + 
@@ -105,62 +140,81 @@ public class Elementos {
 
         String questoes [] = {questao1, questao2, questao3, questao4};
 
-        if(letra == 'K'|| letra == 'k'){
         int indiceAleatorio = random.nextInt(questoes.length);
         String pergunta = questoes[indiceAleatorio]; 
 
         System.out.println(pergunta);
+        int tentativa = 1;
         char respostaCorreta;
 
-        switch (indiceAleatorio) {
+        do{
+            switch (indiceAleatorio) {
             
             case 0:
                 System.out.print("Digite sua resposta: ");
-                respostaCorreta = entrada.next().charAt(0);
-                if (respostaCorreta == 'c' || respostaCorreta == 'C') {
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
+                if (respostaCorreta == 'c') {
                     System.out.print("Parabéns! Resposta correta");
+                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                }else if(respostaCorreta != 'c' && tentativa==2){
+                    System.out.print("GAME OVER");
+                    System.exit(0);
                 }else{
-                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa");
+                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                    tentativa++;
                 }
                 break;
             case 1:
                 System.out.print("Digite sua resposta: ");
-                respostaCorreta = entrada.next().charAt(0);
-                if (respostaCorreta == 'b' || respostaCorreta == 'B') {
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
+                if (respostaCorreta == 'b') {
                     System.out.print("Parabéns! Resposta correta");
+                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                }else if(respostaCorreta != 'b' && tentativa==2){
+                    System.out.print("GAME OVER");
+                    System.exit(0);
                 }else{
-                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa");
+                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                    tentativa++;
                 }
                 break;
             case 2:
                 System.out.print("Digite sua resposta: ");
-                respostaCorreta = entrada.next().charAt(0);
-                if (respostaCorreta == 'c' || respostaCorreta == 'C') {
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
+                if (respostaCorreta == 'c') {
                     System.out.print("Parabéns! Resposta correta");
+                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                }else if(respostaCorreta != 'c' && tentativa==2){
+                    System.out.print("GAME OVER");
+                    System.exit(0);
                 }else{
-                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa");
+                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                    tentativa++;
                 }
                 break;
             case 3:
                 System.out.print("Digite sua resposta: ");
-                respostaCorreta = entrada.next().charAt(0);
-                if (respostaCorreta == 'b' || respostaCorreta == 'B') {
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
+                if (respostaCorreta == 'b') {
                     System.out.print("Parabéns! Resposta correta");
+                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                }else if(respostaCorreta != 'b' && tentativa==2){
+                    System.out.print("GAME OVER");
+                    System.exit(0);
                 }else{
-                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa");
+                    System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                    tentativa++;
                 }
                 break;
         }
-    } else {
-        System.out.println("Habilidade para outro personagem");
-    }
-
-        entrada.close();
+        
+    }while(tentativa<=2);
+    entrada.close();
     }
 
 
     public void habilidadeDante(){
-
+        System.out.println("Dante");
     }
 }
 
