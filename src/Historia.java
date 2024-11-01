@@ -260,14 +260,7 @@ public class Historia {
 
                     System.out.println(texto);
                     CidadeDosDoces_Desafio01(entrada, companheiroEscolhido,personagem);
-            String historia =   
-                                "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
-                                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
-                                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
-                                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
-                                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
-
-                    System.out.println(historia);
+            
                     CidadeDosDoces_Desafio02(entrada);
 
 
@@ -335,13 +328,23 @@ public class Historia {
             return "";
         }
 
+        public static String historia_cidadeDoces(){
+            String historia =   
+                                "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
+                                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
+                                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
+                                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
+                                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
+            return historia;
+        }
+        
         public static void CidadeDosDoces_Desafio01(Scanner entrada, String companheiroEscolhido, String personagem){
            
             
-            String desafio = "Eu sou um número que:\n" + //
-                    "Quando você me divide por 2, o resto é 1.\n" + //
-                    "Quando você me divide por 3, o resto é 0.\n" + //
-                    "Sou menor que 10.\n" + //
+            String desafio = "Eu sou um número que:\n" + 
+                    "Quando você me divide por 2, o resto é 1.\n" + 
+                    "Quando você me divide por 3, o resto é 0.\n" + 
+                    "Sou menor que 10.\n" + 
                     "Pergunta: Que número sou eu?\n ";
             System.out.println(desafio);
             
@@ -366,6 +369,7 @@ public class Historia {
                     }
                 } catch (NumberFormatException e) {
                     verificacao.verificarChamandoCompanheiro(companheiroEscolhido,resp,personagem);
+                    System.out.println("esta passando");
                 }
                 
             }

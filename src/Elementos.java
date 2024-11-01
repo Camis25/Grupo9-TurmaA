@@ -148,14 +148,17 @@ public class Elementos {
         char respostaCorreta;
 
         do{
+
+            Cronometro();
             switch (indiceAleatorio) {
             
             case 0:
                 System.out.print("Digite sua resposta: ");
                 respostaCorreta = entrada.next().toLowerCase().charAt(0);
                 if (respostaCorreta == 'c') {
+                    pararCronometro();
                     System.out.print("Parabéns! Resposta correta");
-                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                    Historia.historia_cidadeDoces();
                 }else if(respostaCorreta != 'c' && tentativa==2){
                     System.out.print("GAME OVER");
                     System.exit(0);
@@ -168,8 +171,9 @@ public class Elementos {
                 System.out.print("Digite sua resposta: ");
                 respostaCorreta = entrada.next().toLowerCase().charAt(0);
                 if (respostaCorreta == 'b') {
+                    pararCronometro();
                     System.out.print("Parabéns! Resposta correta");
-                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                    Historia.historia_cidadeDoces();
                 }else if(respostaCorreta != 'b' && tentativa==2){
                     System.out.print("GAME OVER");
                     System.exit(0);
@@ -182,8 +186,9 @@ public class Elementos {
                 System.out.print("Digite sua resposta: ");
                 respostaCorreta = entrada.next().toLowerCase().charAt(0);
                 if (respostaCorreta == 'c') {
+                    pararCronometro();
                     System.out.print("Parabéns! Resposta correta");
-                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                    Historia.historia_cidadeDoces();
                 }else if(respostaCorreta != 'c' && tentativa==2){
                     System.out.print("GAME OVER");
                     System.exit(0);
@@ -196,8 +201,9 @@ public class Elementos {
                 System.out.print("Digite sua resposta: ");
                 respostaCorreta = entrada.next().toLowerCase().charAt(0);
                 if (respostaCorreta == 'b') {
+                    pararCronometro();
                     System.out.print("Parabéns! Resposta correta");
-                    Historia.cidadeDoces(personagem,companheiroEscolhido);
+                    Historia.historia_cidadeDoces();
                 }else if(respostaCorreta != 'b' && tentativa==2){
                     System.out.print("GAME OVER");
                     System.exit(0);
