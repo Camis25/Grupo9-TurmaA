@@ -468,7 +468,7 @@ public class Historia {
 ;
                 System.out.println(historia);
                 desafioBuracoNegro(entrada);
-                CidadeDosDoces_Desafio02(entrada);
+                
 
 
                     String textofinal= "Escolha sua pílula";
@@ -556,17 +556,24 @@ public class Historia {
                                     String respostaC1 = entrada.next().toUpperCase();
                                     
                                     if(respostaC1.equals("C")){
-                                        System.out.println();
+                                        System.out.println("Foi");
+                                       break;
                                     }else if(!respostaC1.equals("C") && tentativa2 == 2){
                                         System.out.println("GAME OVER!!!");
+                                        System.exit(0);
                                     }else{
                                         System.out.println("Voce só tem mais uma chance");
+                                        tentativa2++;
                                     }
                                 } while (tentativa2 <= 2);
+
+                                break;
                             }else if(!respostaA.equals("A") && tentativa1 == 2){
                                 System.out.println("Game Over");
+                                System.exit(0);
                             }else{
                                 System.out.println("\"Voce só tem mais uma chance\"");
+                                tentativa1++;
                             }
                         } while (tentativa1 <= 2);
 
