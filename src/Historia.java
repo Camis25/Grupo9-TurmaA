@@ -463,13 +463,11 @@ public class Historia {
                 CasaAbandonada_Desafio02(entrada);   
               
                 String historia =   
-                "O Homem das Trevas sorri de forma debochada e diz\n\"Lembre-se, não confie em todos dentro desse jogo \",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n" + 
-                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
-                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
-                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
-                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
-
+                "Ao passar a porta você se depara com um buraco negro, onde você cai em um looping, para conseguir parar é necessário responder "
+                +"\n3 perguntas sobre laço de repetição, caso acerte você pode passar para a próxima sala e terá a opção de escolher entre duas pílulas "
+;
                 System.out.println(historia);
+                desafioBuracoNegro(entrada);
                 CidadeDosDoces_Desafio02(entrada);
 
 
@@ -489,12 +487,12 @@ public class Historia {
     
            do{
                 System.out.println("Digite a resposta");
-                String respostaB = entrada.next().toUpperCase();
+                String respostaC = entrada.next().toUpperCase();
 
-                if(respostaB.equals("C")){
-                    System.out.println("Resposta correta");
+                if(respostaC.equals("C")){
+                    System.out.println("Você se mostrou capaz meu caro, , irei te ajudar a seguir o caminho para alcançar a porta mais rápido");
                     break;
-                 }else if(!respostaB.equals("C") && caminhoB == 2) {
+                 }else if(!respostaC.equals("C") && caminhoB == 2) {
                         System.out.println("Game Over");
                         System.exit(0);
                  }else{
@@ -503,6 +501,87 @@ public class Historia {
                 }
         }while(caminhoB <= 2);
         }
+
+        public static void desafioBuracoNegro(Scanner entrada){
+            String texto = "Qual é a diferença entre while e do-while em Java?"
+                +"\na) While executa o bloco pelo menos uma vez, enquanto do-while só executa se a condição inicial for verdadeira." 
+                +"\nb) Do-while executa o bloco pelo menos uma vez, enquanto while só executa se a condição inicial for verdadeira. "
+                +"\nc) Não há diferença entre os dois. "
+                +"\nd) While é mais eficiente que do-while.";
+
+                System.out.println(texto);
+
+                int tentativa = 1;
+
+                do { 
+                    System.out.println("Digite a resposta");
+                    String respostaB =  entrada.next().toUpperCase();
+
+                    if(respostaB.equals("B")){
+                        System.out.println(
+                            "Parabéns você passou para a próxima questão" 
+                        +"\tQual é a saída do seguinte código Java? "
+                        +"\nfor (int i = 0; i < 5; i++) {"
+                        +"\nif (i == 3) {"
+                        +"\n   continue"
+                        +"\n  }"
+                        +"\nSystem.out.println(i)"
+                        +"\n}\n"
+                        +"\na) 0 1 2 3 4 "
+                        +"\nb) 0 1 2 4 "
+                        +"\nc) 3 "
+                        +"\nd) Nenhuma saída"
+                        );
+
+                        int tentativa1 = 1;
+
+                        do { 
+                            System.out.println("Digite a resposta");
+                            String respostaA = entrada.next().toUpperCase();
+
+                            if(respostaA.equals("A")){
+                                System.out.println(
+                                    "Qual laço é mais adequado para iterar sobre uma lista de elementos cujo"
+                                    +"\ntamanho é conhecido antecipadamente?"
+                                   +" a) while "
+                                   +" b) do-while "
+                                   +" c) for" 
+                                   +" d) Nenhum dos anteriores"
+                                );
+
+                                int tentativa2 = 1;
+
+                                do { 
+                                    System.out.println("Digite a resposta");
+                                    String respostaC1 = entrada.next().toUpperCase();
+                                    
+                                    if(respostaC1.equals("C")){
+                                        System.out.println();
+                                    }else if(!respostaC1.equals("C") && tentativa2 == 2){
+                                        System.out.println("GAME OVER!!!");
+                                    }else{
+                                        System.out.println("Voce só tem mais uma chance");
+                                    }
+                                } while (tentativa2 <= 2);
+                            }else if(!respostaA.equals("A") && tentativa1 == 2){
+                                System.out.println("Game Over");
+                            }else{
+                                System.out.println("\"Voce só tem mais uma chance\"");
+                            }
+                        } while (tentativa1 <= 2);
+
+                        break;
+                     }else if(!respostaB.equals("B") && tentativa == 2) {
+                            System.out.println("Game Over");
+                            System.exit(0);
+                     }else{
+                            System.out.println("Voce só tem mais uma chance");
+                            tentativa++;
+                    }
+                    
+                } while (tentativa <= 2);
+        }
+
     
 }
 
