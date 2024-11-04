@@ -126,37 +126,29 @@ public class RPG {
         String escolhaCompanheiro = "\nAo seu lado, está " + companheiroEscolhido + ", o seu companheiro que    acabou escolhendo quando " + "\niniciou o jogo e que irá te ajuda durante a jornada";
         TextoAnimado.aparecerTexto(escolhaCompanheiro, 0);
 
-        String desafio1 = """
-                \nPara iniciar sua jornada é preciso destrancar a porta, então leia atentamente. 
-                Utilizando o laço for para obter os quatro primeiros números pares que são múltiplos de 4. 
-                Qual das opções abaixo o levará ao tesouro da programação?\n
-
-                A)
-                    for (int i = 1; i <= 16; i++) { 
-                        if (i % 4 == 0) { 
-                        System.out.println(i); 
-                    } 
-                }
-
-
-                B)
-                    for (int i = 4; i <= 16; i += 4) { 
-                        System.out.println(i); 
-                    }
-
-
-                C)
-                    for (int i = 2; i <= 8; i++) { 
-                        System.out.println(i * 2);
-                    }
+        String desafio1 = "\nPara iniciar sua jornada é preciso destrancar a porta, então leia atentamente. "
+        + "\nUtilizando o laço for para obter os quatro primeiros números pares que são múltiplos de 4. "
+        + "\nQual das opções abaixo o levará ao tesouro da programação?\n"
+        + "\nA)\n"
+        + "    for (int i = 1; i <= 16; i++) { \n"
+        + "        if (i % 4 == 0) { \n"
+        + "            System.out.println(i); \n"
+        + "        } \n"
+        + "    }\n"
+        + "\nB)\n"
+        + "    for (int i = 4; i <= 16; i += 4) { \n"
+        + "        System.out.println(i); \n"
+        + "    }\n"
+        + "\nC)\n"
+        + "    for (int i = 2; i <= 8; i++) { \n"
+        + "        System.out.println(i * 2);\n"
+        + "    }\n"
+        + "\nD)\n"
+        + "    for (int i = 0; i < 4; i++) { \n"
+        + "        System.out.println(i * 8); \n"
+        + "    }\n";
 
 
-                D)
-                    for (int i = 0; i < 4; i++) { 
-                        System.out.println(i * 8); 
-                    }
-    
-                \n""";
                 
                 TextoAnimado.aparecerTexto(desafio1, 0);
                 
@@ -182,10 +174,10 @@ public class RPG {
                         respostaCorreta1 = true;
                         pararCronometro();
             
-                        TextoAnimado.aparecerTexto("""
-                            \nApós alguns momentos de reflexão, você grita: \"A resposta correta é B!\"
-                            A porta se abriu lentamente... 
-                            """, 0);
+                        TextoAnimado.aparecerTexto(
+                                "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
+                                +"A porta se abriu lentamente... "
+                        , 0);
                     }
                     } catch (NumberFormatException e) {
                         verificarChamandoCompanheiro(companheiroEscolhido,respDesafio1,personagem);
