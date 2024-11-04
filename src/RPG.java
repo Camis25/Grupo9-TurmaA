@@ -208,7 +208,7 @@ public class RPG {
 
                         break;
                         case "B":
-                        casaAbandonada(personagem);
+                        casaAbandonada(personagem,companheiroEscolhido);
                         respostaCorreta2 = true;
                         break;
                             default:
@@ -320,7 +320,7 @@ public class RPG {
             return "";
         }
 
-           
+        public static void CidadeDosDoces_Desafio01(Scanner entrada, String companheiroEscolhido, String personagem){
             String desafio = "Eu sou um número que:\n" + 
                     "Quando você me divide por 2, o resto é 1.\n" + 
                     "Quando você me divide por 3, o resto é 0.\n" + 
@@ -367,26 +367,25 @@ public class RPG {
             do{
 
                 System.out.print("Digite sua resposta: ");
-                char resp = entrada.next().charAt(0);
-
-                try{
-                if(resp == 'a' || resp == 'A'){
+                String resp = entrada.next().toLowerCase();
+                
+                
+                if(resp == "a"){
                     System.out.print("Resposta correta!\n");
                     break;
-                } else if(resp != 3 && tentativa==2){
+                } else if(resp != "a" && tentativa==2){
                     System.out.print("Game Over");
                     System.exit(0);
                 }else{
+                    verificarChamandoCompanheiro(companheiroEscolhido,resp,personagem);
                     System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
                     tentativa++;
                 }
-                } catch (NumberFormatException e){
-                    verificarChamandoCompanheiro(companheiroEscolhido,resp,personagem);
-                }
+
             }while(tentativa <= 2);
         }
 
-        public static void casaAbandonada(String personagem){
+        public static void casaAbandonada(String personagem, String companheiroEscolhido){
             Scanner entrada = new Scanner(System.in);
             String texto = 
             "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
@@ -448,7 +447,6 @@ public class RPG {
                 "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
 
                 System.out.println(historia);
-                CidadeDosDoces_Desafio02(entrada,companheiroEscolhido, personagem);
 
                     String textofinal= "Escolha sua pílula";
                     System.out.println(textofinal);
@@ -462,8 +460,9 @@ public class RPG {
         public static void CasaAbandonada_Desafio02(Scanner entrada){
            
             int caminhoB = 1;
-    
-           do{
+
+            
+            do{
                 System.out.println("Digite a resposta");
                 String respostaB = entrada.next().toUpperCase();
 
