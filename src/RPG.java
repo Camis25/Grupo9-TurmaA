@@ -258,46 +258,115 @@ public class RPG {
         public static String desafio3escolherPilula(Scanner entrada) {
             System.out.println("1. Pílula Azul");
             System.out.println("2. Pílula Vermelha");
-    
+        
             int escolha;
-    
+        
             while (true) {
                 System.out.print("Digite o número da sua escolha: ");
-    
+        
                 if (entrada.hasNextInt()) {
                     escolha = entrada.nextInt();
                     entrada.nextLine(); // Limpa a quebra de linha pendente
-    
+        
                     if (escolha == 1) {
                         // Chama o desafio da pílula azul
                         return desafio3PílulaAzul(entrada);
                     } else if (escolha == 2) {
-                        // Continuação para a pílula vermelha
-                        return "Você escolheu a pílula vermelha e segue para um novo caminho...";
+                        // Chama o desafio da pílula vermelha
+                        return desafio3PílulaVermelha(entrada);
                     } else {
                         System.out.println("Escolha inválida! Digite 1 para Pílula Azul ou 2 para Pílula Vermelha.");
                     }
                 }
             }
         }
+
+
+        public static String desafio3PílulaVermelha(Scanner entrada) {
+            String narrativa = 
+                    "Você toma a pílula vermelha e no mesmo instante começa a ter visões sobre tudo o que aconteceu, então você enxerga a obscuridade por trás daquele mundo mágico.\n" +
+                    "Há muito tempo, uma bruxa chamada Astrid utilizou sua magia para criar um jogo amaldiçoado, projetado para aprisionar aqueles que não conseguissem completar os 5 desafios de seu jogo.\n" +
+                    "Seu objetivo era simples: garantir que as almas dos jogadores ficassem presas para sempre, condenadas a enfrentar seus medos e anseios em um labirinto sem fim.\n\n" +
+                    "Ao mergulhar nas visões proporcionadas pela pílula vermelha, você descobre a verdade devastadora: seus pais, pessoas que você amava profundamente, foram atraídos por essa armadilha traiçoeira.\n" +
+                    "Suas almas agora estão aprisionadas dentro do jogo, vagando em um mundo distorcido, cercadas por ilusões que os impedem de se libertar.\n" +
+                    "A única forma de libertar todas essas almas é se o tão esperado predestinado sacrificar suas memórias por todos.\n\n" +
+                    "O que você escolhe?\n" +
+
+                    "A) Terminar de completar todos os desafios e destruir o jogo para sempre.\n" +
+                    "B) Salvar os seus pais e todas as almas presas dentro do jogo, em troca sacrificar sua memória.\n";
+        
+            System.out.println(narrativa);
+        
+            while (true) {
+                System.out.print("Digite sua escolha (A ou B): ");
+                char escolha = entrada.next().toUpperCase().charAt(0);
+        
+                if (escolha == 'A') {
+                    if (escolha == 'A') {
+            // Mostra o texto da pílula azul e continua o jogo
+                        desafio3PílulaAzul(entrada);
+                } else if (escolha == 'B') {
+                    String textoFinal =
+                            "O peso dessa revelação se torna uma chama ardente dentro de você, alimentando uma determinação inabalável de resgatar seus pais\n" +
+                            "e confrontar a bruxa que os condenou a essa existência sombria. Neste momento, você entende o porquê de ser o predestinado.\n\n" +
+                            "Depois de absorver toda essa revelação, você se levanta, sentindo uma nova força pulsar dentro de você.\n" +
+                            "Com a pílula vermelha ainda ecoando em sua mente, você decide que não pode perder tempo.\n" +
+                            "Ao olhar ao seu redor, uma sensação de vertigem toma conta de você. A escuridão se desfez em um turbilhão de luz,\n" +
+                            "e, quando seus olhos se abriram novamente, você se viu à beira de um lago sereno.\n" +
+                            "As águas refletiam a luz de um céu estrelado, e uma brisa suave acariciava seu rosto.\n" +
+                            "Mas a beleza do cenário era ofuscada por uma sensação de tristeza profunda; ali era um lago de almas perdidas.\n\n" +
+                            "De repente, uma das almas começa a falar com você:\n" +
+                            "\"Variável, fico feliz por chegar até aqui. Todas essas pessoas tentaram vencer o jogo e não conseguiram;\n" +
+                            "como consequência, suas almas estão presas nesse mundo para sempre, junto de suas memórias.\"\n\n" +
+                            "Game Over";
+        
+                    System.out.println(textoFinal);
+                    System.exit(0); // Encerra o jogo após exibir a narrativa final.
+                } else {
+                    System.out.println("Escolha inválida! Digite A para completar os desafios ou B para salvar seus pais.");
+                }
+            
+
+            }
+
+            }
+        }
     
         public static String desafio3PílulaAzul(Scanner entrada) {
-            String enunciado =
+            String introducao = 
+                    "Você fica imaginando o que poderia acontecer com você depois daquela escolha, ao tomar a pílula azul, uma sensação de vertigem tomou conta de você.\n"
+                  + "A escuridão se desfez em um turbilhão de luz, e, quando seus olhos se abriram novamente, você se viu à beira de um lago sereno.\n"
+                  + "As águas refletiam a luz de um céu estrelado, e uma brisa suave acariciava seu rosto.\n"
+                  + "Mas a beleza do cenário era ofuscada por uma sensação de tristeza profunda; ali era um lago de almas perdidas.\n\n"
+                  + "De repente, uma das almas começa a falar com você:\n"
+                  + "\"Variável, fico feliz por chegar até aqui.\"\n\n"
+                  + "Você se demonstrava muito nervoso, pois aquele lugar continha uma energia muito pesada.\n\n"
+                  + "\"Não precisa ficar nervoso, estamos no lago das almas perdidas. Todas as pessoas que estão aqui tentaram vencer o jogo e não conseguiram.\n"
+                  + "Como consequência, suas almas estão presas nesse mundo para sempre.\"\n\n"
+                  + "Você questiona a alma se não há nenhum jeito de tirá-las dali, e a alma então responde:\n"
+                  + "\"Sim, mas suas escolhas impactam tudo o que acontece nesse mundo, e não posso te falar mais nada sobre isso.\n"
+                  + "Como você chegou até a penúltima etapa, vou te orientar sobre o próximo desafio.\"\n\n"
+                  + "Você fica se questionando o que teria acontecido se tivesse tomado a pílula vermelha, se teria alguma forma de salvar aquelas pobres almas.\n"
+                  + "Mas é interrompido pela alma, que te entrega o enunciado do desafio:\n";
+            
+            System.out.println(introducao);
+        
+            String enunciado = 
                     "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3. Utilize um loop do-while para encontrar a resposta:\n" +
-                            "a) int i = 3, soma = 0; do { soma += i; i += 3; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
-                            "b) int i = 3, soma = 0; do { soma += i; i++; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
-                            "c) int i = 3, soma = 0; do { soma += i; i += 3; } while (i < 15); System.out.println(\"A soma é: \" + soma);\n" +
-                            "d) int i = 3, soma = 0; do { soma += i; i += 2; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n";
-    
+                    "a) int i = 3, soma = 0; do {soma += i; i += 3;} while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
+                    "b) int i = 3, soma = 0; do { soma += i; i++; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n" +
+                    "c) int i = 3, soma = 0; do { soma += i; i += 3; } while (i < 15); System.out.println(\"A soma é: \" + soma);\n" +
+                    "d) int i = 3, soma = 0; do { soma += i; i += 2; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n";
+        
             System.out.println(enunciado);
-    
+        
             int tentativa = 1;
             char resposta;
-    
+        
             while (tentativa <= 2) {
                 System.out.print("Digite sua resposta: ");
                 resposta = entrada.next().toLowerCase().charAt(0);
-    
+        
                 if (resposta == 'a') {
                     System.out.println("Parabéns! Você acertou.");
                     return "Você escolheu a pílula azul e passou para o próximo desafio!";
