@@ -165,7 +165,7 @@ public class RPG {
 
         int chancesDesafio1 = 0;
         boolean respostaCorreta1 = false;
-        Cronometro();
+        cronometro();
 
         do {
             System.out.println("Digite a resposta: ");
@@ -184,10 +184,9 @@ public class RPG {
                         System.exit(0);
                     }
                 } else {
-
-                    respostaCorreta1 = true;
                     pararCronometro();
-
+                    respostaCorreta1 = true;
+                    
                     TextoAnimado.aparecerTexto(
                             "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
                                     + "A porta se abriu lentamente... ",
@@ -277,6 +276,7 @@ public class RPG {
         System.out.println(desafio);
 
         int tentativa = 1;
+        cronometro();
 
         while (tentativa <= 2) {
 
@@ -285,14 +285,14 @@ public class RPG {
             try {
                 int respInt = Integer.parseInt(resp);
                 if (respInt == 3) {
+                    pararCronometro();
                     System.out.print("Resposta correta!\n");
                     break;
                 } else if (respInt != 3 && tentativa == 2) {
                     System.out.println("Não foi dessa vez! Voltando ao menu...");
                     voltarAoMenu();
                 } else {
-                    System.out.print(
-                            "Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                    System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
                     tentativa++;
                 }
             } catch (NumberFormatException e) {
@@ -316,6 +316,7 @@ public class RPG {
         System.out.println(enunciado);
 
         int tentativa = 1;
+        cronometro();
 
         do {
 
@@ -323,6 +324,7 @@ public class RPG {
             String resp = entrada.next().toLowerCase();
 
             if (resp.equals("a")) {
+                pararCronometro();
                 System.out.print("Resposta correta!\n");
                 break;
             } else if (!(resp.equals("a")) && tentativa == 2) {
@@ -449,36 +451,8 @@ public class RPG {
 
         System.out.println(introducao);
 
-        String enunciado = "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3. Utilize um loop do-while para encontrar a resposta:\n"
-                +
-                "a) int i = 3, soma = 0; do {soma += i; i += 3;} while (i <= 15); System.out.println(\"A soma é: \" + soma);\n"
-                +
-                "b) int i = 3, soma = 0; do { soma += i; i++; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n"
-                +
-                "c) int i = 3, soma = 0; do { soma += i; i += 3; } while (i < 15); System.out.println(\"A soma é: \" + soma);\n"
-                +
-                "d) int i = 3, soma = 0; do { soma += i; i += 2; } while (i <= 15); System.out.println(\"A soma é: \" + soma);\n";
+        //Fazer o desafio do espelho
 
-        System.out.println(enunciado);
-
-        int tentativa = 1;
-        char resposta;
-
-        while (tentativa <= 2) {
-            System.out.print("Digite sua resposta: ");
-            resposta = entrada.next().toLowerCase().charAt(0);
-
-            if (resposta == 'a') {
-                System.out.println("Parabéns! Você acertou.");
-                return "Você escolheu a pílula azul e passou para o próximo desafio!";
-            } else if (tentativa == 2) {
-                System.out.println("Não foi dessa vez! Voltando ao menu...");
-                voltarAoMenu();
-            } else {
-                System.out.println("Resposta incorreta. Você tem mais uma chance.\n");
-                tentativa++;
-            }
-        }
         return "";
     }
 
@@ -558,12 +532,14 @@ public class RPG {
     public static void CasaAbandonada_Desafio02(Scanner entrada) {
 
         int caminhoB = 1;
+        cronometro();
 
         do {
             System.out.println("Digite a resposta");
             String respostaB = entrada.next().toUpperCase();
 
             if (respostaB.equals("C")) {
+                pararCronometro();
                 System.out.println("Resposta correta");
                 break;
             } else if (!respostaB.equals("C") && caminhoB == 2) {
@@ -592,6 +568,7 @@ public class RPG {
         System.out.println(texto);
 
         int tentativa = 1;
+        cronometro();
 
         do {
             System.out.println("Digite a resposta");
@@ -634,6 +611,7 @@ public class RPG {
                             String respostaC1 = entrada.next().toUpperCase();
 
                             if (respostaC1.equals("C")) {
+                                pararCronometro();
                                 System.out.println("Foi");
                                 break;
                             } else if (!respostaC1.equals("C") && tentativa2 == 2) {
@@ -701,7 +679,7 @@ public class RPG {
         }
     }
 
-    public static void Cronometro() {
+    public static void cronometro() {
         Timer timer = new Timer();
         int tempoTotalEmSegundos = 2 * 60;
 
@@ -809,7 +787,7 @@ public class RPG {
 
         do {
 
-            Cronometro();
+            cronometro();
             switch (indiceAleatorio) {
 
                 case 0:
