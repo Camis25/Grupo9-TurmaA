@@ -171,27 +171,26 @@ public class RPG {
             System.out.println("Digite a resposta: ");
             String respDesafio1 = entrada.next().toUpperCase();
 
-           
-                if (!respDesafio1.equals("B")) {
-                    if(respDesafio1.equals("K") || respDesafio1.equals("D") || respDesafio1.equals("O")){
-                        verificarChamandoCompanheiro(companheiroEscolhido, respDesafio1, personagem);
-                    }
-                    chancesDesafio1++;
-                    System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
-
-                    if (chancesDesafio1 >= 2) {
-                        System.out.println("Não foi dessa vez! Encerrando o jogo..");
-                        System.exit(0);
-                    }
-                } else {
-                    pararCronometro();
-                    respostaCorreta1 = true;
-                    
-                    TextoAnimado.aparecerTexto(
-                            "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
-                                    + "A porta se abriu lentamente... ",
-                            0);
+            if (!respDesafio1.equals("B")) {
+                if (respDesafio1.equals("K") || respDesafio1.equals("D") || respDesafio1.equals("O")) {
+                    verificarChamandoCompanheiro(companheiroEscolhido, respDesafio1, personagem);
                 }
+                chancesDesafio1++;
+                System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
+
+                if (chancesDesafio1 >= 2) {
+                    System.out.println("Não foi dessa vez! Encerrando o jogo..");
+                    System.exit(0);
+                }
+            } else {
+                pararCronometro();
+                respostaCorreta1 = true;
+
+                TextoAnimado.aparecerTexto(
+                        "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
+                                + "A porta se abriu lentamente... ",
+                        0);
+            }
 
         } while (!respostaCorreta1);
 
@@ -256,11 +255,11 @@ public class RPG {
     }
 
     public static void retornaCidadeDocas(Scanner entrada, String companheiroEscolhido, String personagem) {
-        String historia = 
-                "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n"
-                + "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + 
+        String historia = "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n"
+                + "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" +
                 "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
-                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
+                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n"
+                + "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
         System.out.println(historia);
         CidadeDosDoces_Desafio02(entrada, companheiroEscolhido, personagem);
         // **Escolha da pílula: azul ou vermelha**
@@ -292,7 +291,8 @@ public class RPG {
                     System.out.println("Não foi dessa vez! Voltando ao menu...");
                     voltarAoMenu();
                 } else {
-                    System.out.print("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                    System.out.print(
+                            "Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
                     tentativa++;
                 }
             } catch (NumberFormatException e) {
@@ -328,16 +328,17 @@ public class RPG {
                 System.out.print("Resposta correta!\n");
                 break;
             } else if (!(resp.equals("a")) && tentativa == 2) {
-                if(resp.equals("k") || resp.equals("d") || resp.equals("o")){
+                if (resp.equals("k") || resp.equals("d") || resp.equals("o")) {
                     verificarChamandoCompanheiro(companheiroEscolhido, resp, personagem);
                 }
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
             } else {
-                if(resp.equals("k") || resp.equals("d") || resp.equals("o")){
+                if (resp.equals("k") || resp.equals("d") || resp.equals("o")) {
                     verificarChamandoCompanheiro(companheiroEscolhido, resp, personagem);
                 }
-                System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                System.out
+                        .println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
                 tentativa++;
             }
 
@@ -355,13 +356,11 @@ public class RPG {
 
             if (entrada.hasNextInt()) {
                 escolha = entrada.nextInt();
-                entrada.nextLine(); // Limpa a quebra de linha pendente
+                entrada.nextLine();
 
                 if (escolha == 1) {
-                    // Chama o desafio da pílula azul
                     return desafio3PílulaAzul(entrada);
                 } else if (escolha == 2) {
-                    // Chama o desafio da pílula vermelha
                     return desafio3PílulaVermelha(entrada);
                 } else {
                     System.out.println("Escolha inválida! Digite 1 para Pílula Azul ou 2 para Pílula Vermelha.");
@@ -395,42 +394,39 @@ public class RPG {
             char escolha = entrada.next().toUpperCase().charAt(0);
 
             if (escolha == 'A') {
-                if (escolha == 'A') {
-                    // Mostra o texto da pílula azul e continua o jogo
-                    desafio3PílulaAzul(entrada);
-                } else if (escolha == 'B') {
-                    String textoFinal = "O peso dessa revelação se torna uma chama ardente dentro de você, alimentando uma determinação inabalável de resgatar seus pais\n"
-                            +
-                            "e confrontar a bruxa que os condenou a essa existência sombria. Neste momento, você entende o porquê de ser o predestinado.\n\n"
-                            +
-                            "Depois de absorver toda essa revelação, você se levanta, sentindo uma nova força pulsar dentro de você.\n"
-                            +
-                            "Com a pílula vermelha ainda ecoando em sua mente, você decide que não pode perder tempo.\n"
-                            +
-                            "Ao olhar ao seu redor, uma sensação de vertigem toma conta de você. A escuridão se desfez em um turbilhão de luz,\n"
-                            +
-                            "e, quando seus olhos se abriram novamente, você se viu à beira de um lago sereno.\n" +
-                            "As águas refletiam a luz de um céu estrelado, e uma brisa suave acariciava seu rosto.\n" +
-                            "Mas a beleza do cenário era ofuscada por uma sensação de tristeza profunda; ali era um lago de almas perdidas.\n\n"
-                            +
-                            "De repente, uma das almas começa a falar com você:\n" +
-                            "\"Variável, fico feliz por chegar até aqui. Todas essas pessoas tentaram vencer o jogo e não conseguiram;\n"
-                            +
-                            "como consequência, suas almas estão presas nesse mundo para sempre, junto de suas memórias.\"\n\n"
-                            +
-                            "Game Over";
+                return desafio3PílulaAzul(entrada);
+            } else if (escolha == 'B') {
+                String textoFinal = "O peso dessa revelação se torna uma chama ardente dentro de você, alimentando uma determinação inabalável de resgatar seus pais\n"
+                        +
+                        "e confrontar a bruxa que os condenou a essa existência sombria. Neste momento, você entende o porquê de ser o predestinado.\n\n"
+                        +
+                        "Depois de absorver toda essa revelação, você se levanta, sentindo uma nova força pulsar dentro de você.\n"
+                        +
+                        "Com a pílula vermelha ainda ecoando em sua mente, você decide que não pode perder tempo.\n"
+                        +
+                        "Ao olhar ao seu redor, uma sensação de vertigem toma conta de você. A escuridão se desfez em um turbilhão de luz,\n"
+                        +
+                        "e, quando seus olhos se abriram novamente, você se viu à beira de um lago sereno.\n" +
+                        "As águas refletiam a luz de um céu estrelado, e uma brisa suave acariciava seu rosto.\n" +
+                        "Mas a beleza do cenário era ofuscada por uma sensação de tristeza profunda; ali era um lago de almas perdidas.\n\n"
+                        +
+                        "De repente, uma das almas começa a falar com você:\n" +
+                        "\"Variável, fico feliz por chegar até aqui. Todas essas pessoas tentaram vencer o jogo e não conseguiram;\n"
+                        +
+                        "como consequência, suas almas estão presas nesse mundo para sempre, junto de suas memórias.\"\n\n"
+                        +
+                        "Game Over";
 
-                    System.out.println(textoFinal);
-                    System.out.println("Não foi dessa vez! Voltando ao menu...");
-                    voltarAoMenu();
-                } else {
-                    System.out.println(
-                            "Escolha inválida! Digite A para completar os desafios ou B para salvar seus pais.");
-                }
-
+                System.out.println(textoFinal);
+                System.out.println("Não foi dessa vez! Voltando ao menu...");
+                voltarAoMenu();
+            } else {
+                System.out.println(
+                        "Escolha inválida! Digite A para completar os desafios ou B para salvar seus pais.");
             }
 
         }
+
     }
 
     public static String desafio3PílulaAzul(Scanner entrada) {
@@ -451,12 +447,113 @@ public class RPG {
 
         System.out.println(introducao);
 
-        //Fazer o desafio do espelho
+        String salaDosEspelhos = "Sala dos espelhos\n"
+                + "Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria.\n"
+                + "Você acerta o desafio e aquela alma então diz “Boa sorte com a última etapa do jogo!”, de repente você se vê dentro de um túnel onde há uma luz muito intensa no fim dele.\n"
+                + "Quando você termina de passar o túnel, sai dentro de um salão de um lindo castelo onde é recebido por uma multidão de seres mágicos.\n"
+                + "No trono desse castelo está uma linda rainha, e algum tipo de magia acaba te levando até ela.\n"
+                + "Ao chegar, ela te fala: “Parabéns por escolher seguir com os desafios, você está quase no final, mas prepare-se, as coisas vão complicar.\n"
+                + "Sua próxima sala tem um conjunto de espelhos antigos, cada um com uma aura única e enigmática.\n"
+                + "A escolha incorreta leva a um desaparecimento instantâneo para um mundo desconhecido.\n"
+                + "A escolha correta, por sua vez, apresenta um desafio intelectual: uma pergunta que, se respondida corretamente, conduz a uma recompensa grandiosa.\n"
+                + "Mas se respondida incorretamente, desencadeia consequências imprevisíveis.”\n\n"
+                + "REGRAS: você só pode escolher os espelhos posicionados à sua Direita ou Esquerda, ao todo você terá três espelhos para entrar.\n";
 
-        return "";
+        System.out.println(salaDosEspelhos);
+
+        String perguntaPrimeiroEspelho = "Questão do primeiro espelho:\n"
+                + "Qual das seguintes sintaxes está correta para um laço for em Java?\n"
+                + "1) for (int i = 0; i < 10; i++) { ... }\n"
+                + "2) for (i = 0; i < 10; i++) { ... }\n"
+                + "3) for (int i = 0; i <= 10; i--) { ... }\n"
+                + "4) for (int i = 10; i > 0; i++) { ... }\n"
+                + "Digite o número da sua resposta: ";
+
+        int tentativas = 2;
+        while (tentativas > 0) {
+            System.out.print(perguntaPrimeiroEspelho);
+            int resposta = entrada.nextInt();
+
+            if (resposta == 1) {
+                System.out.println("Resposta correta! Você passa para o próximo desafio.");
+                break;
+            } else {
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Resposta incorreta! Tente novamente. Restam " + tentativas + " tentativa(s).");
+                } else {
+                    System.out.println("Resposta incorreta! Você usou todas as suas tentativas.");
+                    System.out.println("Game Over");
+                    return "Game Over. Você falhou no desafio do primeiro espelho.";
+                }
+            }
+        }
+
+        String perguntaSegundoEspelho = "Questão do segundo espelho:\n"
+                + "Em um laço while, o que acontece quando a condição se torna falsa?\n"
+                + "1) O laço continua indefinidamente.\n"
+                + "2) O laço é encerrado.\n"
+                + "3) O programa é encerrado.\n"
+                + "4) Ocorre um erro de compilação.\n"
+                + "Digite o número da sua resposta: ";
+
+        tentativas = 2;
+        while (tentativas > 0) {
+            System.out.print(perguntaSegundoEspelho);
+            int resposta = entrada.nextInt();
+
+            if (resposta == 2) {
+                System.out.println("Resposta correta! Você passa para o próximo desafio.");
+                break;
+            } else {
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Resposta incorreta! Tente novamente. Restam " + tentativas + " tentativa(s).");
+                } else {
+                    System.out.println("Resposta incorreta! Você usou todas as suas tentativas.");
+                    System.out.println("Game Over");
+                    return "Game Over. Você falhou no desafio do segundo espelho.";
+                }
+            }
+        }
+
+        String perguntaTerceiroEspelho = "Questão do terceiro espelho:\n"
+                + "Como você implementaria o algoritmo de busca binária utilizando um laço?\n"
+                + "1) Utilizando um laço while para dividir o intervalo de busca a cada iteração.\n"
+                + "2) Utilizando um laço for para percorrer todo o array.\n"
+                + "3) Utilizando um laço do-while para garantir que o elemento seja encontrado.\n"
+                + "4) Utilizando recursão.\n"
+                + "Digite o número da sua resposta: ";
+
+        tentativas = 2;
+        while (tentativas > 0) {
+            System.out.print(perguntaTerceiroEspelho);
+            int resposta = entrada.nextInt();
+
+            if (resposta == 1) {
+                System.out.println("Resposta correta! Você concluiu o desafio dos espelhos com sucesso.");
+                break;
+            } else {
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Resposta incorreta! Tente novamente. Restam " + tentativas + " tentativa(s).");
+                } else {
+                    System.out.println("Resposta incorreta! Você usou todas as suas tentativas.");
+                    System.out.println("Game Over");
+                    return "Game Over. Você falhou no desafio do terceiro espelho.";
+                }
+            }
+        }
+
+        String textoFinalEspelho = "Ao finalizar o desafio, a rainha volta até você e diz:\n"
+                + "\"Olá, querido, parabéns por ter chegado à última fase do jogo. Nessa etapa, você terá que resolver um enigma;\n"
+                + "você poderá resolver o horário do jantar.\"\n"
+                + "Você fica pensando: como assim um jantar? Cadê aquela pessoa tão má que prendeu aquelas almas aqui dentro?";
+
+        System.out.println(textoFinalEspelho);
+
+        return "Parabéns! Você completou o desafio dos espelhos.";
     }
-
-    
 
     public static void casaAbandonada(String personagem, String companheiroEscolhido) {
         Scanner entrada = new Scanner(System.in);
@@ -543,13 +640,13 @@ public class RPG {
                 System.out.println("Resposta correta");
                 break;
             } else if (!respostaB.equals("C") && caminhoB == 2) {
-                if(respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")){
+                if (respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")) {
                     verificarChamandoCompanheiro(companheiroEscolhido, respostaB, personagem);
                 }
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
             } else {
-                if(respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")){
+                if (respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")) {
                     verificarChamandoCompanheiro(companheiroEscolhido, respostaB, personagem);
                 }
                 System.out.println("Voce só tem mais uma chance");
@@ -615,13 +712,13 @@ public class RPG {
                                 System.out.println("Foi");
                                 break;
                             } else if (!respostaC1.equals("C") && tentativa2 == 2) {
-                                if(respostaC1.equals("K") || respostaC1.equals("D") || respostaC1.equals("O")){
+                                if (respostaC1.equals("K") || respostaC1.equals("D") || respostaC1.equals("O")) {
                                     verificarChamandoCompanheiro(companheiroEscolhido, respostaC1, personagem);
                                 }
                                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                                 voltarAoMenu();
                             } else {
-                                if(respostaC1.equals("K") || respostaC1.equals("D") || respostaC1.equals("O")){
+                                if (respostaC1.equals("K") || respostaC1.equals("D") || respostaC1.equals("O")) {
                                     verificarChamandoCompanheiro(companheiroEscolhido, respostaC1, personagem);
                                 }
                                 System.out.println("Voce só tem mais uma chance");
@@ -631,13 +728,13 @@ public class RPG {
 
                         break;
                     } else if (!respostaA.equals("A") && tentativa1 == 2) {
-                        if(respostaA.equals("K") || respostaA.equals("D") || respostaA.equals("O")){
+                        if (respostaA.equals("K") || respostaA.equals("D") || respostaA.equals("O")) {
                             verificarChamandoCompanheiro(companheiroEscolhido, respostaA, personagem);
                         }
                         System.out.println("Não foi dessa vez! Voltando ao menu...");
                         voltarAoMenu();
                     } else {
-                        if(respostaA.equals("K") || respostaA.equals("D") || respostaA.equals("O")){
+                        if (respostaA.equals("K") || respostaA.equals("D") || respostaA.equals("O")) {
                             verificarChamandoCompanheiro(companheiroEscolhido, respostaA, personagem);
                         }
                         System.out.println("\"Voce só tem mais uma chance\"");
@@ -647,13 +744,13 @@ public class RPG {
 
                 break;
             } else if (!respostaB.equals("B") && tentativa == 2) {
-                if(respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")){
+                if (respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")) {
                     verificarChamandoCompanheiro(companheiroEscolhido, respostaB, personagem);
                 }
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
             } else {
-                if(respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")){
+                if (respostaB.equals("K") || respostaB.equals("D") || respostaB.equals("O")) {
                     verificarChamandoCompanheiro(companheiroEscolhido, respostaB, personagem);
                 }
                 System.out.println("Voce só tem mais uma chance");
@@ -705,7 +802,8 @@ public class RPG {
             }
         };
 
-        timer.scheduleAtFixedRate(tarefa, 0, 1000); // intervalo para iniciar e em quanto tempo é executado (1000 milesegundos)
+        timer.scheduleAtFixedRate(tarefa, 0, 1000); // intervalo para iniciar e em quanto tempo é executado (1000
+                                                    // milesegundos)
     }
 
     public static void pararCronometro() {
