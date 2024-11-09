@@ -463,19 +463,19 @@ public class RPG {
 
         String perguntaPrimeiroEspelho = "Questão do primeiro espelho:\n"
                 + "Qual das seguintes sintaxes está correta para um laço for em Java?\n"
-                + "1) for (int i = 0; i < 10; i++) { ... }\n"
-                + "2) for (i = 0; i < 10; i++) { ... }\n"
-                + "3) for (int i = 0; i <= 10; i--) { ... }\n"
-                + "4) for (int i = 10; i > 0; i++) { ... }\n"
-                + "Digite o número da sua resposta: ";
+                + "a) for (int i = 0; i < 10; i++) { ... }\n"
+                + "b) for (i = 0; i < 10; i++) { ... }\n"
+                + "c) for (int i = 0; i <= 10; i--) { ... }\n"
+                + "d) for (int i = 10; i > 0; i++) { ... }\n"
+                + "Digite a sua resposta: ";
 
         int tentativas = 2;
         while (tentativas > 0) {
             System.out.print(perguntaPrimeiroEspelho);
-            int resposta = entrada.nextInt();
+            String resposta = entrada.next().toLowerCase(); 
 
-            if (resposta == 1) {
-                System.out.println("Resposta correta! Você passa para o próximo desafio.");
+            if (resposta.equals("a")) {
+                System.out.println("Resposta correta! Você passa para o próximo desafio."); 
                 break;
             } else {
                 tentativas--;
@@ -491,18 +491,18 @@ public class RPG {
 
         String perguntaSegundoEspelho = "Questão do segundo espelho:\n"
                 + "Em um laço while, o que acontece quando a condição se torna falsa?\n"
-                + "1) O laço continua indefinidamente.\n"
-                + "2) O laço é encerrado.\n"
-                + "3) O programa é encerrado.\n"
-                + "4) Ocorre um erro de compilação.\n"
-                + "Digite o número da sua resposta: ";
+                + "a) O laço continua indefinidamente.\n"
+                + "b) O laço é encerrado.\n"
+                + "c) O programa é encerrado.\n"
+                + "d) Ocorre um erro de compilação.\n"
+                + "Digite a sua resposta: ";
 
         tentativas = 2;
         while (tentativas > 0) {
             System.out.print(perguntaSegundoEspelho);
-            int resposta = entrada.nextInt();
+            String resposta = entrada.next().toLowerCase();
 
-            if (resposta == 2) {
+            if (resposta.equals("b")) {
                 System.out.println("Resposta correta! Você passa para o próximo desafio.");
                 break;
             } else {
@@ -519,18 +519,18 @@ public class RPG {
 
         String perguntaTerceiroEspelho = "Questão do terceiro espelho:\n"
                 + "Como você implementaria o algoritmo de busca binária utilizando um laço?\n"
-                + "1) Utilizando um laço while para dividir o intervalo de busca a cada iteração.\n"
-                + "2) Utilizando um laço for para percorrer todo o array.\n"
-                + "3) Utilizando um laço do-while para garantir que o elemento seja encontrado.\n"
-                + "4) Utilizando recursão.\n"
-                + "Digite o número da sua resposta: ";
+                + "a) Utilizando um laço while para dividir o intervalo de busca a cada iteração.\n"
+                + "b) Utilizando um laço for para percorrer todo o array.\n"
+                + "c) Utilizando um laço do-while para garantir que o elemento seja encontrado.\n"
+                + "d) Utilizando recursão.\n"
+                + "Digite a sua resposta: ";
 
         tentativas = 2;
         while (tentativas > 0) {
             System.out.print(perguntaTerceiroEspelho);
-            int resposta = entrada.nextInt();
+            String resposta = entrada.next().toLowerCase();
 
-            if (resposta == 1) {
+            if (resposta.equals("a")) {
                 System.out.println("Resposta correta! Você concluiu o desafio dos espelhos com sucesso.");
                 break;
             } else {
