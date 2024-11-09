@@ -263,6 +263,7 @@ public class RPG {
         System.out.println(historia);
         CidadeDosDoces_Desafio02(entrada, companheiroEscolhido, personagem);
         // **Escolha da pílula: azul ou vermelha**
+        gatoSorridente(entrada);
         desafio3escolherPilula(entrada);
     }
 
@@ -613,14 +614,10 @@ public class RPG {
         String historia = "O Homem das Trevas sorri de forma debochada e diz\n\"Você conseguiu! Mas ainda terá muito trabalho pela frente\"";
         TextoAnimado.aparecerTexto(historia, 0);
         desafioBuracoNegro(entrada);      
+        gatoSorridente(entrada);
+        
 
-        System.out.println(historia);
-
-        String textofinal = "Escolha sua pílula";
-        System.out.println(textofinal);
-
-        // **Escolha da pílula: azul ou vermelha**
-        desafio3escolherPilula(entrada);
+       
 
     }
 
@@ -759,8 +756,72 @@ public class RPG {
             }
 
         } while (tentativa <= 2);
+    
     }
 
+    public static void gatoSorridente(Scanner entrada){
+        String texto = "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos"
+        +"\n, encontra paredes cobertas por códigos e equações, você estava na Caverna do Gato Sorridente."
+        +"\nUma voz rouca ecoa do fim caverna dizendo \"Bom, imaginava que te veria em algum momento,"
+        +"\nmas sejamos breves.\""
+        +"\nO Gato, com seu sorriso enigmático surgi e inesperadamente passa a seguinte mensagem: "
+        +"\n\"“Você terá que resolver um desafio, e se você conseguir resovê-lo terá que escolher entre duas pílulas” \""
+       +"\ndiante desse cenário ele manda você para uma biblioteca enorme onde o seu objeto é encontrar o livro de feitiços"
+        +"\nque irá te levar para uma sala onde encontrará as pílulas"
+        +"\nO gato te entrega um papel que diz \"Para encontrar o livro dos feitiços, acerte a alternativa que some todos os"
+        +"\nnúmeros de 3 até 15, pulando de 3 em 3."
+        +"\nA)"
+        +"\nint i = 3, soma = 0;"
+        +"\ndo {"
+        +"\nsoma += i;"
+        +"\ni += 3;"
+        +"\n} while (i <= 15);"
+        +"\nSystem.out.println(\"A soma é: \" + soma);\n"
+        +"\nB)"
+        +"\nint i = 3, soma = 0;"
+        +"\ndo {"
+        +"\nsoma += i;"
+        +"\ni++;"
+        +"\n} while (i <= 15);"
+        +"\nSystem.out.println(\"A soma é: \" + soma);\n"
+        +"\nC)"
+        +"\nint i = 3, soma = 0;"
+        +"\ndo {"
+        +"\nsoma += i;"
+        +"\ni += 3;"
+        +"\n} while (i < 15);"
+        +"\nSystem.out.println(\"A soma é: \" + soma);"
+        +"\nD)"
+        +"\nint i = 3, soma = 0;"
+        +"\ndo {"
+        +"\n soma += i;"
+        +"\ni += 2;"
+        +"\n} while (i <= 15);"
+        +"\nSystem.out.println(\"A soma é: \" + soma);";
+       
+        TextoAnimado.aparecerTexto(texto, 0);
+
+        int tentativa = 1;
+
+        do{
+            TextoAnimado.aparecerTexto("Digite a resposta", 0);
+            String resposta = entrada.next().toUpperCase();
+
+            if(resposta.equals("A")){
+                System.out.println("Resposta correta!!\n"
+                +"\nUma porta se abre e você encontra duas pílulas em cima de um balcão."
+                +"\nEscolha uma pílula"
+                );
+                desafio3escolherPilula(entrada);
+            }else if(!resposta.equals("A") && tentativa ==2){
+                System.out.println("Game Over!");
+            }else{
+                System.out.println("Não foi dessa vez! Voltando ao menu...");
+                voltarAoMenu();
+            }
+        }while(tentativa <= 2);
+     
+    }
     // Métodos auxiliares e de "Configurações"
     public class TextoAnimado {
 
