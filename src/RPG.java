@@ -552,6 +552,7 @@ public class RPG {
 
         System.out.println(textoFinalEspelho);
 
+        Desafio05(entrada, companheiroEscolhido, personagem);
         return "Parabéns! Você completou o desafio dos espelhos.";
     }
 
@@ -952,6 +953,67 @@ public class RPG {
 
         } while (tentativa <= 2);
         entrada.close();
+    }
+
+    public static void Desafio05(Scanner entrada, String companheiroEscolhido, String personagem) {
+
+        String historia = "Em um piscar de olhos você está diante de uma mesa repleta das suas comidas preferidas, no primeiro "
+                + " momento você fica confuso com aquele desafio, como uma última fase de jogo pode ser tão boa assim? Sua cabeça está confusa, "
+                + "neste momento criaturas mágicas começam a te servir e quando você está prestes a dar a primeira garfada em sua COMIDA PREFERIDA, "
+                + "você percebe que a princesa te olha fixamente e lembra sobre a  orientação do Chapeleiro Louco “Lembre-se, não confie em todos dentro "
+                + "desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa” no mesmo momento você começa a entender o que "
+                + "está acontecendo, coloca o garfo na mesa e começa a pensar qual seria a resposta do enigma , a expressão facial da princesa mudou rapidamente "
+                + "então pergunta “ Algum, problema?” ela percebe que você já entendeu que aquilo era uma farsa, neste instante todo aquele belo castelo começa a "
+                + "sumir e um lugar escuro e muito sóbrio toma lugar daquele e a princesa se torna uma mulher assustadora de olhos esbugalhados, expressão facial "
+                + "fria e postura incomum, “Quer dizer que você se acha esperto? Podemos dizer que não é tão esperto assim Hahaha como você pode pensar que poderia "
+                + "sair do meu jogo?” neste momento aquela terrível bruxa começa a se aproximar de você, nesse momento você só consegue pensar na resposta do enigma"
+                + " “Ninguém nunca chegou até essa fase e não vai ser você que vai sair daqui agora, agora vamos ter mais um morador para o meu lindo lago” você sente"
+                + " sua força indo embora e no instante que acha que não vai mais resistir grita a RESPOSTA  ";
+
+        String enunciado = "Qual das opções abaixo representa a melhor resposta para o enigma, permitindo que você escape??\n"
+                +
+                "\na) A resposta é um truque, não há resposta correta;\n"
+                +
+                "\nb) A princesa é, na verdade, uma bruxa que se alimenta de almas;\n"
+                +
+                "\nc) A comida do banquete está envenenada\n"
+                +
+                "\nd) A chave para a liberdade está escondida em algum lugar do castelo.\n";
+        System.out.println(historia);
+        System.out.println(enunciado);
+
+        int tentativa = 1;
+        cronometro();
+
+        do {
+
+            System.out.print("Digite sua resposta: ");
+            String resp = entrada.next().toLowerCase();
+
+            if (resp.equals("b")) {
+                pararCronometro();
+                System.out.print("Ressoa por todo mundo mágico, a bruxa fica sem reação e começa a gritar desesperada"
+                        + " “NÃÃO!! Isso é impossível, você não pode me vencer” no mesmo instante a bruxa começa a se desintegrar "
+                        + "sua morte e lenta e dolorosa. Inesperadamente um portal surge e você vai em direção a ele, você apaga por "
+                        + "algumas horas e quando acorda está na sua casa novamente. \n");
+                voltarAoMenu();
+                break;
+            } else if (!(resp.equals("a")) && tentativa == 2) {
+                if (resp.equals("k") || resp.equals("d") || resp.equals("o")) {
+                    verificarChamandoCompanheiro(companheiroEscolhido, resp, personagem);
+                }
+                System.out.println("Não foi dessa vez! Voltando ao menu...");
+                voltarAoMenu();
+            } else {
+                if (resp.equals("k") || resp.equals("d") || resp.equals("o")) {
+                    verificarChamandoCompanheiro(companheiroEscolhido, resp, personagem);
+                }
+                System.out
+                        .println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                tentativa++;
+            }
+
+        } while (tentativa <= 2);
     }
 
     public static void habilidadeDante() {
