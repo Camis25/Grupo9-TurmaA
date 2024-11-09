@@ -610,12 +610,9 @@ public class RPG {
 
         CasaAbandonada_Desafio02(entrada);
 
-        String historia = "O Homem das Trevas sorri de forma debochada e diz\n\"Lembre-se, não confie em todos dentro desse jogo \",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n"
-                +
-                "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" + //
-                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
-                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n" + //
-                "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
+        String historia = "O Homem das Trevas sorri de forma debochada e diz\n\"Você conseguiu! Mas ainda terá muito trabalho pela frente\"";
+        TextoAnimado.aparecerTexto(historia, 0);
+        desafioBuracoNegro(entrada);      
 
         System.out.println(historia);
 
@@ -657,7 +654,10 @@ public class RPG {
     }
 
     public static void desafioBuracoNegro(Scanner entrada) {
-        String texto = "Qual é a diferença entre while e do-while em Java?"
+        String texto = "De repente você é redirecionado até a porta e ao atravessá-la se depara com um buraco negro, onde você cai em um looping, para conseguir parar é necessário "
+                +"\nresponder 3 perguntas sobre laço de repetição, caso acerte você pode passar para a próxima sala e terá a opção de escolher" 
+                +"\nentre duas pílulas"
+                +"\nQual é a diferença entre while e do-while em Java?"
                 + "\na) While executa o bloco pelo menos uma vez, enquanto do-while só executa se a condição inicial for verdadeira."
                 + "\nb) Do-while executa o bloco pelo menos uma vez, enquanto while só executa se a condição inicial for verdadeira. "
                 + "\nc) Não há diferença entre os dois. "
