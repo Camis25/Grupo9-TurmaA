@@ -25,13 +25,19 @@ public class RPG {
 
     public static void menu(String nomeJogo) {
         Scanner entrada = new Scanner(System.in);
-        String apresentacaoJogo = "Bem-vindo ao Jogo dos Destinos, um jogo cheio de aventura e desafios.\nEscolha suas ações e determine o seu futuro.";
+        System.out.println("**********************************************\n");
+        String apresentacaoJogo = "Bem-vindo ao JOGO DOS DESTINOS\n";
         TextoAnimado.aparecerTexto(apresentacaoJogo, 10);
+        System.out.println("**********************************************");
+        TextoAnimado.aparecerTexto("Escolha suas ações e determine o seu futuro.", 10);
+
 
         boolean continuar = true;
 
         do {
             System.out.println(" 1) Jogar\n 2) Regras\n 3) Créditos\n 4) Sair ");
+            System.out.println("**********************************************");
+
             int opcao = entrada.nextInt();
             entrada.nextLine();
 
@@ -85,13 +91,16 @@ public class RPG {
     public static void HistoriaInicial() {
         Scanner entrada = new Scanner(System.in);
 
+        TextoAnimado.aparecerTexto("Iniciando o jogo...", 150);
+
+
         String texto1 = "\nVocê se vê em uma situação difícil, após o misterioso desaparecimento de seus pais.\n" +
                 "Ao se mudar para a casa de sua tia, você encontra um antigo videogame escondido no sótão empoeirado da casa.\n"
                 +
                 "Intrigado com o objeto desconhecido, você decide jogá-lo. Ao iniciar o jogo, você personaliza seu personagem\n"
                 +
                 "escolhendo um nome e um companheiro de aventura.\n";
-        TextoAnimado.aparecerTexto(texto1, 0);
+        TextoAnimado.aparecerTexto(texto1,0);
 
         System.out.print("Qual o nome do seu personagem: ");
         personagem = entrada.nextLine();
@@ -99,12 +108,15 @@ public class RPG {
         int companheiro = 0;
 
         do {
+            System.out.println("===================================================================================================");
             System.out.println("Escolha seu companheiro de aventura: ");
             System.out.print(
-                    "\n1)Orion - Habilidoso em lógica. (Pode receber dicas em um desafio.)\n" +
-                            "2)Kira - Criativa e imprevisível. (Muda o desafio podendo retornar um mais fácil OU complicado)\n"
+                    "\n* 1) Orion - Habilidoso em lógica. (Pode receber dicas em um desafio.) *\n" +
+                            "* 2) Kira - Criativa e imprevisível. (Muda o desafio podendo retornar um mais fácil OU complicado) *\n"
                             +
-                            "3)Dante - Sempre tem uma carta na manga. (Ao ser chamada pode fazer o jogador pular a questão)\n");
+                            "* 3) Dante - Sempre tem uma carta na manga. (Ao ser chamada pode fazer o jogador pular a questão) *\n");
+            System.out.println("====================================================================================================");
+
             companheiro = entrada.nextInt();
 
             switch (companheiro) {
@@ -112,16 +124,20 @@ public class RPG {
                     companheiroEscolhido = "Orion";
                     System.out.println(
                             "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+                            System.out.println("==================================================================");
                     break;
                 case 2:
                     companheiroEscolhido = "Kira";
                     System.out.println(
                             "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+                            System.out.println("==================================================================");
                     break;
                 case 3:
                     companheiroEscolhido = "Dante";
                     System.out.println(
                             "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+                            System.out.println("==================================================================");
+
                     break;
 
                 default:
@@ -188,16 +204,16 @@ public class RPG {
 
                 TextoAnimado.aparecerTexto(
                         "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
-                                + "A porta se abriu lentamente... ",
+                                + "A porta então se abre lentamente... ",
                         0);
             }
 
         } while (!respostaCorreta1);
 
         TextoAnimado.aparecerTexto(
-                "Inesperadamente a porta some, e  agora você e seu companheiro se vêm cercados por duas escolhas:\n"
-                        + "A) Um caminho íngreme que leva a uma montanha coberta de neve. Os ecos de vozes perdidas ressoam nas cavernas.\n"
-                        + "B) Uma antiga estrutura coberta de musgo, que se estende sobre um abismo profundo.",
+                "Ao atravessá-la ela some inesperadamente e  agora você e seu companheiro se vêm cercados por duas escolhas:\n"
+                        + "\nA) Um caminho íngreme que leva a uma montanha coberta de neve. Os ecos de vozes perdidas ressoam nas cavernas.\n"
+                        + "\nB) Uma antiga estrutura coberta de musgo, que se estende sobre um abismo profundo.\n",
                 chancesDesafio1);
 
         boolean respostaCorreta2 = false;
@@ -228,6 +244,7 @@ public class RPG {
         String texto = "\nAo escolher o personagem, uma luz intensa surge do console, te sugando para um mundo mágico. "
                 + "\nDe forma confusa, você logo percebe que está dentro do jogo. O ambiente é uma mistura de paisagens"
                 + "\nbizarras e criaturas excêntricas. Você não sabe como sair e isso te preocupa.\n"
+                +"\n======================================================================================================="
                 + "\nObservando, encontra uma longa estrada de tijolos amarelos e decide segui-la. A estrada adentra "
                 + "\numa floresta escura e sombria, ao final, você encontra uma porta com um enigma e uma voz ecoa:"
                 + "\n" + personagem + "! Estávamos empolgados em ver você por aqui. Que bom que você decidiu seguir "
@@ -236,7 +253,17 @@ public class RPG {
                 + "\nperguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios de lógica que te "
                 + "\nlevarão para fora do jogo, claro, isso se você conseguir continuar. "
                 + "\nA primeira tarefa era  abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um "
-                + "\npapel com um código, você rapidamente percebeu que precisava destrancar a porta";
+                + "\npapel com um código, você rapidamente percebeu que precisava destrancar a porta.\n"
+                +"\n                             ________                      "
+                +"\n                            |        |"
+                +"\n     ^              ^       |  ____  |                                       "
+                +"\n    ^^^            ^^^      | |    | |"
+                +"\n   ^^^^^          ^^^^^     | |____| |"
+                +"\n  ^^^^^^^        ^^^^^^^    |  ____ *|"    
+                +"\n ^^^^^^^^^      ^^^^^^^^^   | |    | |"
+                +"\n^^^^^^^^^^^    ^^^^^^^^^^^  | |____| |"
+                +"\n    ||              ||      |________|"
+          ;
         return texto;
     }
 
@@ -564,14 +591,22 @@ public class RPG {
     public static void casaAbandonada(String personagem, String companheiroEscolhido) {
         Scanner entrada = new Scanner(System.in);
         String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
-                + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem das Sombras "
+                + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem"
+                +"\ndas Sombras."
+                + "\n                                                   /\\"
+                + "\n                                                  /  \\"
+                + "\n                                                 /    \\"
+                + "\n                                                /______\\"
+                + "\n                                               |   __   |"
+                + "\n                                               |  |  |  |"
+                + "\n                                               |__|__|__|"
                 + "\n" + personagem
-                + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.  "
-                + "\nAcredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá que resolver "
-                + "\num enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina."
-                + "\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, te entrega uma pedra e diz: A pedra guarda a chave para a "
-                + "\npróxima porta. Você deve encontrar a sequência correta de símbolos para abri-"
-                + "\nO Homem das Sombras mostrou-lhes a sequência de símbolos, mas cada símbolo estava incompleto. Para completar a sequência, eles precisavam resolver "
+                + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.\n"
+                + "\nAcredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá"
+                +"\nque resolver um enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina."
+                + "\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, te entrega uma pedra e diz: A pedra guarda a"
+                +"\nchave para a próxima porta. Você deve encontrar a sequência correta de símbolos para conseguir abrir O Homem das Sombras "
+                +"\nmostrou-lhes a sequência de símbolos, mas cada símbolo estava incompleto. Para completar a sequência, eles precisavam resolver "
                 + "\num desafio: acertar qual o código correto que verifica se um número é primo."
                 + "\n\nA) "
                 + "\npublic static boolean isPrimo(int num) {"
@@ -655,9 +690,9 @@ public class RPG {
     }
 
     public static void desafioBuracoNegro(Scanner entrada) {
-        String texto = "De repente você é redirecionado até a porta e ao atravessá-la se depara com um buraco negro, onde você cai em um looping, para conseguir parar é necessário "
+        String texto = "\nDe repente você é redirecionado até a porta e ao atravessá-la se depara com um buraco negro, onde você cai em um looping, para conseguir parar é necessário "
                 +"\nresponder 3 perguntas sobre laço de repetição, caso acerte você pode passar para a próxima sala e terá a opção de escolher" 
-                +"\nentre duas pílulas"
+                +"\nentre duas pílulas\n"
                 +"\nQual é a diferença entre while e do-while em Java?"
                 + "\na) While executa o bloco pelo menos uma vez, enquanto do-while só executa se a condição inicial for verdadeira."
                 + "\nb) Do-while executa o bloco pelo menos uma vez, enquanto while só executa se a condição inicial for verdadeira. "
@@ -674,9 +709,9 @@ public class RPG {
             String respostaB = entrada.next().toUpperCase();
 
             if (respostaB.equals("B")) {
+                TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
                 System.out.println(
-                        "Parabéns você passou para a próxima questão"
-                                + "\tQual é a saída do seguinte código Java? "
+                                "\nQual é a saída do seguinte código Java? "
                                 + "\nfor (int i = 0; i < 5; i++) {"
                                 + "\nif (i == 3) {"
                                 + "\n   continue"
@@ -695,8 +730,10 @@ public class RPG {
                     String respostaA = entrada.next().toUpperCase();
 
                     if (respostaA.equals("A")) {
+                        TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
+
                         System.out.println(
-                                "Qual laço é mais adequado para iterar sobre uma lista de elementos cujo"
+                                "\nQual laço é mais adequado para iterar sobre uma lista de elementos cujo"
                                         + "\ntamanho é conhecido antecipadamente?"
                                         + " a) while "
                                         + " b) do-while "
@@ -711,7 +748,7 @@ public class RPG {
 
                             if (respostaC1.equals("C")) {
                                 pararCronometro();
-                                System.out.println("Foi");
+                                TextoAnimado.aparecerTexto("Parabéns! Você acaba de sair do buraco negro.", 10);
                                 break;
                             } else if (!respostaC1.equals("C") && tentativa2 == 2) {
                                 if (respostaC1.equals("K") || respostaC1.equals("D") || respostaC1.equals("O")) {
