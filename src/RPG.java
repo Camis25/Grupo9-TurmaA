@@ -894,32 +894,39 @@ public class RPG {
     }
 
     public static void cronometro() {
-        Timer timer = new Timer();
-        int tempoTotalEmSegundos = 120;
-
-        TimerTask tarefa = new TimerTask() {
-            int tempoRestante = tempoTotalEmSegundos;
-
+        // Cria uma nova thread para o cronômetro
+        new Thread(new Runnable() {
+            @Override
             public void run() {
-                tempoRestante--;
-
-                int minutos = tempoRestante / 60;
-                int segundos = tempoRestante % 60;
-
-                String tempoFormatado = String.format("%02d:%02d \n", minutos, segundos); // formantado para o formato minutos:segundos
-                System.out.print("\rTempo restante: " + tempoFormatado);
-
-                if (tempoRestante == 0) {
-                    System.out.println("\nO tempo acabou!");
-                    timer.cancel();
-                } else if (!cronometroAtivo) {
-                    timer.cancel();
-                }
+                Timer timer = new Timer();
+                int tempoTotalEmSegundos = 120;
+    
+                TimerTask tarefa = new TimerTask() {
+                    int tempoRestante = tempoTotalEmSegundos;
+    
+                    @Override
+                    public void run() {
+                        if (tempoRestante <= 0) {
+                            System.out.println("\nO tempo acabou!");
+                            timer.cancel(); // Cancela o timer quando o tempo acaba
+                        } else {
+                            tempoRestante--;  // Decrementa o tempo
+    
+                            int minutos = tempoRestante / 60;
+                            int segundos = tempoRestante % 60;
+    
+                            String tempoFormatado = String.format("%02d:%02d", minutos, segundos);
+                            System.out.print("\rTempo restante: " + tempoFormatado); // Sobrescreve a linha para atualizar
+                        }
+                    }
+                };
+    
+                // Agendar a tarefa para rodar a cada 1 segundo
+                timer.scheduleAtFixedRate(tarefa, 0, 1000); // 1000 milissegundos = 1 segundo
             }
-        };
-
-        timer.scheduleAtFixedRate(tarefa, 0, 1000); // intervalo para iniciar e em quanto tempo é executado (1000 milesegundos)
+        }).start();  // Inicia a thread
     }
+    
 
     public static void pararCronometro() {
         cronometroAtivo = false;
