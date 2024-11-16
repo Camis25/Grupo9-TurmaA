@@ -123,19 +123,19 @@ public class RPG {
                 case 1:
                     companheiroEscolhido = "Orion";
                     System.out.println(
-                            "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+                            "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido + "\nsua habilidade pode ser ativada pressionando a letra \"O\"");
                             System.out.println("==================================================================");
                     break;
                 case 2:
                     companheiroEscolhido = "Kira";
                     System.out.println(
-                            "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+                            "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido + "\nsua habilidade pode ser ativada pressionando a letra \"K\"");
                             System.out.println("==================================================================");
                     break;
                 case 3:
                     companheiroEscolhido = "Dante";
                     System.out.println(
-                            "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido);
+                            "Ótima escolha! Se prepare para embarcar nessa aventura com " + companheiroEscolhido+ "\nsua habilidade pode ser ativada pressionando a letra \"D\"");
                             System.out.println("==================================================================");
 
                     break;
@@ -151,12 +151,12 @@ public class RPG {
         TextoAnimado.aparecerTexto(escolhaPersonagens, 0);
 
         String escolhaCompanheiro = "\nAo seu lado, está " + companheiroEscolhido
-                + ", o seu companheiro que    acabou escolhendo quando "
+                + ", o seu companheiro que acabou escolhendo quando "
                 + "\niniciou o jogo e que irá te ajuda durante a jornada";
         TextoAnimado.aparecerTexto(escolhaCompanheiro, 0);
 
         String desafio1 = "\nPara iniciar sua jornada é preciso destrancar a porta, então leia atentamente. "
-                + "\nUtilizando o laço for para obter os quatro primeiros números pares que são múltiplos de 4. "
+                + "\nUtilizando o laço \"FOR\" para obter os quatro primeiros números pares que são múltiplos de 4. "
                 + "\nQual das opções abaixo o levará ao tesouro da programação?\n"
                 + "\nA)\n"
                 + "    for (int i = 1; i <= 16; i++) { \n"
@@ -186,29 +186,40 @@ public class RPG {
         do {
             System.out.println("Digite a resposta: ");
             String respDesafio1 = entrada.next().toUpperCase();
-
-            if (!respDesafio1.equals("B")) {
-                if (respDesafio1.equals("K") || respDesafio1.equals("D") || respDesafio1.equals("O")) {
-                    verificarChamandoCompanheiro(companheiroEscolhido, respDesafio1);
-                }
-                chancesDesafio1++;
-                System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
-
-                if (chancesDesafio1 >= 2) {
-                    System.out.println("Não foi dessa vez! Encerrando o jogo..");
-                    System.exit(0);
-                }
-            } else {
-                pararCronometro();
-                respostaCorreta1 = true;
-
-                TextoAnimado.aparecerTexto(
-                        "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
-                                + "A porta então se abre lentamente... ",
-                        0);
+        
+            // Verificando se a resposta é uma das opções válidas
+            if (respDesafio1.equals("K") || respDesafio1.equals("D") || respDesafio1.equals("O")) {
+                verificarChamandoCompanheiro(companheiroEscolhido, respDesafio1);
             }
-
+        
+            if (!respDesafio1.equalsIgnoreCase("A") && !respDesafio1.equalsIgnoreCase("B") && 
+                !respDesafio1.equalsIgnoreCase("C") && !respDesafio1.equalsIgnoreCase("D")) {
+                
+                System.out.println("Escolha entre as alternativas disponíveis");
+                System.out.println(desafio1);  // Reexibe o desafio
+        
+            } else {  // Caso a resposta seja válida
+                if (respDesafio1.equals("B")) {  
+                    pararCronometro();
+                    respostaCorreta1 = true;
+        
+                    TextoAnimado.aparecerTexto(
+                            "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
+                                    + "A porta então se abre lentamente... ",
+                            0);
+                } else {
+                    // Incrementa o número de chances se a resposta não for correta
+                    chancesDesafio1++;
+                    System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
+        
+                    if (chancesDesafio1 >= 2) {
+                        System.out.println("Não foi dessa vez! Encerrando o jogo..");
+                        System.exit(0);
+                    }
+                }
+            }
         } while (!respostaCorreta1);
+        
 
         TextoAnimado.aparecerTexto(
                 "Ao atravessá-la ela some inesperadamente e  agora você e seu companheiro se vêm cercados por duas escolhas:\n"
@@ -268,12 +279,11 @@ public class RPG {
     }
 
     public static void cidadeDoces(String personagem, String companheiroEscolhido) {
-        String texto = "\nVocê decide subir a montanha coberta de neve, esta muito frio e do alto voce avista uma cidade dos doces."
+        String texto = "\nVocê decide subir a montanha coberta de neve, está muito frio e do alto você avista uma Cidade dos Doces."
                 + "\nAo descer você observa uma pequena cabana feita de chocolate, então, inesperadamente aparece um ser muito curioso  "
-                + "\nque vai até você e te dá boas vindas \"Olá " + personagem
-                + ", seja bem vindo a minha cidade, eu sou o Chapeleiro Louco,"
-                + "\nresponsável por todas a doçuras desse mundo mágico, acredito que você seja o nosso predestinado, posso te ajudar a passar para o próximo "
-                + "\ndesafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
+                + "\nque vai até você e te dá boas vindas \"Olá " + personagem + ", seja bem vindo a minha cidade, eu sou o Chapeleiro Louco,"
+                + "\nresponsável por todas a doçuras desse mundo mágico, acredito que você seja o nosso predestinado, posso te ajudar"
+                +"\na passar para o próximo desafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
 
         TextoAnimado.aparecerTexto(texto, 0);
         CidadeDosDoces_Desafio01(companheiroEscolhido);
@@ -283,11 +293,15 @@ public class RPG {
     public static void retornaCidadeDoces(String companheiroEscolhido) {
         Scanner entrada = new Scanner(System.in);
 
-        String historia = "O Chapeleiro Louco sorri e diz\n\"Lembre-se, não confie em todos dentro desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa\",\nentão ele abre um portal para a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco não saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna:\n"
-                + "\"Bom, imaginava que te veria em algum momento, mas sejamos breves\" \n" +
-                "O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \n" +
-                "\"Você terá que resolver um desafio, se você conseguir poderá escolher entre duas pílulas\"\n"
-                + "Lembre-se o gato é sorrateiro, diante desse cenário ele manda você para uma biblioteca enorme \nonde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas.\n";
+        String historia = "O Chapeleiro Louco sorri e diz \"Lembre-se, não confie em todos dentro desse jogo e faça as"
+                        +"\nescolhas certas, pois somos marionetes de uma pessoa muito poderosa\", então ele abre um portal"
+                        +"\npara a Caverna do Gato Sorridente. Ao entrar, encontra paredes cobertas por códigos e equações,"
+                        +"\nvocê está muito desconfiado, pois está em lugar desconhecido novamente e as palavras do Chapeleiro Louco"
+                        +"\nnão saiam da sua cabeça. \nUma voz surgi do meio da escuridão da caverna: \"Bom, imaginava que te veria em algum momento, mas sejamos breves "
+                        +"\n\"O Gato, com seu sorriso enigmático surgi inesperadamente e passa a seguinte mensagem: \"Você terá que resolver um desafio,"
+                        +"\nse você conseguir poderá escolher entre duas pílulas\" Lembre-se o gato é sorrateiro, diante desse cenário ele manda"
+                        +"\nvocê para uma biblioteca enorme onde o seu objeto é encontrar o livro de feitiços que irá te levar para uma sala"
+                        +"\nonde encontrará as pílulas.\n";
         System.out.println(historia);
         CidadeDosDoces_Desafio02(companheiroEscolhido);
         // **Escolha da pílula: azul ou vermelha**
@@ -338,13 +352,13 @@ public class RPG {
 
         String enunciado = "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3.\nUtilize um loop do-while para encontrar a resposta?\n"
                 +
-                "a) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n"
+                "A)     int i = 3, soma = 0; \n     do { \n     soma += i;\n        i += 3;\n   } while (i <= 15);\n    System.out.println(\"A soma é: \" + soma);\n"
                 +
-                "\nb) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i++;\n  } while (i <= 15);\n   System.out.println(\"A soma é: \" + soma);\n"
+                "\nB)   int i = 3, soma = 0; \n     do { \n     soma += i;\n        i++;\n      } while (i <= 15);\n    System.out.println(\"A soma é: \" + soma);\n"
                 +
-                "\nc) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 3;\n  } while (i < 15);\n  System.out.println(\"A soma é: \" + soma);\n"
+                "\nC)   int i = 3, soma = 0; \n     do { \n     soma += i;\n        i += 3;\n    } while (i < 15);\n     System.out.println(\"A soma é: \" + soma);\n"
                 +
-                "\nd) int i = 3, soma = 0; \n  do { \n   soma += i;\n   i += 2;\n  } while (i <= 15);\n  System.out.println(\"A soma é: \" + soma);\n";
+                "\nD)   int i = 3, soma = 0; \n     do { \n     soma += i;\n        i += 2;\n    } while (i <= 15);\n    System.out.println(\"A soma é: \" + soma);\n";
         System.out.println(enunciado);
 
         int tentativa = 1;
@@ -982,79 +996,110 @@ public class RPG {
 
         System.out.println(pergunta);
         int tentativa = 1;
-        char respostaCorreta;
+char respostaCorreta;
 
-        do {
+do {
 
-            cronometro();
-            switch (indiceAleatorio) {
+    cronometro();
+    switch (indiceAleatorio) {
 
-                case 0:
-                    System.out.print("Digite sua resposta: ");
-                    respostaCorreta = entrada.next().toLowerCase().charAt(0);
-                    if (respostaCorreta == 'c') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
+        case 0:
+            do {
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
 
-                    } else if (respostaCorreta != 'c' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
-                case 1:
-                    System.out.print("Digite sua resposta: ");
-                    respostaCorreta = entrada.next().toLowerCase().charAt(0);
-                    if (respostaCorreta == 'b') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
-                        retornaCidadeDoces(companheiroEscolhido);
-                    } else if (respostaCorreta != 'b' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
-                case 2:
-                    System.out.print("Digite sua resposta: ");
-                    respostaCorreta = entrada.next().toLowerCase().charAt(0);
-                    if (respostaCorreta == 'c') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
-                        retornaCidadeDoces(companheiroEscolhido);
-                    } else if (respostaCorreta != 'c' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
-                case 3:
-                    System.out.print("Digite sua resposta: ");
-                    respostaCorreta = entrada.next().toLowerCase().charAt(0);
-                    if (respostaCorreta == 'b') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
-                        retornaCidadeDoces(companheiroEscolhido);
-                    } else if (respostaCorreta != 'b' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
+                if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd') {
+                    System.out.println("Resposta inválida! Por favor, escolha entre as alternativas A, B, C ou D.");
+                }
+            } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
+
+            if (respostaCorreta == 'c') {
+                pararCronometro();
+                System.out.print("Parabéns! Resposta correta\n");
+
+            } else if (respostaCorreta != 'c' && tentativa == 2) {
+                System.out.println("Não foi dessa vez! Voltando ao menu...");
+                voltarAoMenu();
+            } else {
+                System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                tentativa++;
             }
+            break;
+
+        case 1:
+            do {
+                System.out.print("Digite sua resposta (a, b, c ou d): ");
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
+
+                if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd') {
+                    System.out.println("Resposta inválida! Por favor, escolha entre as alternativas A, B, C ou D.");
+                }
+            } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
+
+            if (respostaCorreta == 'b') {
+                pararCronometro();
+                System.out.print("Parabéns! Resposta correta\n");
+                retornaCidadeDoces(companheiroEscolhido);
+            } else if (respostaCorreta != 'b' && tentativa == 2) {
+                System.out.println("Não foi dessa vez! Voltando ao menu...");
+                voltarAoMenu();
+            } else {
+                System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                tentativa++;
+            }
+            break;
+
+        case 2:
+            
+            do {
+                System.out.print("Digite sua resposta (a, b, c ou d): ");
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
+
+                if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd') {
+                    System.out.println("Resposta inválida! Por favor, escolha entre as alternativas A, B, C ou D.");
+                }
+            } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
+
+            if (respostaCorreta == 'c') {
+                pararCronometro();
+                System.out.print("Parabéns! Resposta correta\n");
+                retornaCidadeDoces(companheiroEscolhido);
+            } else if (respostaCorreta != 'c' && tentativa == 2) {
+                System.out.println("Não foi dessa vez! Voltando ao menu...");
+                voltarAoMenu();
+            } else {
+                System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                tentativa++;
+            }
+            break;
+
+        case 3:
+        
+            do {
+                System.out.print("Digite sua resposta (a, b, c ou d): ");
+                respostaCorreta = entrada.next().toLowerCase().charAt(0);
+
+                if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd') {
+                    System.out.println("Resposta inválida! Por favor, escolha entre as alternativas A, B, c ou D.");
+                }
+            } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
+
+            if (respostaCorreta == 'b') {
+                pararCronometro();
+                System.out.print("Parabéns! Resposta correta\n");
+                retornaCidadeDoces(companheiroEscolhido);
+            } else if (respostaCorreta != 'b' && tentativa == 2) {
+                System.out.println("Não foi dessa vez! Voltando ao menu...");
+                voltarAoMenu();
+            } else {
+                System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
+                tentativa++;
+            }
+            break;
+    }
 
         } while (tentativa <= 2);
         entrada.close();
     }
-
     public static void Desafio05(Scanner entrada, String companheiroEscolhido, String personagem) {
 
         String historia = "Em um piscar de olhos você está diante de uma mesa repleta das suas comidas preferidas, no primeiro "
