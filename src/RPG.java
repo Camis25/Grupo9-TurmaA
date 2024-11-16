@@ -15,7 +15,7 @@ import java.util.Timer;
 
 public class RPG {
 
-    //variaveis globais
+    // variaveis globais
     private static String companheiroEscolhido;
     private static String personagem;
     private static boolean cronometroAtivo = true;
@@ -189,9 +189,9 @@ public class RPG {
 
         int chancesDesafio1 = 0;
         boolean respostaCorreta1 = false;
+        cronometro();
 
         do {
-            cronometro();
             System.out.println("Digite a resposta: ");
             String respDesafio1 = entrada.next().toUpperCase();
 
@@ -295,10 +295,10 @@ public class RPG {
 
         TextoAnimado.aparecerTexto(texto, 0);
         CidadeDosDoces_Desafio01(companheiroEscolhido);
-        retornaCidadeDoces(companheiroEscolhido);
+        retornaCidadeDoces();
     }
 
-    public static void retornaCidadeDoces(String companheiroEscolhido) {
+    public static void retornaCidadeDoces() {
         Scanner entrada = new Scanner(System.in);
 
         String historia = "O Chapeleiro Louco sorri e diz \"Lembre-se, não confie em todos dentro desse jogo e faça as"
@@ -966,7 +966,7 @@ public class RPG {
     }
 
     public static void cronometro() {
-        cronometroAtivo = true; //ativando o cronometro sempre que a função cronometro é chamada
+        cronometroAtivo = true; // ativando o cronometro sempre que a função cronometro é chamada
         timer = new Timer();
         int tempoTotalEmSegundos = 120;
 
@@ -987,12 +987,14 @@ public class RPG {
                 int minutos = tempoRestante / 60;
                 int segundos = tempoRestante % 60;
 
-                String tempoFormatado = String.format("%02d:%02d ", minutos, segundos); // formantado para o formato minutos:segundos
+                String tempoFormatado = String.format("%02d:%02d ", minutos, segundos); // formantado para o formato
+                                                                                        // minutos:segundos
                 System.out.print("\rTempo restante: " + tempoFormatado);
             }
         };
 
-        timer.scheduleAtFixedRate(tarefa, 0, 1000); // intervalo para iniciar e em quanto tempo é executado (1000 milesegundos)
+        timer.scheduleAtFixedRate(tarefa, 0, 1000); // intervalo para iniciar e em quanto tempo é executado (1000
+                                                    // milesegundos)
     }
 
     public static void pararCronometro() {
@@ -1010,28 +1012,27 @@ public class RPG {
             return;
         }
 
-        for (int dica = 0; dica < 1; dica++) {
-
-            if (companheiroEscolhido == "Kira" && resp.equalsIgnoreCase("k")) {
-                habilidadeKira(personagem, companheiroEscolhido);
-            } else if (companheiroEscolhido == "Orion" && resp.equalsIgnoreCase("o")) {
-                habilidadeOrion();
-            } else if (companheiroEscolhido == "Dante" && resp.equalsIgnoreCase("d")) {
-                habilidadeDante();
-            } else {
-                System.out.println("A digital enviada não é de seu companheiro.");
-            }
-
+        if (companheiroEscolhido == "Kira" && resp.equalsIgnoreCase("k")) {
+            habilidadeKira();
+        } else if (companheiroEscolhido == "Orion" && resp.equalsIgnoreCase("o")) {
+            habilidadeOrion();
+        } else if (companheiroEscolhido == "Dante" && resp.equalsIgnoreCase("d")) {
+            habilidadeDante();
+        } else {
+            System.out.println("A digital enviada não é de seu companheiro.");
+            return;
         }
+
     }
 
     public static void habilidadeOrion() {
         System.out.println("Orion");
     }
 
-    public static void habilidadeKira(String personagem, String companheiroEscolhido) {
+    public static void habilidadeKira() {
         Random random = new Random();
         Scanner entrada = new Scanner(System.in);
+        habilidadeUsada = true;
 
         String questao1 = "\nQual é a principal diferença entre os laços while e for em Java?\n" +
                 "a) O laço while é utilizado para iterações com um número conhecido de repetições, enquanto o for é utilizado para iterações com um número desconhecido.\n"
@@ -1073,126 +1074,37 @@ public class RPG {
                 "d) Um loop infinito.";
 
         String questoes[] = { questao1, questao2, questao3, questao4 };
+        char respostasCorretas[] = { 'C', 'B', 'C', 'B' };
 
         int indiceAleatorio = random.nextInt(questoes.length);
         String pergunta = questoes[indiceAleatorio];
+        char respostaCorreta = respostasCorretas[indiceAleatorio];
 
         System.out.println(pergunta);
         int tentativa = 1;
-        char respostaCorreta;
+        boolean acretou = false;
+        cronometro();
 
         do {
+            
+           System.out.print("Digite sua resposta: ");
+           char resp = entrada.next().toUpperCase().charAt(0);
 
-            cronometro();
-            switch (indiceAleatorio) {
-
-                case 0:
-                    do {
-                        respostaCorreta = entrada.next().toLowerCase().charAt(0);
-
-                        if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                                && respostaCorreta != 'd') {
-                            System.out.println(
-                                    "Resposta inválida! Por favor, escolha entre as alternativas A, B, C ou D.");
-                        }
-                    } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                            && respostaCorreta != 'd');
-
-                    if (respostaCorreta == 'c') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
-
-                    } else if (respostaCorreta != 'c' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
-
-                case 1:
-                    do {
-                        System.out.print("Digite sua resposta (a, b, c ou d): ");
-                        respostaCorreta = entrada.next().toLowerCase().charAt(0);
-
-                        if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                                && respostaCorreta != 'd') {
-                            System.out.println(
-                                    "Resposta inválida! Por favor, escolha entre as alternativas A, B, C ou D.");
-                        }
-                    } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                            && respostaCorreta != 'd');
-
-                    if (respostaCorreta == 'b') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
-                        retornaCidadeDoces(companheiroEscolhido);
-                    } else if (respostaCorreta != 'b' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
-
-                case 2:
-
-                    do {
-                        System.out.print("Digite sua resposta (a, b, c ou d): ");
-                        respostaCorreta = entrada.next().toLowerCase().charAt(0);
-
-                        if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                                && respostaCorreta != 'd') {
-                            System.out.println(
-                                    "Resposta inválida! Por favor, escolha entre as alternativas A, B, C ou D.");
-                        }
-                    } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                            && respostaCorreta != 'd');
-
-                    if (respostaCorreta == 'c') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
-                        retornaCidadeDoces(companheiroEscolhido);
-                    } else if (respostaCorreta != 'c' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
-
-                case 3:
-
-                    do {
-                        System.out.print("Digite sua resposta (a, b, c ou d): ");
-                        respostaCorreta = entrada.next().toLowerCase().charAt(0);
-
-                        if (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                                && respostaCorreta != 'd') {
-                            System.out.println(
-                                    "Resposta inválida! Por favor, escolha entre as alternativas A, B, c ou D.");
-                        }
-                    } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c'
-                            && respostaCorreta != 'd');
-
-                    if (respostaCorreta == 'b') {
-                        pararCronometro();
-                        System.out.print("Parabéns! Resposta correta\n");
-                        retornaCidadeDoces(companheiroEscolhido);
-                    } else if (respostaCorreta != 'b' && tentativa == 2) {
-                        System.out.println("Não foi dessa vez! Voltando ao menu...");
-                        voltarAoMenu();
-                    } else {
-                        System.out.print("Resposta incorreta! Você só tem mais uma tentativa.\n");
-                        tentativa++;
-                    }
-                    break;
-            }
-        } while (tentativa <= 2);
-        habilidadeUsada = true;
+           if(resp == respostaCorreta){
+            pararCronometro();
+            acretou = true;
+            System.out.println("Parabéns! Resposta correta");
+            retornaCidadeDoces();
+           } else{
+             if(tentativa <= 2){
+                System.out.println("Resposta errada! Você tem mais uma tentativa");
+                tentativa++;
+             }else{
+                System.out.println("Não foi dessa vez... Voltando ao menu");
+                voltarAoMenu();
+             }
+           }
+        } while (tentativa <= 2 && !acretou);
         entrada.close();
     }
 
