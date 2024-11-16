@@ -969,7 +969,7 @@ public class RPG {
                 int minutos = tempoRestante / 60;
                 int segundos = tempoRestante % 60;
 
-                String tempoFormatado = String.format("%02d:%02d ", minutos, segundos); // formantado para o formato minutos:segundos
+                String tempoFormatado = String.format("%02d:%02d \n", minutos, segundos); // formantado para o formato minutos:segundos
                 System.out.print("\rTempo restante: " + tempoFormatado);
 
                 if (tempoRestante == 0) {
