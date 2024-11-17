@@ -1,9 +1,7 @@
 import java.util.Scanner;
-
-import java.util.TimerTask;
-
 import java.util.Random;
-import java.util.Timer;
+
+
 
 /* Rota de navegação do código:
  * - Menu
@@ -16,7 +14,6 @@ import java.util.Timer;
 public class RPG {
     public static String companheiroEscolhido;
     public static String personagem;
-    public static boolean cronometroAtivo;
 
     public static void voltarAoMenu() {
         System.out.println("\nVoltando ao menu principal...");
@@ -181,7 +178,6 @@ public class RPG {
 
         int chancesDesafio1 = 0;
         boolean respostaCorreta1 = false;
-        cronometro();
 
         do {
             System.out.println("Digite a resposta: ");
@@ -200,7 +196,6 @@ public class RPG {
         
             } else {  // Caso a resposta seja válida
                 if (respDesafio1.equals("B")) {  
-                    pararCronometro();
                     respostaCorreta1 = true;
         
                     TextoAnimado.aparecerTexto(
@@ -258,13 +253,12 @@ public class RPG {
                 +"\n======================================================================================================="
                 + "\nObservando, encontra uma longa estrada de tijolos amarelos e decide segui-la. A estrada adentra "
                 + "\numa floresta escura e sombria, ao final, você encontra uma porta com um enigma e uma voz ecoa:"
-                + "\n" + personagem + "! Estávamos empolgados em ver você por aqui. Que bom que você decidiu seguir "
-                + "\no seu destino... ou não. Mas hey, pelo menos agora temos alguém para culpar quando as coisas "
-                + "\nderem errado!\" A floresta estava falando com você: \"Mas enfim, com certeza você deve estar se "
-                + "\nperguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios de lógica que te "
-                + "\nlevarão para fora do jogo, claro, isso se você conseguir continuar. "
-                + "\nA primeira tarefa era  abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um "
-                + "\npapel com um código, você rapidamente percebeu que precisava destrancar a porta.\n"
+                + "\n" + personagem + "! Estávamos empolgados em ver você por aqui. Que bom que você decidiu seguir o seu destino... ou não."
+                + "\nMas hey, pelo menos agora temos alguém para culpar quando as coisas derem errado! \" A floresta estava falando com você: "
+                + "\n\"Mas enfim, com certeza você deve estar se nperguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios"
+                + "\nde lógica que te levarão para fora do jogo, claro, isso se você conseguir continuar."
+                + "\nA primeira tarefa era  abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um papel com um código, você "
+                + "\nrapidamente percebeu que precisava destrancar a porta.\n"
                 +"\n                             ________                      "
                 +"\n                            |        |"
                 +"\n     ^              ^       |  ____  |                                       "
@@ -320,7 +314,6 @@ public class RPG {
         System.out.println(desafio);
 
         int tentativa = 1;
-        cronometro();
 
         while (tentativa <= 2) {
 
@@ -329,7 +322,6 @@ public class RPG {
             try {
                 int respInt = Integer.parseInt(resp);
                 if (respInt == 3) {
-                    pararCronometro();
                     System.out.print("Resposta correta!\n");
                     break;
                 } else if (respInt != 3 && tentativa == 2) {
@@ -362,7 +354,6 @@ public class RPG {
         System.out.println(enunciado);
 
         int tentativa = 1;
-        cronometro();
 
         do {
 
@@ -370,7 +361,6 @@ public class RPG {
             String resp = entrada.next().toLowerCase();
 
             if (resp.equals("a")) {
-                pararCronometro();
                 System.out.print("Resposta correta!\n");
                 break;
             } else if (!(resp.equals("a")) && tentativa == 2) {
@@ -476,34 +466,79 @@ public class RPG {
     }
 
     public static String desafio3PílulaAzul(Scanner entrada) {
-        String introducao = "Você fica imaginando o que poderia acontecer com você depois daquela escolha, ao tomar a pílula azul, uma sensação de vertigem tomou conta de você.\n"
-                + "A escuridão se desfez em um turbilhão de luz, e, quando seus olhos se abriram novamente, você se viu à beira de um lago sereno.\n"
-                + "As águas refletiam a luz de um céu estrelado, e uma brisa suave acariciava seu rosto.\n"
-                + "Mas a beleza do cenário era ofuscada por uma sensação de tristeza profunda; ali era um lago de almas perdidas.\n\n"
-                + "De repente, uma das almas começa a falar com você:\n"
-                + "\"Variável, fico feliz por chegar até aqui.\"\n\n"
-                + "Você se demonstrava muito nervoso, pois aquele lugar continha uma energia muito pesada.\n\n"
-                + "\"Não precisa ficar nervoso, estamos no lago das almas perdidas. Todas as pessoas que estão aqui tentaram vencer o jogo e não conseguiram.\n"
-                + "Como consequência, suas almas estão presas nesse mundo para sempre.\"\n\n"
-                + "Você questiona a alma se não há nenhum jeito de tirá-las dali, e a alma então responde:\n"
-                + "\"Sim, mas suas escolhas impactam tudo o que acontece nesse mundo, e não posso te falar mais nada sobre isso.\n"
-                + "Como você chegou até a penúltima etapa, vou te orientar sobre o próximo desafio.\"\n\n"
-                + "Você fica se questionando o que teria acontecido se tivesse tomado a pílula vermelha, se teria alguma forma de salvar aquelas pobres almas.\n"
-                + "Mas é interrompido pela alma, que te entrega o enunciado do desafio:\n";
+        String introducao = "\n********************************************************************************************************************"
+                            +"\nVocê fica imaginando o que poderia acontecer com você depois daquela escolha. Ao tomar a pílula azul,"
+                            +"\numa sensação de vertigem tomou conta de você. \"A escuridão se desfez em um turbilhão de luz, e, quando "
+                            +"\nseus olhos se abriram novamente, você se viu à beira de um lago sereno. As águas refletiam a luz de um céu"
+                            + "\nestrelado, e uma brisa suave acariciava seu rosto, Mas a beleza do cenário era ofuscada por uma sensação"
+                            + "\nde tristeza profunda; ali era um lago de almas perdidas.\n"
+                            + "\nDe repente, uma das almas começa a falar com você: \"Fico feliz por você ter chegado até aqui\". Você se"
+                            + "\ndemonstrava muito nervoso, pois aquele lugar continha uma energia muito pesada."
+                            + "\n\"Não precisa ficar nervoso, estamos no lago das almas perdidas. Todas as pessoas que estão aqui tentaram vencer"
+                            + "\no jogo e não conseguiram. Como consequência, suas almas estão presas nesse mundo para sempre.\"\n"
+                            + "\nVocê questiona a alma se não há nenhum jeito de tirá-las dali, e a alma então responde: \"Sim, mas suas escolhas"
+                            + "\nimpactam tudo o que acontece nesse mundo, e não posso te falar mais nada sobre isso. Como você chegou até a penúltima"
+                            + "\netapa, vou te orientar sobre o próximo desafio.\""
+                            + "\nVocê fica se questionando o que teria acontecido se tivesse tomado a pílula vermelha, se teria alguma forma de"
+                            + "\nsalvar aquelas pobres almas. Mas é interrompido pela alma, que te entrega o enunciado do desafio:";
 
         System.out.println(introducao);
 
-        String salaDosEspelhos = "Sala dos espelhos\n"
-                + "Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria.\n"
-                + "Você acerta o desafio e aquela alma então diz “Boa sorte com a última etapa do jogo!”, de repente você se vê dentro de um túnel onde há uma luz muito intensa no fim dele.\n"
-                + "Quando você termina de passar o túnel, sai dentro de um salão de um lindo castelo onde é recebido por uma multidão de seres mágicos.\n"
-                + "No trono desse castelo está uma linda rainha, e algum tipo de magia acaba te levando até ela.\n"
-                + "Ao chegar, ela te fala: “Parabéns por escolher seguir com os desafios, você está quase no final, mas prepare-se, as coisas vão complicar.\n"
-                + "Sua próxima sala tem um conjunto de espelhos antigos, cada um com uma aura única e enigmática.\n"
-                + "A escolha incorreta leva a um desaparecimento instantâneo para um mundo desconhecido.\n"
-                + "A escolha correta, por sua vez, apresenta um desafio intelectual: uma pergunta que, se respondida corretamente, conduz a uma recompensa grandiosa.\n"
-                + "Mas se respondida incorretamente, desencadeia consequências imprevisíveis.”\n\n"
-                + "REGRAS: você só pode escolher os espelhos posicionados à sua Direita ou Esquerda, ao todo você terá três espelhos para entrar.\n";
+        String desafioLago = "\n\"Você tem um array de números inteiros. Sua tarefa é contar quantos números pares existem nesse array."
+                            +"\nComo você implementaria o algoritmo para contar os números pares no array?\n"
+                            +"\nA) Usando um laço for para percorrer cada elemento do array e contar os números divisíveis por 2."
+                            +"\nB) Usando recursão para verificar cada elemento do array."
+                            +"\nC) Usando uma função que ordena o array antes de contar os números pares."
+                            +"\nD) Usando uma técnica de busca binária para procurar os números pares.";
+
+                            TextoAnimado.aparecerTexto(desafioLago, 0);
+                            
+                            boolean respostaCorreta1 = false;
+                            int contador = 0;
+
+
+                        do{
+                            System.out.println("\nDigite a resposta");
+                            String respostaLago = entrada.next().toUpperCase();
+
+                            if (respostaLago.equals("K") || respostaLago.equals("D") || respostaLago.equals("O")) {
+                                verificarChamandoCompanheiro(companheiroEscolhido, respostaLago);
+                            }
+
+                            if(!respostaLago.equals("A") && !respostaLago.equals("B") && !respostaLago.equals("C") && !respostaLago.equals("D")){
+                                System.out.println("Escolha entre as alternativas disponíveis");
+                                System.out.println(desafioLago);
+                            }else{
+                                if(respostaLago.equals("A")){
+                                        respostaCorreta1 = true;
+
+                                        TextoAnimado.aparecerTexto("De forma convicta você diz, a letra correta é a letra A", 0);
+                                        
+                                }else{
+                                    contador++;
+                                    System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
+
+                                    if (contador >= 2) {
+                                        System.out.println("Não foi dessa vez! Encerrando o jogo..");
+                                        System.exit(0);
+                                    }
+                                }
+                            }
+
+                        }while(!respostaCorreta1);
+                    
+
+        String salaDosEspelhos ="\nVocê acerta o desafio e aquela alma então diz \"Boa sorte com a última etapa do jogo!\", de repente"
+                                +"\nvocê se vê dentro de um túnel onde há uma luz muito intensa no fim dele. Quando você termina de passar"
+                                +"\no túnel, sai dentro de um salão de um lindo castelo onde é recebido por uma multidão de seres mágicos.\n"
+                                + "\nNo trono desse castelo está uma linda rainha, e algum tipo de magia acaba te levando até ela.\n"
+                                + "\nAo chegar, ela te fala: \"Parabéns por escolher seguir com os desafios, você já está quase no final do jogo,"
+                                + "\nmas prepare-se, as coisas vão complicar. Sua próxima sala tem um conjunto de espelhos antigos, cada um com"
+                                +"\numa aura única e enigmática. A escolha incorreta te leva a um desaparecimento instantâneo para um mundo desconhecido.\n"
+                                + "\nA escolha correta, por sua vez, apresenta um desafio intelectual: uma pergunta que, se respondida corretamente, "
+                                + "\na uma recompensa grandiosa. Mas, se respondida incorretamente, desencadeia consequências imprevisíveis.\"\n\n"
+                                + "\nREGRAS: você só pode escolher os espelhos posicionados à sua Direita ou Esquerda, ao todo você terá três espelhos para entrar.\n"
+                                + "\nEm um passe de mágica você se encontra dentro da Sala de Espelhos\n";
 
         System.out.println(salaDosEspelhos);
 
@@ -604,9 +639,9 @@ public class RPG {
 
     public static void casaAbandonada(String personagem, String companheiroEscolhido) {
         Scanner entrada = new Scanner(System.in);
-        String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas e cobertas "
-                + "\nde uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador, era o Homem"
-                +"\ndas Sombras."
+        String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas "
+                + "\ne cobertas de uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador,"
+                +"\nera o Homem das Sombras."
                 + "\n                                                   /\\"
                 + "\n                                                  /  \\"
                 + "\n                                                 /    \\"
@@ -614,14 +649,14 @@ public class RPG {
                 + "\n                                               |   __   |"
                 + "\n                                               |  |  |  |"
                 + "\n                                               |__|__|__|"
-                + "\n" + personagem
-                + ", finalmente você chegou. Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.\n"
-                + "\nAcredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro, você terá"
-                +"\nque resolver um enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina."
-                + "\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, te entrega uma pedra e diz: A pedra guarda a"
-                +"\nchave para a próxima porta. Você deve encontrar a sequência correta de símbolos para conseguir abrir O Homem das Sombras "
-                +"\nmostrou-lhes a sequência de símbolos, mas cada símbolo estava incompleto. Para completar a sequência, eles precisavam resolver "
-                + "\num desafio: acertar qual o código correto que verifica se um número é primo."
+                + "\n\"" + personagem
+                + ", finalmente você chegou\". Ele diz, sua voz ecoando com um tom sussurrante e ameaçador.\n"
+                + "\n\"Acredito que você seja o nosso escolhido. Estou aqui para ajudá-lo a seguir para o próximo desafio, mas primeiro,"
+                +"\nvocê terá que resolver um enigma. Mas cuidado, pois o que está em jogo pode ser mais do que você imagina.\""
+                + "\nEle, então, se inclina para mais perto, seus olhos penetrantes fixados em você, te entrega uma pedra e diz: \"A pedra "
+                +"\nguarda a chave para a próxima porta. Você deve encontrar a sequência correta de símbolos para conseguir abrir\". O Homem "
+                +"\ndas Sombras mostrou-lhes a sequência de símbolos, mas cada símbolo estava incompleto. Para completar a sequência, você"
+                + "\nprecisava resolver um desafio, acertar qual o código correto verifica se um número é primo."
                 + "\n\nA) "
                 + "\npublic static boolean isPrimo(int num) {"
                 + "\n    if (num <= 1) {"
@@ -677,14 +712,12 @@ public class RPG {
     public static void CasaAbandonada_Desafio02(Scanner entrada) {
 
         int caminhoB = 1;
-        cronometro();
 
         do {
             System.out.println("Digite a resposta");
             String respostaB = entrada.next().toUpperCase();
 
             if (respostaB.equals("C")) {
-                pararCronometro();
                 System.out.println("Resposta correta");
                 break;
             } else if (!respostaB.equals("C") && caminhoB == 2) {
@@ -704,19 +737,19 @@ public class RPG {
     }
 
     public static void desafioBuracoNegro(Scanner entrada) {
-        String texto = "\nDe repente você é redirecionado até a porta e ao atravessá-la se depara com um buraco negro, onde você cai em um looping, para conseguir parar é necessário "
-                +"\nresponder 3 perguntas sobre laço de repetição, caso acerte você pode passar para a próxima sala e terá a opção de escolher" 
-                +"\nentre duas pílulas\n"
+        String texto = "\nDe repente você é redirecionado até a porta e ao atravessá-la se depara com um buraco negro, onde você cai em um looping,"
+                +"\npara conseguir parar é necessário responder 3 perguntas sobre laço de repetição, caso acerte você pode passar para" 
+                +"\na próxima sala e terá a opção de escolher entre duas pílulas.\n"
+                +"\n===========================================================================================================================\n"
                 +"\nQual é a diferença entre while e do-while em Java?"
-                + "\na) While executa o bloco pelo menos uma vez, enquanto do-while só executa se a condição inicial for verdadeira."
-                + "\nb) Do-while executa o bloco pelo menos uma vez, enquanto while só executa se a condição inicial for verdadeira. "
-                + "\nc) Não há diferença entre os dois. "
-                + "\nd) While é mais eficiente que do-while.";
+                + "\nA) While executa o bloco pelo menos uma vez, enquanto do-while só executa se a condição inicial for verdadeira."
+                + "\nB) Do-while executa o bloco pelo menos uma vez, enquanto while só executa se a condição inicial for verdadeira. "
+                + "\nC) Não há diferença entre os dois. "
+                + "\nD) While é mais eficiente que do-while.";
 
         System.out.println(texto);
 
         int tentativa = 1;
-        cronometro();
 
         do {
             System.out.println("Digite a resposta");
@@ -724,6 +757,7 @@ public class RPG {
 
             if (respostaB.equals("B")) {
                 TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
+                System.out.println("=========================================================================");
                 System.out.println(
                                 "\nQual é a saída do seguinte código Java?\n"
                                 + "\nfor (int i = 0; i < 5; i++) {"
@@ -732,10 +766,10 @@ public class RPG {
                                 + "\n  }"
                                 + "\nSystem.out.println(i)"
                                 + "\n}\n"
-                                + "\na) 0 1 2 3 4 "
-                                + "\nb) 0 1 2 4 "
-                                + "\nc) 3 "
-                                + "\nd) Nenhuma saída");
+                                + "\nA) 0 1 2 3 4 "
+                                + "\nB) 0 1 2 4 "
+                                + "\nC) 3 "
+                                + "\nD) Nenhuma saída");
 
                 int tentativa1 = 1;
 
@@ -745,7 +779,7 @@ public class RPG {
 
                     if (respostaA.equals("A")) {
                         TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
-
+                        System.out.println("=========================================================================");
                         System.out.println(
                                 "\nQual laço é mais adequado para iterar sobre uma lista de elementos cujo"
                                         + "\ntamanho é conhecido antecipadamente?"
@@ -761,8 +795,10 @@ public class RPG {
                             String respostaC1 = entrada.next().toUpperCase();
 
                             if (respostaC1.equals("C")) {
-                                pararCronometro();
                                 TextoAnimado.aparecerTexto("Parabéns! Você acaba de sair do buraco negro.", 10);
+                                System.out.println("================================================================================");
+                                System.out.println("================================================================================");
+
                                 break;
                             } else if (!respostaC1.equals("C") && tentativa2 == 2) {
                                 if (respostaC1.equals("K") || respostaC1.equals("D") || respostaC1.equals("O")) {
@@ -815,13 +851,17 @@ public class RPG {
     }
 
     public static void gatoSorridente(Scanner entrada){
-        String texto = "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos,"
-        +"\nencontra paredes cobertas por códigos e equações, você estava na Caverna do Gato Sorridente."
-        +"\nUma voz rouca ecoa do fim caverna dizendo \"Bom, imaginava que te veria em algum momento, mas sejamos breves.\""
-        +"\nO Gato, com seu sorriso enigmático surgi e inesperadamente passa a seguinte mensagem: "
-        +"\n\"Você terá que resolver um desafio, e se você conseguir resovê-lo terá que escolher entre duas pílulas\""
-       +"\ndiante desse cenário ele manda você para uma biblioteca enorme onde o seu objeto é encontrar o livro de feitiços"
-        +"\nque irá te levar para uma sala onde encontrará as pílulas"
+        String texto = "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos, encontra paredes cobertas"
+        +"\npor códigos e equações, você estava na Caverna do Gato Sorridente. Uma voz rouca ecoa do fim caverna dizendo"
+        +"\n\"Bom, imaginava que te veria em algum momento, mas sejamos breves.\" O Gato, com seu sorriso enigmático surgi"
+        +"\n e inesperadamente passa a seguinte mensagem: \"Você terá que resolver um desafio, e se você conseguir resovê-lo"
+       +"\n terá que escolher entre duas pílulas\" diante desse cenário ele manda você para uma biblioteca enorme onde o seu"
+        +"\n objeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas."
+        +"\n"
+        +"\n                                    /\\_/\\"
+        +"\n                                   ( o.o )"
+        +"\n                                    > ^ <"
+        +"\n"
         +"\nO gato te entrega um papel que diz \"Para encontrar o livro dos feitiços, acerte a alternativa que some todos os"
         +"\nnúmeros de 3 até 15, pulando de 3 em 3."
         +"\nA)"
@@ -851,7 +891,7 @@ public class RPG {
         +"\n        soma += i;"
         +"\n        i += 2;"
         +"\n    } while (i <= 15);"
-        +"\n    System.out.println(\"A soma é: \" + soma);";
+        +"\n    System.out.println(\"A soma é: \" + soma);\n";
        
         TextoAnimado.aparecerTexto(texto, 0);
 
@@ -892,43 +932,7 @@ public class RPG {
         }
     }
 
-    public static void cronometro() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Timer timer = new Timer();
-                int tempoTotalEmSegundos = 120;
-    
-                TimerTask tarefa = new TimerTask() {
-                    int tempoRestante = tempoTotalEmSegundos;
-    
-                    @Override
-                    public void run() {
-                        if (tempoRestante <= 0) {
-                            System.out.println("\nO tempo acabou!");
-                            timer.cancel(); 
-                        } else {
-                            tempoRestante--;  
-    
-                            int minutos = tempoRestante / 60;
-                            int segundos = tempoRestante % 60;
-    
-                            String tempoFormatado = String.format("%02d:%02d", minutos, segundos);
-                            System.out.print("\rTempo restante: " + tempoFormatado); 
-                        }
-                    }
-                };
-    
-                
-                timer.scheduleAtFixedRate(tarefa, 0, 1000); 
-            }
-        }).start(); 
-    }
-    
-
-    public static void pararCronometro() {
-        cronometroAtivo = false;
-    }
+  
 
     // em cada desafio deve ter esse método
     public static void verificarChamandoCompanheiro(String companheiroEscolhido, String resp) {
@@ -1005,7 +1009,6 @@ char respostaCorreta;
 
 do {
 
-    cronometro();
     switch (indiceAleatorio) {
 
         case 0:
@@ -1018,7 +1021,6 @@ do {
             } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
 
             if (respostaCorreta == 'c') {
-                pararCronometro();
                 System.out.print("Parabéns! Resposta correta\n");
 
             } else if (respostaCorreta != 'c' && tentativa == 2) {
@@ -1041,7 +1043,6 @@ do {
             } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
 
             if (respostaCorreta == 'b') {
-                pararCronometro();
                 System.out.print("Parabéns! Resposta correta\n");
                 retornaCidadeDoces(companheiroEscolhido);
             } else if (respostaCorreta != 'b' && tentativa == 2) {
@@ -1065,7 +1066,6 @@ do {
             } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
 
             if (respostaCorreta == 'c') {
-                pararCronometro();
                 System.out.print("Parabéns! Resposta correta\n");
                 retornaCidadeDoces(companheiroEscolhido);
             } else if (respostaCorreta != 'c' && tentativa == 2) {
@@ -1089,7 +1089,6 @@ do {
             } while (respostaCorreta != 'a' && respostaCorreta != 'b' && respostaCorreta != 'c' && respostaCorreta != 'd');
 
             if (respostaCorreta == 'b') {
-                pararCronometro();
                 System.out.print("Parabéns! Resposta correta\n");
                 retornaCidadeDoces(companheiroEscolhido);
             } else if (respostaCorreta != 'b' && tentativa == 2) {
@@ -1133,7 +1132,6 @@ do {
         System.out.println(enunciado);
 
         int tentativa = 1;
-        cronometro();
 
         do {
 
@@ -1141,7 +1139,6 @@ do {
             String resp = entrada.next().toLowerCase();
 
             if (resp.equals("b")) {
-                pararCronometro();
                 System.out.print("Ressoa por todo mundo mágico, a bruxa fica sem reação e começa a gritar desesperada"
                         + " “NÃÃO!! Isso é impossível, você não pode me vencer” no mesmo instante a bruxa começa a se desintegrar "
                         + "sua morte e lenta e dolorosa. Inesperadamente um portal surge e você vai em direção a ele, você apaga por "
