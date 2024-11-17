@@ -1177,13 +1177,13 @@ do {
 
         String enunciado = "Qual das opções abaixo representa a melhor resposta para o enigma, permitindo que você escape??\n"
                 +
-                "\na) A resposta é um truque, não há resposta correta;\n"
+                "\nA) A resposta é um truque, não há resposta correta;\n"
                 +
-                "\nb) A princesa é, na verdade, uma bruxa que se alimenta de almas;\n"
+                "\nB) A princesa é, na verdade, uma bruxa que se alimenta de almas;\n"
                 +
-                "\nc) A comida do banquete está envenenada\n"
+                "\nC) A comida do banquete está envenenada\n"
                 +
-                "\nd) A chave para a liberdade está escondida em algum lugar do castelo.\n";
+                "\nD) A chave para a liberdade está escondida em algum lugar do castelo.\n";
         System.out.println(historia);
         System.out.println(enunciado);
 
@@ -1195,10 +1195,21 @@ do {
             String resp = entrada.next().toLowerCase();
 
             if (resp.equals("b")) {
-                System.out.print("Ressoa por todo mundo mágico, a bruxa fica sem reação e começa a gritar desesperada"
-                        + " “NÃÃO!! Isso é impossível, você não pode me vencer” no mesmo instante a bruxa começa a se desintegrar "
-                        + "sua morte e lenta e dolorosa. Inesperadamente um portal surge e você vai em direção a ele, você apaga por "
-                        + "algumas horas e quando acorda está na sua casa novamente. \n");
+                System.out.print("A RESPOSTA É A LETRA B!!\nSua voz ressoa por todo mundo mágico, a bruxa fica sem reação e começa a gritar desesperadamente"
+                        +"\n\"NÃÃO!! Isso é impossível, você não pode me vencer\" no mesmo instante a bruxa começa a se desintegrar "
+                        +"\nsua morte e lenta e dolorosa.\n"
+                        +"\nVocê vê uma luz muito forte, então um portal surge e você vai em direção a ele, a escuridão toma conta da sua visão."
+                        +"\nAlgumas horas depois você acorda em casa novamente, tudo aquilo ainda parece muito doido, como aquilo poderia ter"
+                        +"\nacontecido?"
+                        +"\nO ambiente está em silêncio. A luz suave do dia entra pela janela, e você respira profundamente, aliviado."
+                        +"\nVocê olha ao redor, mas não há mais sinais do jogo. A porta da sua casa está trancada, como se nada tivesse mudado."
+                        +"\nNo entanto, uma sensação inquietante ainda paira no ar. Algo lhe diz que a verdadeira batalha não foi contra a bruxa,"
+                        +"\n mas contra os próprios limites de sua mente."
+                        +"\nVocê finalmente se sente livre. Pelo menos por agora.\n"
+                        +"\n==========================================================================================================================="
+                        +"\n                                                        FIM!!       "
+                        +"\n==========================================================================================================================="
+                        );
                 voltarAoMenu();
                 break;
             } else if (!(resp.equals("b")) && tentativa == 2) {
