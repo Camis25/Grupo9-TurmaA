@@ -468,7 +468,7 @@ public class RPG {
     public static String desafio3PílulaAzul(Scanner entrada) {
         String introducao = "\n********************************************************************************************************************"
                             +"\nVocê fica imaginando o que poderia acontecer com você depois daquela escolha. Ao tomar a pílula azul,"
-                            +"\numa sensação de vertigem tomou conta de você. \"A escuridão se desfez em um turbilhão de luz, e, quando "
+                            +"\numa sensação de vertigem tomou conta de você. A escuridão se desfez em um turbilhão de luz, e, quando "
                             +"\nseus olhos se abriram novamente, você se viu à beira de um lago sereno. As águas refletiam a luz de um céu"
                             + "\nestrelado, e uma brisa suave acariciava seu rosto, Mas a beleza do cenário era ofuscada por uma sensação"
                             + "\nde tristeza profunda; ali era um lago de almas perdidas.\n"
@@ -516,7 +516,7 @@ public class RPG {
                                         
                                 }else{
                                     contador++;
-                                    System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na floresta sombria");
+                                    System.out.println("Você tem só mais uma chance!");
 
                                     if (contador >= 2) {
                                         System.out.println("Não foi dessa vez! Encerrando o jogo..");
@@ -537,104 +537,159 @@ public class RPG {
                                 +"\numa aura única e enigmática. A escolha incorreta te leva a um desaparecimento instantâneo para um mundo desconhecido.\n"
                                 + "\nA escolha correta, por sua vez, apresenta um desafio intelectual: uma pergunta que, se respondida corretamente, "
                                 + "\na uma recompensa grandiosa. Mas, se respondida incorretamente, desencadeia consequências imprevisíveis.\"\n\n"
-                                + "\nREGRAS: você só pode escolher os espelhos posicionados à sua Direita ou Esquerda, ao todo você terá três espelhos para entrar.\n"
+                                + "\nREGRAS: você só pode escolher os espelhos posicionados à sua Direita ou Esquerda, ao todo você terá três\nespelhos para entrar.\n"
                                 + "\nEm um passe de mágica você se encontra dentro da Sala de Espelhos\n";
 
         System.out.println(salaDosEspelhos);
 
-        String perguntaPrimeiroEspelho = "Questão do primeiro espelho:\n"
+        String perguntaPrimeiroEspelho = "\nQuestão do primeiro espelho:\n"
                 + "Qual das seguintes sintaxes está correta para um laço for em Java?\n"
-                + "a) for (int i = 0; i < 10; i++) { ... }\n"
-                + "b) for (i = 0; i < 10; i++) { ... }\n"
-                + "c) for (int i = 0; i <= 10; i--) { ... }\n"
-                + "d) for (int i = 10; i > 0; i++) { ... }\n"
-                + "Digite a sua resposta: ";
+                + "A) for (int i = 0; i < 10; i++) { ... }\n"
+                + "B) for (i = 0; i < 10; i++) { ... }\n"
+                + "C) for (int i = 0; i <= 10; i--) { ... }\n"
+                + "D) for (int i = 10; i > 0; i++) { ... }";
 
-        int tentativas = 2;
-        while (tentativas > 0) {
-            System.out.print(perguntaPrimeiroEspelho);
-            String resposta = entrada.next().toLowerCase(); 
+                System.out.println(perguntaPrimeiroEspelho);
+                boolean respostaCorreta2 = false;
+                int tentativas = 0;
 
-            if (resposta.equals("a")) {
-                System.out.println("Resposta correta! Você passa para o próximo desafio."); 
-                break;
-            } else {
-                tentativas--;
-                if (tentativas > 0) {
-                    System.out.println("Resposta incorreta! Tente novamente. Restam " + tentativas + " tentativa(s).");
-                } else {
-                    System.out.println("Resposta incorreta! Você usou todas as suas tentativas.");
-                    System.out.println("Game Over");
-                    return "Game Over. Você falhou no desafio do primeiro espelho.";
+
+            do{
+                System.out.println("\nDigite a resposta");
+                String respostaEspelho1 = entrada.next().toUpperCase();
+
+                if (respostaEspelho1.equals("K") || respostaEspelho1.equals("D") || respostaEspelho1.equals("O")) {
+                    verificarChamandoCompanheiro(companheiroEscolhido, respostaEspelho1);
                 }
-            }
-        }
 
-        String perguntaSegundoEspelho = "Questão do segundo espelho:\n"
+                if(!respostaEspelho1.equals("A") && !respostaEspelho1.equals("B") && !respostaEspelho1.equals("C") && !respostaEspelho1.equals("D")){
+                    System.out.println("Escolha entre as alternativas disponíveis");
+                    System.out.println(desafioLago);
+                }else{
+                    if(respostaEspelho1.equals("A")){
+                            respostaCorreta2 = true;
+
+                            System.out.println("Resposta correta! Você passa para o próximo desafio."); 
+
+                    }else{
+                        tentativas++;
+                        System.out.println("Resposta incorreta! Você tem só mais ma chance");
+
+
+                        if (contador >= 2) {
+                            System.out.println("Não foi dessa vez! Encerrando o jogo..");
+                            System.out.println("Game Over!");
+                            System.exit(0);
+                        }
+                    }
+                }
+
+            }while(!respostaCorreta2);
+
+
+
+        String perguntaSegundoEspelho = "\n\nQuestão do segundo espelho:\n"
                 + "Em um laço while, o que acontece quando a condição se torna falsa?\n"
-                + "a) O laço continua indefinidamente.\n"
-                + "b) O laço é encerrado.\n"
-                + "c) O programa é encerrado.\n"
-                + "d) Ocorre um erro de compilação.\n"
-                + "Digite a sua resposta: ";
+                + "A) O laço continua indefinidamente.\n"
+                + "B) O laço é encerrado.\n"
+                + "C) O programa é encerrado.\n"
+                + "D) Ocorre um erro de compilação.";
+          
 
-        tentativas = 2;
-        while (tentativas > 0) {
-            System.out.print(perguntaSegundoEspelho);
-            String resposta = entrada.next().toLowerCase();
+                System.out.println(perguntaSegundoEspelho);
+                boolean respostaCorreta3 = false;
+                int tentativas3 = 0;
 
-            if (resposta.equals("b")) {
-                System.out.println("Resposta correta! Você passa para o próximo desafio.");
-                break;
-            } else {
-                tentativas--;
-                if (tentativas > 0) {
-                    System.out.println("Resposta incorreta! Tente novamente. Restam " + tentativas + " tentativa(s).");
-                } else {
-                    System.out.println("Resposta incorreta! Você usou todas as suas tentativas.");
-                    System.out.println("Game Over");
-                    return "Game Over. Você falhou no desafio do segundo espelho.";
+
+            do{
+                System.out.println("\nDigite a resposta");
+                String respostaEspelho2 = entrada.next().toUpperCase();
+
+                if (respostaEspelho2.equals("K") || respostaEspelho2.equals("D") || respostaEspelho2.equals("O")) {
+                    verificarChamandoCompanheiro(companheiroEscolhido, respostaEspelho2);
                 }
-            }
-        }
 
-        String perguntaTerceiroEspelho = "Questão do terceiro espelho:\n"
+                if(!respostaEspelho2.equals("A") && !respostaEspelho2.equals("B") && !respostaEspelho2.equals("C") && !respostaEspelho2.equals("D")){
+                    System.out.println("Escolha entre as alternativas disponíveis");
+                    System.out.println(desafioLago);
+                }else{
+                    if(respostaEspelho2.equals("B")){
+                            respostaCorreta3 = true;
+
+                            System.out.println("Resposta correta! Você passa para o próximo desafio."); 
+
+                    }else{
+                        tentativas3++;
+                        System.out.println("Resposta incorreta! Você tem só mais ma chance");
+
+
+                        if (contador >= 2) {
+                            System.out.println("Não foi dessa vez! Encerrando o jogo..");
+                            System.out.println("Game Over!");
+                            System.exit(0);
+                        }
+                    }
+                }
+
+            }while(!respostaCorreta3);
+
+
+        String perguntaTerceiroEspelho = "\n\nQuestão do terceiro espelho:\n"
                 + "Como você implementaria o algoritmo de busca binária utilizando um laço?\n"
-                + "a) Utilizando um laço while para dividir o intervalo de busca a cada iteração.\n"
-                + "b) Utilizando um laço for para percorrer todo o array.\n"
-                + "c) Utilizando um laço do-while para garantir que o elemento seja encontrado.\n"
-                + "d) Utilizando recursão.\n"
-                + "Digite a sua resposta: ";
+                + "A) Utilizando um laço while para dividir o intervalo de busca a cada iteração.\n"
+                + "B) Utilizando um laço for para percorrer todo o array.\n"
+                + "C) Utilizando um laço do-while para garantir que o elemento seja encontrado.\n"
+                + "D) Utilizando recursão.";
+             
 
-        tentativas = 2;
-        while (tentativas > 0) {
-            System.out.print(perguntaTerceiroEspelho);
-            String resposta = entrada.next().toLowerCase();
+                System.out.println(perguntaTerceiroEspelho);
+                boolean respostaCorreta4 = false;
+                int tentativas4 = 0;
 
-            if (resposta.equals("a")) {
-                System.out.println("Resposta correta! Você concluiu o desafio dos espelhos com sucesso.");
-                break;
-            } else {
-                tentativas--;
-                if (tentativas > 0) {
-                    System.out.println("Resposta incorreta! Tente novamente. Restam " + tentativas + " tentativa(s).");
-                } else {
-                    System.out.println("Resposta incorreta! Você usou todas as suas tentativas.");
-                    System.out.println("Game Over");
-                    return "Game Over. Você falhou no desafio do terceiro espelho.";
+
+            do{
+                System.out.println("\nDigite a resposta");
+                String respostaEspelho4 = entrada.next().toUpperCase();
+
+                if (respostaEspelho4.equals("K") || respostaEspelho4.equals("D") || respostaEspelho4.equals("O")) {
+                    verificarChamandoCompanheiro(companheiroEscolhido, respostaEspelho4);
                 }
-            }
-        }
 
-        String textoFinalEspelho = "Ao finalizar o desafio, a rainha volta até você e diz:\n"
-                + "\"Olá, querido, parabéns por ter chegado à última fase do jogo. Nessa etapa, você terá que resolver um enigma;\n"
-                + "você poderá resolver o horário do jantar.\"\n"
-                + "Você fica pensando: como assim um jantar? Cadê aquela pessoa tão má que prendeu aquelas almas aqui dentro?";
+                if(!respostaEspelho4.equals("A") && !respostaEspelho4.equals("B") && !respostaEspelho4.equals("C") && !respostaEspelho4.equals("D")){
+                    System.out.println("Escolha entre as alternativas disponíveis");
+                    System.out.println(desafioLago);
+                }else{
+                    if(respostaEspelho4.equals("A")){
+                            respostaCorreta4 = true;
+
+                            System.out.println("Resposta correta! Você passa para o próximo desafio."); 
+
+                    }else{
+                        tentativas4++;
+                        System.out.println("Resposta incorreta! Você tem só mais ma chance");
+
+
+                        if (contador >= 2) {
+                            System.out.println("Não foi dessa vez! Encerrando o jogo..");
+                            System.out.println("Game Over!");
+                            System.exit(0);
+                        }
+                    }
+                }
+
+            }while(!respostaCorreta4);
+
+
+
+        String textoFinalEspelho = "\n\nAo finalizar o desafio, a rainha volta até você e diz:\n"
+                + "\"Parabéns por ter chegado à última fase do jogo!!. Nessa etapa, você terá que resolver um enigma;\n"
+                + "você terá que resolver o horário do jantar.\"\n"
+                + "Você pensa como assim um jantar? Cadê aquela pessoa tão má que prendeu aquelas almas aqui dentro?\n\n";
 
         System.out.println(textoFinalEspelho);
 
         Desafio05(entrada, companheiroEscolhido, personagem);
-        return "Parabéns! Você completou o desafio dos espelhos.";
+        return "\nParabéns! Você completou o desafio dos espelhos.\n\n";
     }
 
     public static void casaAbandonada(String personagem, String companheiroEscolhido) {
@@ -1107,17 +1162,18 @@ do {
     public static void Desafio05(Scanner entrada, String companheiroEscolhido, String personagem) {
 
         String historia = "Em um piscar de olhos você está diante de uma mesa repleta das suas comidas preferidas, no primeiro "
-                + " momento você fica confuso com aquele desafio, como uma última fase de jogo pode ser tão boa assim? Sua cabeça está confusa, "
-                + "neste momento criaturas mágicas começam a te servir e quando você está prestes a dar a primeira garfada em sua COMIDA PREFERIDA, "
-                + "você percebe que a princesa te olha fixamente e lembra sobre a  orientação do Chapeleiro Louco “Lembre-se, não confie em todos dentro "
-                + "desse jogo e faça as escolhas certas, pois somos marionetes de uma pessoa muito poderosa” no mesmo momento você começa a entender o que "
-                + "está acontecendo, coloca o garfo na mesa e começa a pensar qual seria a resposta do enigma , a expressão facial da princesa mudou rapidamente "
-                + "então pergunta “ Algum, problema?” ela percebe que você já entendeu que aquilo era uma farsa, neste instante todo aquele belo castelo começa a "
-                + "sumir e um lugar escuro e muito sóbrio toma lugar daquele e a princesa se torna uma mulher assustadora de olhos esbugalhados, expressão facial "
-                + "fria e postura incomum, “Quer dizer que você se acha esperto? Podemos dizer que não é tão esperto assim Hahaha como você pode pensar que poderia "
-                + "sair do meu jogo?” neste momento aquela terrível bruxa começa a se aproximar de você, nesse momento você só consegue pensar na resposta do enigma"
-                + " “Ninguém nunca chegou até essa fase e não vai ser você que vai sair daqui agora, agora vamos ter mais um morador para o meu lindo lago” você sente"
-                + " sua força indo embora e no instante que acha que não vai mais resistir grita a RESPOSTA  ";
+                +"\nmomento você fica confuso com aquele desafio, \"como uma última fase de jogo pode ser tão boa assim?\"\n"
+                +"\nSua cabeça está confusa, neste momento criaturas mágicas começam a te servir e quando você está prestes a dar a primeira"
+                +"\ngarfada em sua COMIDA PREFERIDA, você percebe que a princesa te olha fixamente e acha aquilo tudo muito estranho.\n"
+                +"\nNo mesmo instante você começa a entender o que está acontecendo, coloca o garfo na mesa e começa a pensar qual" 
+                +"\nseria a resposta do enigma, a expressão facial da princesa muda rapidamente então ela pergunta \"Algum, problema?\""
+                +"\npercebendo que você já entendeu que aquilo era uma farsa, todo aquele belo castelo começa a sumir e um lugar escuro "
+                +"\ne sombrio se revela, e a princesa se torna uma mulher assustadora de olhos esbugalhados, expressão facial fria e postura"
+                +"\nincomum.\n\"Quer dizer que você se acha esperto? Podemos dizer que não é tão esperto nassim Hahaha,como você pode pensar"
+                +"\nque poderia sair do meu jogo?\" neste momento aquela terrível bruxa começa a se aproximar de você, nesse momento você só" 
+                +"\nconsegue pensar na resposta do enigma \"Ninguém nunca chegou até essa fase e não vai ser você que vai sair daqui agora, "
+                +"\nvamos ter mais um morador para o meu lindo lago\" você sente sua força indo embora e no instante que acha que não vai mais"
+                +"\nresistir grita a RESPOSTA  ";
 
         String enunciado = "Qual das opções abaixo representa a melhor resposta para o enigma, permitindo que você escape??\n"
                 +
