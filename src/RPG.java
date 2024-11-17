@@ -725,7 +725,7 @@ public class RPG {
             if (respostaB.equals("B")) {
                 TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
                 System.out.println(
-                                "\nQual é a saída do seguinte código Java? "
+                                "\nQual é a saída do seguinte código Java?\n"
                                 + "\nfor (int i = 0; i < 5; i++) {"
                                 + "\nif (i == 3) {"
                                 + "\n   continue"
@@ -749,10 +749,10 @@ public class RPG {
                         System.out.println(
                                 "\nQual laço é mais adequado para iterar sobre uma lista de elementos cujo"
                                         + "\ntamanho é conhecido antecipadamente?"
-                                        + " a) while "
-                                        + " b) do-while "
-                                        + " c) for"
-                                        + " d) Nenhum dos anteriores");
+                                        + "\nA) while "
+                                        + "\nB) do-while "
+                                        + "\nC) for"
+                                        + "\nD) Nenhum dos anteriores");
 
                         int tentativa2 = 1;
 
@@ -815,44 +815,43 @@ public class RPG {
     }
 
     public static void gatoSorridente(Scanner entrada){
-        String texto = "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos"
-        +"\n, encontra paredes cobertas por códigos e equações, você estava na Caverna do Gato Sorridente."
-        +"\nUma voz rouca ecoa do fim caverna dizendo \"Bom, imaginava que te veria em algum momento,"
-        +"\nmas sejamos breves.\""
+        String texto = "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos,"
+        +"\nencontra paredes cobertas por códigos e equações, você estava na Caverna do Gato Sorridente."
+        +"\nUma voz rouca ecoa do fim caverna dizendo \"Bom, imaginava que te veria em algum momento, mas sejamos breves.\""
         +"\nO Gato, com seu sorriso enigmático surgi e inesperadamente passa a seguinte mensagem: "
-        +"\n\"“Você terá que resolver um desafio, e se você conseguir resovê-lo terá que escolher entre duas pílulas” \""
+        +"\n\"Você terá que resolver um desafio, e se você conseguir resovê-lo terá que escolher entre duas pílulas\""
        +"\ndiante desse cenário ele manda você para uma biblioteca enorme onde o seu objeto é encontrar o livro de feitiços"
         +"\nque irá te levar para uma sala onde encontrará as pílulas"
         +"\nO gato te entrega um papel que diz \"Para encontrar o livro dos feitiços, acerte a alternativa que some todos os"
         +"\nnúmeros de 3 até 15, pulando de 3 em 3."
         +"\nA)"
-        +"\nint i = 3, soma = 0;"
-        +"\ndo {"
-        +"\nsoma += i;"
-        +"\ni += 3;"
-        +"\n} while (i <= 15);"
-        +"\nSystem.out.println(\"A soma é: \" + soma);\n"
+        +"\n    int i = 3, soma = 0;"
+        +"\n    do {"
+        +"\n        soma += i;"
+        +"\n        i += 3;"
+        +"\n    } while (i <= 15);"
+        +"\n    System.out.println(\"A soma é: \" + soma);\n"
         +"\nB)"
-        +"\nint i = 3, soma = 0;"
-        +"\ndo {"
-        +"\nsoma += i;"
-        +"\ni++;"
-        +"\n} while (i <= 15);"
-        +"\nSystem.out.println(\"A soma é: \" + soma);\n"
+        +"\n    int i = 3, soma = 0;"
+        +"\n    do {"
+        +"\n        soma += i;"
+        +"\n        i++;"
+        +"\n    } while (i <= 15);"
+        +"\n    System.out.println(\"A soma é: \" + soma);\n"
         +"\nC)"
-        +"\nint i = 3, soma = 0;"
-        +"\ndo {"
-        +"\nsoma += i;"
-        +"\ni += 3;"
-        +"\n} while (i < 15);"
-        +"\nSystem.out.println(\"A soma é: \" + soma);"
+        +"\n    int i = 3, soma = 0;"
+        +"\n    do {"
+        +"\n        soma += i;"
+        +"\n        i += 3;"
+        +"\n    } while (i < 15);"
+        +"\n    System.out.println(\"A soma é: \" + soma);\n"
         +"\nD)"
-        +"\nint i = 3, soma = 0;"
-        +"\ndo {"
-        +"\n soma += i;"
-        +"\ni += 2;"
-        +"\n} while (i <= 15);"
-        +"\nSystem.out.println(\"A soma é: \" + soma);";
+        +"\n    int i = 3, soma = 0;"
+        +"\n    do {"
+        +"\n        soma += i;"
+        +"\n        i += 2;"
+        +"\n    } while (i <= 15);"
+        +"\n    System.out.println(\"A soma é: \" + soma);";
        
         TextoAnimado.aparecerTexto(texto, 0);
 
