@@ -280,11 +280,11 @@ public class RPG {
                 +"\na passar para o próximo desafio, porém terá que resolver um enigma\" ele te passa o seguinte enigma:\n";
 
         TextoAnimado.aparecerTexto(texto, 0);
-        CidadeDosDoces_Desafio01(companheiroEscolhido);
-        retornaCidadeDoces(companheiroEscolhido);
+        CidadeDosDoces_Desafio01();
+        retornaCidadeDoces();
     }
 
-    public static void retornaCidadeDoces(String companheiroEscolhido) {
+    public static void retornaCidadeDoces() {
         Scanner entrada = new Scanner(System.in);
 
         String historia = "O Chapeleiro Louco sorri e diz \"Lembre-se, não confie em todos dentro desse jogo e faça as"
@@ -292,19 +292,20 @@ public class RPG {
                         +"\npara a Caverna do Gato Sorridente.";
         System.out.println(historia);
         
+
         // **Escolha da pílula: azul ou vermelha**
         gatoSorridente(entrada);
         desafio3escolherPilula(entrada);
-    }
+   }
 
-    public static void CidadeDosDoces_Desafio01(String companheiroEscolhido) {
+    public static void CidadeDosDoces_Desafio01() {
         Scanner entrada = new Scanner(System.in);
 
         String desafio = "Eu sou um número que:\n" +
                 "Quando você me divide por 2, o resto é 1.\n" +
                 "Quando você me divide por 3, o resto é 0.\n" +
                 "Sou menor que 10.\n" +
-                "Pergunta: Que número sou eu?\n ";
+                "Pergunta: Que número sou eu?";
         System.out.println(desafio);
 
         int tentativa = 1;
@@ -316,7 +317,7 @@ public class RPG {
             try {
                 int respInt = Integer.parseInt(resp);
                 if (respInt == 3) {
-                    System.out.print("Resposta correta!\n");
+                    System.out.print("Parabéns!Resposta correta\n");
                     break;
                 } else if (respInt != 3 && tentativa == 2) {
                     System.out.println("Não foi dessa vez! Voltando ao menu...");
@@ -333,7 +334,7 @@ public class RPG {
         }
     }
 
-    public static void CidadeDosDoces_Desafio02( String companheiroEscolhido) {
+    public static void CidadeDosDoces_Desafio02() {
         Scanner entrada = new Scanner(System.in);
 
         String enunciado = "Para encontrar o livro dos feitiços, some todos os números de 3 até 15, pulando de 3 em 3.\nUtilize um loop do-while para encontrar a resposta?\n"
@@ -988,8 +989,6 @@ public class RPG {
         }while(tentativa <= 2);
      
     }
-    // Métodos auxiliares e de "Configurações"
-    public class TextoAnimado {
 
         public static void aparecerTexto(String texto, int delay) {
             for (char letra : texto.toCharArray()) {
@@ -1002,30 +1001,30 @@ public class RPG {
             }
             System.out.println();
         }
-    }
+
 
   
 
     // em cada desafio deve ter esse método
-    public static void verificarChamandoCompanheiro(String companheiroEscolhido, String resp) {
-        for (int dica = 0; dica < 1; dica++) {
+    //public static void verificarChamandoCompanheiro(String companheiroEscolhido, String resp) {
+        //for (int dica = 0; dica < 1; dica++) {
 
-            if (companheiroEscolhido == "Kira" && resp.equalsIgnoreCase("k")) {
-                habilidadeKira(personagem, companheiroEscolhido);
-            } else if (companheiroEscolhido == "Orion" && resp.equalsIgnoreCase("o")) {
-                habilidadeOrion();
-            } else if (companheiroEscolhido == "Dante" && resp.equalsIgnoreCase("d")) {
-                habilidadeDante();
-            } else {
-                System.out.println("A digital enviada não é de seu companheiro.");
-            }
+           // if (companheiroEscolhido == "Kira" && resp.equalsIgnoreCase("k")) {
+              //  habilidadeKira(personagem, companheiroEscolhido);
+            //} else if (companheiroEscolhido == "Orion" && resp.equalsIgnoreCase("o")) {
+//habilidadeOrion();
+            //} else if (companheiroEscolhido == "Dante" && resp.equalsIgnoreCase("d")) {
+               // habilidadeDante();
+           // } else {
+              //  System.out.println("A digital enviada não é de seu companheiro.");
+        //  }
 
-        }
-    }
+       // }
+    //}
 
-    public static void habilidadeOrion() {
-        System.out.println("Orion");
-    }
+    //public static void habilidadeOrion() {
+     //   System.out.println("Orion");
+   // }
 
     public static void habilidadeKira(String personagem, String companheiroEscolhido) {
         Random random = new Random();
@@ -1116,7 +1115,7 @@ do {
 
             if (respostaCorreta == 'b') {
                 System.out.print("Parabéns! Resposta correta\n");
-                retornaCidadeDoces(companheiroEscolhido);
+                //retornaCidadeDoces(companheiroEscolhido);
             } else if (respostaCorreta != 'b' && tentativa == 2) {
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
@@ -1139,7 +1138,7 @@ do {
 
             if (respostaCorreta == 'c') {
                 System.out.print("Parabéns! Resposta correta\n");
-                retornaCidadeDoces(companheiroEscolhido);
+                //retornaCidadeDoces(companheiroEscolhido);
             } else if (respostaCorreta != 'c' && tentativa == 2) {
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
@@ -1162,7 +1161,7 @@ do {
 
             if (respostaCorreta == 'b') {
                 System.out.print("Parabéns! Resposta correta\n");
-                retornaCidadeDoces(companheiroEscolhido);
+                //retornaCidadeDoces(companheiroEscolhido);
             } else if (respostaCorreta != 'b' && tentativa == 2) {
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
@@ -1246,6 +1245,136 @@ do {
 
         } while (tentativa <= 2);
     }
+    // Métodos auxiliares e de "Configurações"
+    public class TextoAnimado {
+
+        public static void aparecerTexto(String texto, int delay) {
+            for (char letra : texto.toCharArray()) {
+                System.out.print(letra);
+                try {
+                    Thread.sleep(delay);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static char verificarResposta(char resp, Scanner entrada){
+        
+        boolean respostaCorreta = false;
+
+        do {
+            if(resp != 'a' && resp != 'b' && resp != 'c' && resp != 'd') {
+                System.out.println("Resposta inválida! Por favor, escolha entre as alternativas A, B, c ou D.");
+                resp = entrada.next().toLowerCase().charAt(0);
+            }else{
+                respostaCorreta = true;
+            }
+        } while (!respostaCorreta);
+
+        return resp;
+    }
+
+    // em cada desafio deve ter esse método
+    public static void verificarChamandoCompanheiro(String companheiroEscolhido, String resp) {
+        for (int dica = 0; dica < 1; dica++) {
+
+            if (companheiroEscolhido == "Kira" && resp.equalsIgnoreCase("k")) {
+                habilidadeKira();
+            } else if (companheiroEscolhido == "Orion" && resp.equalsIgnoreCase("o")) {
+                habilidadeOrion();
+            } else if (companheiroEscolhido == "Dante" && resp.equalsIgnoreCase("d")) {
+                habilidadeDante();
+            } else {
+                System.out.println("A digital enviada não é de seu companheiro.");
+            }
+
+        }
+    }
+
+    public static void habilidadeOrion() {
+        System.out.println("Orion");
+    }
+
+    public static void habilidadeKira() {
+        Random random = new Random();
+        Scanner entrada = new Scanner(System.in);
+
+        String questao1 = "\nQual é a principal diferença entre os laços while e for em Java?\n" +
+                "a) O laço while é utilizado para iterações com um número conhecido de repetições, enquanto o for é utilizado para iterações com um número desconhecido.\n"
+                +
+                "b) O laço for é mais eficiente que o while em todas as situações.\n" +
+                "c) O laço while verifica a condição antes de executar o bloco de código, enquanto o for verifica a condição após a execução.\n"
+                +
+                "d) A principal diferença está na sintaxe, não havendo diferenças funcionais significativas.";
+
+        String questao2 = "\nConsidere o seguinte código:" + "int i = 0;\n" +
+                "while (i < 10) {\n" +
+                "    if (i % 2 == 0) {\n" +
+                "        continue;\n" +
+                "    }\n" +
+                "    System.out.println(i);\n" +
+                "    i++;\n" +
+                "}\n" + "Qual será a saída desse código?\n" + "a) Os números pares de 0 a 9.\n" +
+                "b) Os números ímpares de 1 a 9.\n" +
+                "c) Os números ímpares de 0 a 8.\n" +
+                "d) Um loop infinito.";
+
+        String questao3 = "\nQual das seguintes afirmações sobre o laço do-while em Java é FALSA?\n" +
+                "a) O bloco de código dentro do do-while é executado pelo menos uma vez.\n" +
+                "b) A condição de parada é verificada no final do loop.\n" +
+                "c) O do-while é mais eficiente que o while em todas as situações.\n" +
+                "d) O do-while pode ser utilizado para criar loops infinitos.";
+
+        String questao4 = "Considere o seguinte código: \n" + "int x = 10;\n" +
+                "do {\n" +
+                "    x--;\n" +
+                "    if (x % 3 == 0) {\n" +
+                "        break;\n" +
+                "    }\n" +
+                "    System.out.print(x + \" \");\n" +
+                "} while (x > 0);\n" + "Qual será a saída desse código?\n" +
+                "a) 9 8 7 6\n" +
+                "b) 9 6 3\n" +
+                "c) 9 8 7 6 5 4 3\n" +
+                "d) Um loop infinito.";
+
+                String questoes[] = { questao1, questao2, questao3, questao4 };
+                char respostasCorretas[] = { 'C', 'B', 'C', 'B' };
+        
+                int indiceAleatorio = random.nextInt(questoes.length);
+                String pergunta = questoes[indiceAleatorio];
+                char respostaCorreta = respostasCorretas[indiceAleatorio];
+
+                System.out.print(pergunta);
+                int tentativa = 1;
+                boolean acertou = false;
+
+            do{
+                System.out.print("Digite sua resposta: ");
+                char resp = entrada.next().toLowerCase().charAt(0);
+                resp = verificarResposta(resp,entrada);
+                
+                if(resp == respostaCorreta){
+                    //pararCronometro();
+                    acertou = true;
+                    System.out.print("Parabéns! Resposta correta\n");
+                    retornaCidadeDoces();
+                } else{
+                    if(tentativa <= 2){
+                        System.out.println("Resposta errada! Você tem mais uma tentativa");
+                        tentativa++;
+                    }else{
+                        System.out.println("Não foi dessa vez... Voltando ao menu");
+                        voltarAoMenu();
+                    }
+                }
+            } while (tentativa <= 2 && !acertou);
+        entrada.close();
+    }
+    
 
     public static void Desafio05PilulaVermelha(Scanner entrada, String companheiroEscolhido, String personagem) {
 
