@@ -4,9 +4,7 @@ import java.util.TimerTask;
 public class Cronometro {
     private static boolean cronometroAtivo = true;
     private static Timer timer;
-    private static int progresso = 0; // para caso o jogador usar a habilidade voltar ao lugar certo da historia
-    private static boolean habilidadeUsada = false; // para não utilizar a habilidade mais de uma vez
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         cronometro();
         pararCronometro();
     }
