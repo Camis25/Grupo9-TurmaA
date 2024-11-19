@@ -1118,7 +1118,7 @@ public class RPG {
 
     }
 
-    public static void habilidadeOrion() {
+    public static void habilidadeDante() {
         System.out.println("Orion");
     }
 
@@ -1200,8 +1200,53 @@ public class RPG {
         entrada.close();
     }
 
-    public static void habilidadeDante() {
-        System.out.println("Dante");
+    public static void habilidadeOrion() {
+        Random random = new Random();
+        Scanner entrada = new Scanner(System.in);
+
+        String questao1 =  "O valor de incremento dentro do laço também é importante. Pergunte-se: quanto você deve aumentar o valor de i a cada iteração para garantir que apenas múltiplos de 4 sejam gerados? ";
+
+        String questao2 = " ";
+
+        String questao3 = " ";
+
+        String questao4 = " ";
+
+        String questao5 = " ";
+
+        String questoes[] = { questao1, questao2, questao3, questao4, questao5};
+        String respostasCorretas[] = { "c", "b", "c", "b", "a" };
+
+        int indiceAleatorio = random.nextInt(questoes.length);
+        String pergunta = questoes[indiceAleatorio];
+        String respostaCorreta = respostasCorretas[indiceAleatorio];
+
+        System.out.print(pergunta);
+        int tentativa = 1;
+        boolean acertou = false;
+
+        do {
+            System.out.print("\nDigite sua resposta: ");
+            String resp = entrada.next().toLowerCase();
+            resp = verificarResposta(resp, entrada);
+
+            if (resp.equals(respostaCorreta)) {
+                // pararCronometro();
+                acertou = true;
+                System.out.print("Parabéns! Resposta correta\n");
+                retomarHistoria(entrada);
+            } else {
+                if (tentativa <= 2) {
+                    System.out.println("Resposta errada! Você tem mais uma tentativa");
+                    tentativa++;
+                } else {
+                    System.out.println("Não foi dessa vez... Voltando ao menu");
+                    voltarAoMenu();
+                }
+            }
+        } while (tentativa <= 2 && !acertou);
+        habilidadeUsada = true;
+        entrada.close();
     }
 
     public static void retomarHistoria(Scanner entrada){
