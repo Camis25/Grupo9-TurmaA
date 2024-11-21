@@ -1241,35 +1241,34 @@ public class RPG {
     }
 
     public static void habilidadeOrion() {
-        Random random = new Random();
-        Scanner entrada = new Scanner(System.in);
+        ;
 
-        String questao1 = "8 O valor de incremento dentro do laço também é importante. Pergunte-se: quanto você deve aumentar o valor de i a cada iteração para garantir que apenas múltiplos de 4 sejam gerados? ";
+        String questao1 = "O valor de incremento dentro do laço também é importante. Pergunte-se: quanto você deve aumentar o valor de i a cada iteração para garantir que apenas múltiplos de 4 sejam gerados? ";
+        String questao2 = "Pense em um número que seja ímpar (resto 1 quando dividido por 2) e ao mesmo tempo divisível por 3, e que seja menor que 10. ";
+        String questao3 = " Para saber se um número n é primo, basta verificar se ele não é divisível por nenhum número entre 2 e a raiz quadrada de n. Se encontrar algum número que divida exatamente o número n, então n não é primo. Caso contrário, ele é primo. ";
+        String questao4 = "Reflita sobre o fato de que, no do-while, a condição de execução vem após o bloco de código, garantindo que ele seja executado pelo menos uma vez, enquanto no while, a condição é verificada antes da execução do bloco, podendo impedir a execução caso a condição seja falsa desde o início.";
+        String questao5 = "No seu código, quando i é igual a 3, o continue faz com que a impressão de 3 seja pulada, mas os outros valores de i são impressos normalmente.\n"
+                + //
+                "\n" + //
+                "Reflita sobre isso para entender qual é a saída correta. ";
+        String questao6 = "Pense em um laço que seja mais direto para iterar de maneira controlada sobre um conjunto de elementos, onde você sabe exatamente o número de iterações que precisa fazer. Isso torna o for uma escolha mais adequada. ";
+        String questao7 = "Pense em um loop que começa com o valor 3 e vai somando de 3 em 3 até atingir ou ultrapassar 15. O critério correto é garantir que o incremento seja de 3 e a condição de parada permita incluir o número 15 ";
+        String questao8 = "Pense em uma solução simples e direta para percorrer todos os elementos do array e verificar se cada número é divisível por 2. Não é necessário ordenar o array ou usar técnicas complexas, apenas contar os pares durante a iteração. ";
+        // 8 e 9 sao iguais
+        String questao9 = "Pense em uma solução simples e direta para percorrer todos os elementos do array e verificar se cada número é divisível por 2. Não é necessário ordenar o array ou usar técnicas complexas, apenas contar os pares durante a iteração. ";
+        String questao10 = "Verifique a declaração da variável, a condição de parada e o incremento.";
+        String questao11 = "Pense no comportamento de um laço que depende de uma condição para continuar. Quando a condição não é mais satisfeita, o que acontece com o laço?";
+        String questao12 = "Pense em um laço que ajusta o intervalo de pesquisa, sempre dividindo ao meio, até encontrar o elemento ou determinar que ele não existe.";
+        String questao13 = "Reflita sobre a mudança repentina na situação: a princesa começa a se comportar de forma estranha e a sua verdadeira identidade é revelada. Pense na conexão entre o comportamento dela e o que ela realmente representa.";
 
-        String questao2 = "1 Para saber se um número n é primo, basta verificar se ele não é divisível por nenhum número entre 2 e a raiz quadrada de n. Se encontrar algum número que divida exatamente o número n, então n não é primo. Caso contrário, ele é primo. ";
+        String questoes[] = { questao1, questao2, questao3, questao4, questao5, questao6, questao7, questao8, questao9,
+                questao10, questao11, questao12, questao13 };
 
-        String questao3 = " 2"; 
-        String questao4 = "3 "; 
-        String questao5 = "4 ";
-        String questao6 = "5 ";
-        String questao7 = "6 ";
-        String questao8 = "7 ";
-        String questao9 = "9 ";
-        String questao10 = "10";
-        String questao11 = "11";
-        String questao12 = "12";
-        String questao13= "13";
-
-        String questoes[] = { questao1, questao2, questao3, questao4, questao5, questao6, questao7, questao8, questao9, questao10, questao11, questao12, questao13 };
-
-        
-        int tentativa = 1; 
-        
-        do { 
-            String pergunta = questoes[progresso2];
+        int tentativa = 1;
+        do {
+            String pergunta = questoes[progresso2 - 1];
             System.out.println(pergunta);
-            System.out.println("Deseja outra dica?  digite 1 para sim e 2 para nao " );
-            tentativa = entrada.nextInt(); 
+            tentativa++;
         } while (tentativa <= 1);
     }
 
