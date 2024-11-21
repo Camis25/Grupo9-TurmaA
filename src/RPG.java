@@ -215,7 +215,7 @@ public class RPG {
             String respDesafio1 = entrada.next().toUpperCase();
 
             // Verificando se a resposta é uma das opções válidas
-            if (respDesafio1.equals("K") ||respDesafio1.equals("O")) {
+            if (respDesafio1.equals("K") || respDesafio1.equals("O")) {
                 pararCronometro();
                 verificarChamandoCompanheiro(companheiroEscolhido, respDesafio1);
             }
@@ -265,7 +265,7 @@ public class RPG {
 
             switch (caminho) {
                 case "A":
-                    cidadeDoces(personagem,entrada);
+                    cidadeDoces(personagem, entrada);
                     respostaCorreta2 = true;
 
                     break;
@@ -290,12 +290,11 @@ public class RPG {
 
         TextoAnimado.aparecerTexto(texto, 5);
 
-        //Funções que vai continuar a historia
+        // Funções que vai continuar a historia
         CidadeDosDoces_Desafio01();
         gatoSorridente(entrada);
         desafio3escolherPilula(entrada);
     }
-
 
     public static void CidadeDosDoces_Desafio01() {
         Scanner entrada = new Scanner(System.in);
@@ -330,7 +329,7 @@ public class RPG {
                             "Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
                     tentativa++;
                 }
-            } catch (NumberFormatException e) { //Se a entrada não for um número entra nesse bloco
+            } catch (NumberFormatException e) { // Se a entrada não for um número entra nesse bloco
                 pararCronometro();
                 verificarChamandoCompanheiro(companheiroEscolhido, resp);
             }
@@ -340,7 +339,10 @@ public class RPG {
 
     public static void gatoSorridente(Scanner entrada) {
 
-        String enunciado ="\nO Chapeleiro Louco sorri e diz \"Lembre-se, não confie em todos dentro desse jogo e faça as" + "\nescolhas certas, pois somos marionetes de uma pessoa muito poderosa\", então ele abre um portal" + "\npara a Caverna do Gato Sorridente. \n" + "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos, encontra paredes cobertas"
+        String enunciado = "\nO Chapeleiro Louco sorri e diz \"Lembre-se, não confie em todos dentro desse jogo e faça as"
+                + "\nescolhas certas, pois somos marionetes de uma pessoa muito poderosa\", então ele abre um portal"
+                + "\npara a Caverna do Gato Sorridente. \n"
+                + "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos, encontra paredes cobertas"
                 + "\npor códigos e equações, você estava na Caverna do Gato Sorridente. Uma voz rouca ecoa do fim caverna dizendo"
                 + "\n\"Bom, imaginava que te veria em algum momento, mas sejamos breves.\" O Gato, com seu sorriso enigmático surgi"
                 + "\ne inesperadamente passa a seguinte mensagem: \"Você terá que resolver um desafio, e se você conseguir resovê-lo"
@@ -377,7 +379,7 @@ public class RPG {
                 System.out.print("Resposta correta!\n");
                 break;
             } else if (!(resp.equals("a")) && tentativa == 2) {
-                if (resp.equals("k") ||  resp.equals("o")) {
+                if (resp.equals("k") || resp.equals("o")) {
                     pararCronometro();
                     verificarChamandoCompanheiro(companheiroEscolhido, resp);
                 }
@@ -516,7 +518,8 @@ public class RPG {
                 verificarChamandoCompanheiro(companheiroEscolhido, respostaLago);
             }
 
-            if (!respostaLago.equals("A") && !respostaLago.equals("B") && !respostaLago.equals("C") && !respostaLago.equals("D")) {
+            if (!respostaLago.equals("A") && !respostaLago.equals("B") && !respostaLago.equals("C")
+                    && !respostaLago.equals("D")) {
                 System.out.println("Escolha entre as alternativas disponíveis");
                 System.out.println(desafioLago);
             } else {
@@ -535,7 +538,6 @@ public class RPG {
                     contador++;
                     System.out.println("Você tem só mais uma chance!");
 
-                    
                 }
             }
 
@@ -591,7 +593,8 @@ public class RPG {
                 verificarChamandoCompanheiro(companheiroEscolhido, respostaEspelho1);
             }
 
-            if (!respostaEspelho1.equals("A") && !respostaEspelho1.equals("B") && !respostaEspelho1.equals("C") && !respostaEspelho1.equals("D")) {
+            if (!respostaEspelho1.equals("A") && !respostaEspelho1.equals("B") && !respostaEspelho1.equals("C")
+                    && !respostaEspelho1.equals("D")) {
                 System.out.println("Escolha entre as alternativas disponíveis");
                 System.out.println(perguntaPrimeiroEspelho);
             } else {
@@ -633,7 +636,8 @@ public class RPG {
                 verificarChamandoCompanheiro(companheiroEscolhido, respostaEspelho2);
             }
 
-            if (!respostaEspelho2.equals("A") && !respostaEspelho2.equals("B") && !respostaEspelho2.equals("C") && !respostaEspelho2.equals("D")) {
+            if (!respostaEspelho2.equals("A") && !respostaEspelho2.equals("B") && !respostaEspelho2.equals("C")
+                    && !respostaEspelho2.equals("D")) {
                 System.out.println("Escolha entre as alternativas disponíveis");
                 System.out.println(perguntaSegundoEspelho);
             } else {
@@ -648,7 +652,7 @@ public class RPG {
                         pararCronometro();
                         System.out.println("Não foi dessa vez!...");
                         voltarAoMenu();
-                       
+
                     }
                     tentativas3++;
                     System.out.println("Resposta incorreta! Você tem só mais ma chance");
@@ -678,7 +682,8 @@ public class RPG {
                 verificarChamandoCompanheiro(companheiroEscolhido, respostaEspelho4);
             }
 
-            if (!respostaEspelho4.equals("A") && !respostaEspelho4.equals("B") && !respostaEspelho4.equals("C")  && !respostaEspelho4.equals("D")) {
+            if (!respostaEspelho4.equals("A") && !respostaEspelho4.equals("B") && !respostaEspelho4.equals("C")
+                    && !respostaEspelho4.equals("D")) {
                 System.out.println("Escolha entre as alternativas disponíveis");
                 System.out.println(perguntaTerceiroEspelho);
             } else {
@@ -801,7 +806,7 @@ public class RPG {
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
             } else {
-                if (respostaB.equals("K") ||  respostaB.equals("O")) {
+                if (respostaB.equals("K") || respostaB.equals("O")) {
                     pararCronometro();
                     verificarChamandoCompanheiro(companheiroEscolhido, respostaB);
                 }
@@ -836,16 +841,16 @@ public class RPG {
                 TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
                 System.out.println("=========================================================================");
                 TextoAnimado.aparecerTexto("\nQual é a saída do seguinte código Java?\n"
-                                + "\nfor (int i = 0; i < 5; i++) {"
-                                + "\nif (i == 3) {"
-                                + "\n   continue"
-                                + "\n  }"
-                                + "\nSystem.out.println(i)"
-                                + "\n}\n"
-                                + "\nA) 0 1 2 3 4 "
-                                + "\nB) 0 1 2 4 "
-                                + "\nC) 3 "
-                                + "\nD) Nenhuma saída", 2);
+                        + "\nfor (int i = 0; i < 5; i++) {"
+                        + "\nif (i == 3) {"
+                        + "\n   continue"
+                        + "\n  }"
+                        + "\nSystem.out.println(i)"
+                        + "\n}\n"
+                        + "\nA) 0 1 2 3 4 "
+                        + "\nB) 0 1 2 4 "
+                        + "\nC) 3 "
+                        + "\nD) Nenhuma saída", 2);
 
                 int tentativa1 = 1;
                 cronometro();
@@ -857,11 +862,14 @@ public class RPG {
                         pararCronometro();
                         TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
                         System.out.println("=========================================================================");
-                        TextoAnimado.aparecerTexto("\nQual laço é mais adequado para iterar sobre uma lista de elementos cujo" + "\ntamanho é conhecido antecipadamente?"
+                        TextoAnimado.aparecerTexto(
+                                "\nQual laço é mais adequado para iterar sobre uma lista de elementos cujo"
+                                        + "\ntamanho é conhecido antecipadamente?"
                                         + "\nA) while "
                                         + "\nB) do-while "
                                         + "\nC) for"
-                                        + "\nD) Nenhum dos anteriores", 2);
+                                        + "\nD) Nenhum dos anteriores",
+                                2);
 
                         int tentativa2 = 1;
                         cronometro();
@@ -880,7 +888,7 @@ public class RPG {
 
                                 break;
                             } else if (!respostaC1.equals("C") && tentativa2 == 2) {
-                                if (respostaC1.equals("K") ||  respostaC1.equals("O")) {
+                                if (respostaC1.equals("K") || respostaC1.equals("O")) {
                                     pararCronometro();
                                     verificarChamandoCompanheiro(companheiroEscolhido, respostaC1);
                                 }
@@ -899,7 +907,7 @@ public class RPG {
 
                         break;
                     } else if (!respostaA.equals("A") && tentativa1 == 2) {
-                        if (respostaA.equals("K") ||  respostaA.equals("O")) {
+                        if (respostaA.equals("K") || respostaA.equals("O")) {
                             pararCronometro();
                             verificarChamandoCompanheiro(companheiroEscolhido, respostaA);
                         }
@@ -907,7 +915,7 @@ public class RPG {
                         System.out.println("Não foi dessa vez! Voltando ao menu...");
                         voltarAoMenu();
                     } else {
-                        if (respostaA.equals("K") ||  respostaA.equals("O")) {
+                        if (respostaA.equals("K") || respostaA.equals("O")) {
                             pararCronometro();
                             verificarChamandoCompanheiro(companheiroEscolhido, respostaA);
                         }
@@ -918,7 +926,7 @@ public class RPG {
 
                 break;
             } else if (!respostaB.equals("B") && tentativa == 2) {
-                if (respostaB.equals("K") ||  respostaB.equals("O")) {
+                if (respostaB.equals("K") || respostaB.equals("O")) {
                     pararCronometro();
                     verificarChamandoCompanheiro(companheiroEscolhido, respostaB);
                 }
@@ -926,7 +934,7 @@ public class RPG {
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
             } else {
-                if (respostaB.equals("K") ||  respostaB.equals("O")) {
+                if (respostaB.equals("K") || respostaB.equals("O")) {
                     pararCronometro();
                     verificarChamandoCompanheiro(companheiroEscolhido, respostaB);
                 }
@@ -1002,7 +1010,7 @@ public class RPG {
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
             } else {
-                if (resp.equals("k") ||  resp.equals("o")) {
+                if (resp.equals("k") || resp.equals("o")) {
                     pararCronometro();
                     verificarChamandoCompanheiro(companheiroEscolhido, resp);
                 }
@@ -1075,18 +1083,19 @@ public class RPG {
                 voltarAoMenu();
                 break;
             } else if (!(resp.equals("b")) && tentativa == 2) {
-                if (resp.equals("k") ||  resp.equals("o")) {
+                if (resp.equals("k") || resp.equals("o")) {
                     pararCronometro();
                     verificarChamandoCompanheiro(companheiroEscolhido, resp);
                 }
                 System.out.println("Não foi dessa vez! Voltando ao menu...");
                 voltarAoMenu();
             } else {
-                if (resp.equals("k") ||  resp.equals("o")) {
+                if (resp.equals("k") || resp.equals("o")) {
                     pararCronometro();
                     verificarChamandoCompanheiro(companheiroEscolhido, resp);
                 }
-                System.out.println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
+                System.out
+                        .println("Você tem só mais uma chance! Se não ficará preso para sempre na Cidade Dos Doces\n");
                 tentativa++;
             }
 
@@ -1094,7 +1103,7 @@ public class RPG {
     }
 
     // Métodos auxiliares e de "Configurações"
-    public class TextoAnimado {
+    public static class TextoAnimado {
 
         public static void aparecerTexto(String texto, int delay) {
             for (char letra : texto.toCharArray()) {
@@ -1219,7 +1228,7 @@ public class RPG {
                 }
             }
         } while (tentativa <= 2 && !acertou);
-        
+
         entrada.close();
     }
 
@@ -1229,7 +1238,7 @@ public class RPG {
 
         String questao1 = "O valor de incremento dentro do laço também é importante. Pergunte-se: quanto você deve aumentar o valor de i a cada iteração para garantir que apenas múltiplos de 4 sejam gerados? ";
 
-        String questao2 = " ";
+        String questao2 = "Para saber se um número n é primo, basta verificar se ele não é divisível por nenhum número entre 2 e a raiz quadrada de n. Se encontrar algum número que divida exatamente o número n, então n não é primo. Caso contrário, ele é primo. ";
 
         String questao3 = " ";
 
@@ -1254,7 +1263,7 @@ public class RPG {
             resp = verificarResposta(resp, entrada);
 
             if (resp.equals(respostaCorreta)) {
-                 pararCronometro();
+                pararCronometro();
                 acertou = true;
                 System.out.print("Parabéns! Resposta correta\n");
                 retomarHistoria(entrada);
@@ -1273,13 +1282,13 @@ public class RPG {
         entrada.close();
     }
 
-    public static void retomarHistoria(Scanner entrada) { //Rever alguns detalhes
+    public static void retomarHistoria(Scanner entrada) { // Rever alguns detalhes
         switch (progresso) { // posição que o jogador está
             case 1:
                 caminho(entrada);
                 break;
             case 2:
-                cidadeDoces(personagem,entrada);
+                cidadeDoces(personagem, entrada);
                 break;
             case 3:
                 desafio3escolherPilula(entrada);
@@ -1290,7 +1299,7 @@ public class RPG {
         }
     }
 
-    public static void cronometro(){
+    public static void cronometro() {
         cronometroAtivo = true; // ativando o cronometro sempre que a função cronometro é chamada
         timer = new Timer();
         int tempoTotalEmSegundos = 120;
@@ -1316,7 +1325,10 @@ public class RPG {
                 System.out.print("\rTempo restante: " + tempoFormatado);
             }
         };
-        timer.scheduleAtFixedRate(tarefa, 0, 1000);/*intervalo para iniciar e em quanto tempo é executado (1000 milesegundos) 1seg*/
+        timer.scheduleAtFixedRate(tarefa, 0, 1000);/*
+                                                    * intervalo para iniciar e em quanto tempo é executado (1000
+                                                    * milesegundos) 1seg
+                                                    */
     }
 
     public static void pararCronometro() {
