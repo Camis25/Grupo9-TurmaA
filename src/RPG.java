@@ -15,6 +15,7 @@ public class RPG {
     public static String companheiroEscolhido;
     public static String personagem;
     private static int progresso = 0; // para caso o jogador usar a habilidade voltar ao lugar certo da historia
+    private static int progresso2 = 0; // para caso o jogador usar a habilidade voltar ao lugar certo da historia
     private static boolean habilidadeUsada = false; // para não utilizar a habilidade mais de uma vez
     private static boolean cronometroAtivo = true;
     private static Timer timer;
@@ -180,6 +181,7 @@ public class RPG {
     }
 
     public static void desafio01(Scanner entrada) {
+        progresso2 = 1;
         String desafio1 = "\nPara iniciar sua jornada é preciso destrancar a porta, então leia atentamente. "
                 + "\nUtilizando o laço \"FOR\" para obter os quatro primeiros números pares que são múltiplos de 4. "
                 + "\nQual das opções abaixo o levará ao tesouro da programação?\n"
@@ -297,6 +299,7 @@ public class RPG {
     }
 
     public static void CidadeDosDoces_Desafio01() {
+        progresso2 = 2;
         Scanner entrada = new Scanner(System.in);
 
         String desafio = "Eu sou um número que:\n" +
@@ -338,7 +341,7 @@ public class RPG {
     }
 
     public static void gatoSorridente(Scanner entrada) {
-
+        progresso2 = 7;
         String enunciado = "\nO Chapeleiro Louco sorri e diz \"Lembre-se, não confie em todos dentro desse jogo e faça as"
                 + "\nescolhas certas, pois somos marionetes de uma pessoa muito poderosa\", então ele abre um portal"
                 + "\npara a Caverna do Gato Sorridente. \n"
@@ -488,6 +491,7 @@ public class RPG {
     }
 
     public static void desafioLago(Scanner entrada) {
+        progresso2 = 9;
         String desafioLago = "Fico feliz por você ter chegado até aqui\". Você se demonstrava muito nervoso, pois aquele lugar continha uma energia muito pesada."
                 + "\n\"Não precisa ficar nervoso, estamos no lago das almas perdidas. Todas as pessoas que estão aqui tentaram vencer"
                 + "\no jogo e não conseguiram. Como consequência, suas almas estão presas nesse mundo para sempre.\"\n"
@@ -573,7 +577,7 @@ public class RPG {
                 + "\nEm um passe de mágica você se encontra dentro da Sala de Espelhos\n";
 
         TextoAnimado.aparecerTexto(salaDosEspelhos, 5);
-
+        progresso2 = 10;
         String perguntaPrimeiroEspelho = "\nQuestão do primeiro espelho:\n"
                 + "Qual das seguintes sintaxes está correta para um laço for em Java?\n"
                 + "A) for (int i = 0; i < 10; i++) { ... }\n" + "B) for (i = 0; i < 10; i++) { ... }\n"
@@ -614,7 +618,7 @@ public class RPG {
                 }
             }
         } while (!respostaCorreta2);
-
+        progresso2 = 11;
         String perguntaSegundoEspelho = "\n\nQuestão do segundo espelho:\n"
                 + "Em um laço while, o que acontece quando a condição se torna falsa?\n"
                 + "A) O laço continua indefinidamente.\n"
@@ -660,7 +664,7 @@ public class RPG {
             }
 
         } while (!respostaCorreta3);
-
+        progresso2 = 12;
         String perguntaTerceiroEspelho = "\n\nQuestão do terceiro espelho:\n"
                 + "Como você implementaria o algoritmo de busca binária utilizando um laço?\n"
                 + "A) Utilizando um laço while para dividir o intervalo de busca a cada iteração.\n"
@@ -717,6 +721,7 @@ public class RPG {
     }
 
     public static void casaAbandonada(String personagem, String companheiroEscolhido) {
+        progresso2 = 3;
         Scanner entrada = new Scanner(System.in);
         String texto = "\nAo passar pela estrutura coberta de musgo, você se depara com um caminho estreito, cercado por árvores retorcidas "
                 + "\ne cobertas de uma neblina densa. De repente, você avista uma casa abandonada e de dentro dela sai um ser muito assustador,"
@@ -817,6 +822,7 @@ public class RPG {
     }
 
     public static void desafioBuracoNegro(Scanner entrada) {
+        progresso2 = 4;
         String texto = "\nDe repente você é redirecionado até a porta e ao atravessá-la se depara com um buraco negro, onde você cai em um looping,"
                 + "\npara conseguir parar é necessário responder 3 perguntas sobre laço de repetição, caso acerte você pode passar para"
                 + "\na próxima sala e terá a opção de escolher entre duas pílulas.\n"
@@ -839,6 +845,7 @@ public class RPG {
             if (respostaB.equals("B")) {
                 pararCronometro();
                 TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
+                progresso2 = 5;
                 System.out.println("=========================================================================");
                 TextoAnimado.aparecerTexto("\nQual é a saída do seguinte código Java?\n"
                         + "\nfor (int i = 0; i < 5; i++) {"
@@ -861,6 +868,7 @@ public class RPG {
                     if (respostaA.equals("A")) {
                         pararCronometro();
                         TextoAnimado.aparecerTexto("Parabéns!! Você passou para a próxima questão.", 10);
+                        progresso2 = 6;
                         System.out.println("=========================================================================");
                         TextoAnimado.aparecerTexto(
                                 "\nQual laço é mais adequado para iterar sobre uma lista de elementos cujo"
@@ -947,7 +955,7 @@ public class RPG {
     }
 
     public static void Desafio05PilulaAzul(Scanner entrada, String companheiroEscolhido, String personagem) {
-
+        progresso2 = 13;
         String historia = "Em um piscar de olhos você está diante de uma mesa repleta das suas comidas preferidas, no primeiro "
                 + "\nmomento você fica confuso com aquele desafio, \"como uma última fase de jogo pode ser tão boa assim?\"\n"
                 + "\nSua cabeça está confusa, neste momento criaturas mágicas começam a te servir e quando você está prestes a dar a primeira"
@@ -1236,50 +1244,33 @@ public class RPG {
         Random random = new Random();
         Scanner entrada = new Scanner(System.in);
 
-        String questao1 = "O valor de incremento dentro do laço também é importante. Pergunte-se: quanto você deve aumentar o valor de i a cada iteração para garantir que apenas múltiplos de 4 sejam gerados? ";
+        String questao1 = "8 O valor de incremento dentro do laço também é importante. Pergunte-se: quanto você deve aumentar o valor de i a cada iteração para garantir que apenas múltiplos de 4 sejam gerados? ";
 
-        String questao2 = "Para saber se um número n é primo, basta verificar se ele não é divisível por nenhum número entre 2 e a raiz quadrada de n. Se encontrar algum número que divida exatamente o número n, então n não é primo. Caso contrário, ele é primo. ";
+        String questao2 = "1 Para saber se um número n é primo, basta verificar se ele não é divisível por nenhum número entre 2 e a raiz quadrada de n. Se encontrar algum número que divida exatamente o número n, então n não é primo. Caso contrário, ele é primo. ";
 
-        String questao3 = " ";
+        String questao3 = " 2"; 
+        String questao4 = "3 "; 
+        String questao5 = "4 ";
+        String questao6 = "5 ";
+        String questao7 = "6 ";
+        String questao8 = "7 ";
+        String questao9 = "9 ";
+        String questao10 = "10";
+        String questao11 = "11";
+        String questao12 = "12";
+        String questao13= "13";
 
-        String questao4 = " ";
+        String questoes[] = { questao1, questao2, questao3, questao4, questao5, questao6, questao7, questao8, questao9, questao10, questao11, questao12, questao13 };
 
-        String questao5 = " ";
-
-        String questoes[] = { questao1, questao2, questao3, questao4, questao5 };
-        String respostasCorretas[] = { "c", "b", "c", "b", "a" };
-
-        int indiceAleatorio = random.nextInt(questoes.length);
-        String pergunta = questoes[indiceAleatorio];
-        String respostaCorreta = respostasCorretas[indiceAleatorio];
-
-        System.out.print(pergunta);
-        int tentativa = 1;
-        boolean acertou = false;
-
-        do {
-            System.out.print("\nDigite sua resposta: ");
-            String resp = entrada.next().toLowerCase();
-            resp = verificarResposta(resp, entrada);
-
-            if (resp.equals(respostaCorreta)) {
-                pararCronometro();
-                acertou = true;
-                System.out.print("Parabéns! Resposta correta\n");
-                retomarHistoria(entrada);
-            } else {
-                if (tentativa <= 2) {
-                    System.out.println("Resposta errada! Você tem mais uma tentativa");
-                    tentativa++;
-                } else {
-                    pararCronometro();
-                    System.out.println("Não foi dessa vez... Voltando ao menu");
-                    voltarAoMenu();
-                }
-            }
-        } while (tentativa <= 2 && !acertou);
-        habilidadeUsada = true;
-        entrada.close();
+        
+        int tentativa = 1; 
+        
+        do { 
+            String pergunta = questoes[progresso2];
+            System.out.println(pergunta);
+            System.out.println("Deseja outra dica?  digite 1 para sim e 2 para nao " );
+            tentativa = entrada.nextInt(); 
+        } while (tentativa <= 1);
     }
 
     public static void retomarHistoria(Scanner entrada) { // Rever alguns detalhes
