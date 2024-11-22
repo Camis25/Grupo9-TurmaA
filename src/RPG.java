@@ -98,7 +98,7 @@ public class RPG {
                 + "Ao se mudar para a casa de sua tia, você encontra um antigo videogame escondido no sótão empoeirado da casa.\n"
                 + "Intrigado com o objeto desconhecido, você decide jogá-lo. Ao iniciar o jogo, você personaliza seu personagem\n"
                 + "escolhendo um nome e um companheiro de aventura.\n";
-        TextoAnimado.aparecerTexto(texto1, 0);
+        TextoAnimado.aparecerTexto(texto1, 5);
 
         System.out.print("Qual o nome do seu personagem: ");
         personagem = entrada.nextLine();
@@ -236,7 +236,7 @@ public class RPG {
                     TextoAnimado.aparecerTexto(
                             "Após alguns momentos de reflexão, você grita: \"A resposta correta é B!\""
                                     + "A porta então se abre lentamente... ",
-                            0);
+                            5);
                 } else {
                     // Incrementa o número de chances se a resposta não for correta
                     chancesDesafio1++;
@@ -342,10 +342,7 @@ public class RPG {
 
     public static void gatoSorridente(Scanner entrada) {
         progresso2 = 7;
-        String enunciado = "\nO Chapeleiro Louco sorri e diz \"Lembre-se, não confie em todos dentro desse jogo e faça as"
-                + "\nescolhas certas, pois somos marionetes de uma pessoa muito poderosa\", então ele abre um portal"
-                + "\npara a Caverna do Gato Sorridente. \n"
-                + "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos, encontra paredes cobertas"
+        String enunciado = "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos, encontra paredes cobertas"
                 + "\npor códigos e equações, você estava na Caverna do Gato Sorridente. Uma voz rouca ecoa do fim caverna dizendo"
                 + "\n\"Bom, imaginava que te veria em algum momento, mas sejamos breves.\" O Gato, com seu sorriso enigmático surgi"
                 + "\ne inesperadamente passa a seguinte mensagem: \"Você terá que resolver um desafio, e se você conseguir resovê-lo"
@@ -531,7 +528,7 @@ public class RPG {
                     pararCronometro();
                     respostaCorreta1 = true;
 
-                    TextoAnimado.aparecerTexto("De forma convicta você diz, a letra correta é a letra A", 2);
+                    TextoAnimado.aparecerTexto("De forma convicta você diz, a letra correta é a letra A", 5);
 
                 } else {
                     if (contador >= 2) {
@@ -583,7 +580,7 @@ public class RPG {
                 + "A) for (int i = 0; i < 10; i++) { ... }\n" + "B) for (i = 0; i < 10; i++) { ... }\n"
                 + "C) for (int i = 0; i <= 10; i--) { ... }\n" + "D) for (int i = 10; i > 0; i++) { ... }";
 
-        TextoAnimado.aparecerTexto(perguntaPrimeiroEspelho, 2);
+        TextoAnimado.aparecerTexto(perguntaPrimeiroEspelho, 5);
         boolean respostaCorreta2 = false;
         int tentativas = 0;
         cronometro();
@@ -626,7 +623,7 @@ public class RPG {
                 + "C) O programa é encerrado.\n"
                 + "D) Ocorre um erro de compilação.";
 
-        TextoAnimado.aparecerTexto(perguntaSegundoEspelho, 2);
+        TextoAnimado.aparecerTexto(perguntaSegundoEspelho, 5);
         boolean respostaCorreta3 = false;
         int tentativas3 = 0;
         cronometro();
@@ -672,7 +669,7 @@ public class RPG {
                 + "C) Utilizando um laço do-while para garantir que o elemento seja encontrado.\n"
                 + "D) Utilizando recursão.";
 
-        TextoAnimado.aparecerTexto(perguntaTerceiroEspelho, 2);
+        TextoAnimado.aparecerTexto(perguntaTerceiroEspelho, 5);
         boolean respostaCorreta4 = false;
         int tentativas4 = 0;
         cronometro();
@@ -701,7 +698,7 @@ public class RPG {
                             + "você terá que resolver o horário do jantar.\"\n"
                             + "Você pensa como assim um jantar? Cadê aquela pessoa tão má que prendeu aquelas almas aqui dentro?\n\n";
 
-                    TextoAnimado.aparecerTexto(textoFinalEspelho, 2);
+                    TextoAnimado.aparecerTexto(textoFinalEspelho, 5);
                     System.out.println("\nParabéns! Você completou o desafio dos espelhos.\n\n");
                     break;
 
@@ -857,7 +854,7 @@ public class RPG {
                         + "\nA) 0 1 2 3 4 "
                         + "\nB) 0 1 2 4 "
                         + "\nC) 3 "
-                        + "\nD) Nenhuma saída", 2);
+                        + "\nD) Nenhuma saída", 5);
 
                 int tentativa1 = 1;
                 cronometro();
@@ -877,7 +874,7 @@ public class RPG {
                                         + "\nB) do-while "
                                         + "\nC) for"
                                         + "\nD) Nenhum dos anteriores",
-                                2);
+                                5);
 
                         int tentativa2 = 1;
                         cronometro();
@@ -980,7 +977,7 @@ public class RPG {
                 +
                 "\nD) A chave para a liberdade está escondida em algum lugar do castelo.\n";
         TextoAnimado.aparecerTexto(historia, 5);
-        TextoAnimado.aparecerTexto(enunciado, 2);
+        TextoAnimado.aparecerTexto(enunciado, 5);
 
         int tentativa = 1;
         cronometro();
