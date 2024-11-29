@@ -1,3 +1,6 @@
+// Camile Vitória Rosa Santos
+// Jaine Jesus Costa
+// Leonardo Stolf Guzzardi
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
