@@ -120,9 +120,9 @@ public class RPG {
                 + "\n" + personagem
                 + "! Estávamos empolgados em ver você por aqui. Que bom que você decidiu seguir o seu destino... ou não."
                 + "\nMas hey, pelo menos agora temos alguém para culpar quando as coisas derem errado! \" A floresta estava falando com você: "
-                + "\n\"Mas enfim, com certeza você deve estar se nperguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios"
+                + "\n\"Mas enfim, com certeza você deve estar se perguntando como sair desse lugar. Durante a sua trajetória, terão 5 desafios"
                 + "\nde lógica que te levarão para fora do jogo, claro, isso se você conseguir continuar."
-                + "\nA primeira tarefa era  abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um papel com um código, você "
+                + "\nA primeira tarefa era abrir a porta trancada, marcada por símbolos estranhos. Ao descobrir um papel com um código, você "
                 + "\nrapidamente percebeu que precisava destrancar a porta.\n"
                 + "\n                             ________                      "
                 + "\n                            |        |"
@@ -252,7 +252,7 @@ public class RPG {
 
     public static void caminho(Scanner entrada) {
         TextoAnimado.aparecerTexto(
-                "Ao atravessá-la ela some inesperadamente e  agora você e seu companheiro se vêm cercados por duas escolhas:\n"
+                "Ao atravessá-la ela some inesperadamente e agora você e seu companheiro se vêm cercados por duas escolhas:\n"
                         + "\nA) Um caminho íngreme que leva a uma montanha coberta de neve. Os ecos de vozes perdidas ressoam nas cavernas.\n"
                         + "\nB) Uma antiga estrutura coberta de musgo, que se estende sobre um abismo profundo.\n",
                 5);
@@ -342,9 +342,9 @@ public class RPG {
         posicao = 3; // posição do jogador
         progresso2 = 7;
         String enunciado = "A escuridão e o silêncio se instalam ao seu redor, ao abrir os olhos, encontra paredes cobertas"
-                + "\npor códigos e equações, você estava na Caverna do Gato Sorridente. Uma voz rouca ecoa do fim caverna dizendo"
+                + "\npor códigos e equações. Você estava na Caverna do Gato Sorridente. Uma voz rouca ecoa do fim caverna dizendo"
                 + "\n\"Bom, imaginava que te veria em algum momento, mas sejamos breves.\" O Gato, com seu sorriso enigmático surgi"
-                + "\ne inesperadamente passa a seguinte mensagem: \"Você terá que resolver um desafio, e se você conseguir resovê-lo"
+                + "\ne inesperadamente passa a seguinte mensagem: \"Você terá que resolver um desafio, e se você conseguir resolvê-lo"
                 + "\nterá que escolher entre duas pílulas\" diante desse cenário ele manda você para uma biblioteca enorme onde o seu"
                 + "\nobjeto é encontrar o livro de feitiços que irá te levar para uma sala onde encontrará as pílulas."
                 + "\n"
@@ -960,9 +960,9 @@ public class RPG {
 
         String enunciado = "Qual das opções abaixo representa a melhor resposta para o enigma, permitindo que você escape??\n"
                 +
-                "\nA) A resposta é um truque, não há resposta correta;\n"
+                "\nA) A resposta é um truque, não há resposta correta.\n"
                 +
-                "\nB) A princesa é, na verdade, uma bruxa que se alimenta de almas;\n"
+                "\nB) A princesa é, na verdade, uma bruxa que se alimenta de almas.\n"
                 +
                 "\nC) A comida do banquete está envenenada\n"
                 +
