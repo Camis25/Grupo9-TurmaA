@@ -2,6 +2,8 @@
 // Camile Vitória Rosa Santos
 // Jaine Jesus Costa
 // Leonardo Stolf Guzzardi
+// Pedro Henrique de Assis
+
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -83,7 +85,7 @@ public class RPG {
         System.out.println("Jaíne");
         System.out.println("Camile");
         System.out.println("Leonardo");
-        System.out.println("Pedro");
+        System.out.println("Pedro Assis");
 
         System.out.println("Pressione Enter para voltar ao menu...");
         entrada.nextLine();
